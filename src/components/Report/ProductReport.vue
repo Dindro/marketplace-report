@@ -5,7 +5,7 @@
                 <span class="product-info__code">{{ code }}</span>
                 <span class="product-info__code product-info__code--red">ШК {{ barcode }}</span>
                 <span class="product-info__brand">{{ brand }}</span>
-                <template v-if="brand">/</template>
+                <template v-if="brand"> / </template>
                 <span class="product-info__category">{{ category }}</span>
             </div>
             <p class="product-info__name">{{ name }}</p>
@@ -75,9 +75,9 @@ const costs = computed(() => ([
     }
 
     &__revenue {
-        padding: 2px 6px;
+        padding: 4px 6px;
         border-radius: 4px;
-        background-color: #aee6a0;
+        background-color: #c6edbc;
         color: black;
         font-size: small;
         margin-left: 8px;
@@ -112,14 +112,14 @@ const costs = computed(() => ([
             margin-left: 4px;
         }
 
-        background-color: #dfe6a0;
+        background-color: #f0f5c1;
         border-radius: 4px;
         color: black;
         padding: 2px 4px;
         font-size: small;
 
         &--red {
-            background-color: #e6a0a0;
+            background-color: #efb8b8;
         }
     }
 
