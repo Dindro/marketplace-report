@@ -79,8 +79,6 @@ export class ReportDetailRepository implements IReportDetailRepository {
             }
         }
 
-        window.a = result;
-
         return result;
     }
 }

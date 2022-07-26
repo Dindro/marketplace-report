@@ -1,7 +1,7 @@
-import ReportAction, { type ReportActionType } from '@/entities/ReportAction';
 import Product from '@/entities/Product';
 import ReportActionList from '@/entities/ReportActionList';
 
+import type ReportAction from '@/entities/ReportAction';
 import type IUploadReportRequestModel from '@/use-cases/UploadReport/IUploadReportRequestModel';
 import type IUploadReportReponseModel from '@/use-cases/UploadReport/IUploadReportResponseModel';
 import type { DetailReportAction, IReportDetailRepository } from '@/use-cases/IReportDetailRepository';
