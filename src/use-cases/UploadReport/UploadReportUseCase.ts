@@ -5,8 +5,8 @@ import type ReportAction from '@/entities/ReportAction';
 import type IUploadReportRequestModel from '@/use-cases/UploadReport/IUploadReportRequestModel';
 import type IUploadReportReponseModel from '@/use-cases/UploadReport/IUploadReportResponseModel';
 import type { DetailReportAction, IReportDetailRepository } from '@/use-cases/IReportDetailRepository';
-// import type { IUserFractionRepository } from '@/use-cases/IUserFractionRepository';
-import type UserFraction from '@/entities/UserFraction';
+import type { IUserFractionRepository } from '@/use-cases/IUserFractionRepository';
+import UserFraction from '@/entities/UserFraction';
 import type { ProductId } from '@/entities/Product';
 import type { IProductInfoResponse } from '@/use-cases/UploadReport/IUploadReportResponseModel';
 
@@ -14,11 +14,11 @@ const STATE_TAX = 6;
 
 export default class UploadReportUseCase {
     readonly reportRepository: IReportDetailRepository;
-    // readonly userFractionRepository: IUserFractionRepository;
+    readonly userFractionRepository: IUserFractionRepository;
 
-    constructor(report: IReportDetailRepository, /** userFraction: IUserFractionRepository */) {
+    constructor(report: IReportDetailRepository, userFraction: IUserFractionRepository) {
         this.reportRepository = report;
-        // this.userFractionRepository = userFraction;
+        this.userFractionRepository = userFraction;
     }
 
     async execute(/** request: IUploadReportRequestModel */): Promise<IUploadReportReponseModel> {
@@ -35,12 +35,32 @@ export default class UploadReportUseCase {
                 actionListMap.set(action.product.id, new ReportActionList(STATE_TAX, action));
             }
         }
+        
+        // Собираем список долей
+        const userFractionsList: UserFraction[][] = [];
+        for (const productId of actionListMap.keys()) {
+            const userFractions = await this.userFractionRepository.getByProductId(productId);
+            userFractionsList.push(userFractions);
+        }
 
-        // const productUserFractionMap = new Map<ProductId, UserFraction[]>();
-        // for (const productId of actionListMap.keys()) {
-        //     const userFractionList = await this.userFractionRepository.getByProductId(productId);
-        //     productUserFractionMap.set(productId, userFractionList);
-        // }
+        const groupedUserFractionsList = UserFraction.toGroupUserFractionsBySame(userFractionsList);
+        const productIdsUserFractionsMap = UserFraction.getProductIdsUserFractionsMap(groupedUserFractionsList);
+        const productsUserFractionsMap = new Map<Product[], UserFraction[]>();
+        for (const productIds of productIdsUserFractionsMap.keys()) {
+            const products: Product[] = [];
+            for (const productId of productIds) {
+                const foundProduct = reportActionList.getProductByProductId(productId);
+                if (foundProduct) {
+                    products.push(foundProduct);
+                }
+            }
+
+            const userFractions = productIdsUserFractionsMap.get(productIds);
+            if (userFractions) {
+                productsUserFractionsMap.set(products, userFractions);
+            }
+        }
+
 
         const productActionList = [...actionListMap.values()];
         const fractionMap = this.getFraction(productActionList);

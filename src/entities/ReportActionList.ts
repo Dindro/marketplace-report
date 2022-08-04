@@ -1,5 +1,7 @@
 import type ReportAction from '@/entities/ReportAction';
 import type { ProductId } from '@/entities/Product';
+import type { Maybe } from '@/types/common';
+import type Product from '@/entities/Product';
 
 export default class ReportActionList extends Array<ReportAction> {
     stateTaxPercent: number;
@@ -55,5 +57,14 @@ export default class ReportActionList extends Array<ReportAction> {
 
     getListByProductId(productId: ProductId): ReportActionList {
         return this.filter(item => item.product.id === productId) as ReportActionList;
+    }
+
+    getProductByProductId(productId: ProductId): Maybe<Product> {
+        const foundReportAction = this.find(item => item.product.id === productId);
+        if (foundReportAction) {
+            return foundReportAction.product;
+        }
+
+        return null;
     }
 }
