@@ -1,4 +1,4 @@
-import type { ProductId } from '@/entities/Product';
+import type ProductId from '@/entities/ProductId';
 import type UserFraction from '@/entities/UserFraction';
 
 export default interface IUserFractionRepository {

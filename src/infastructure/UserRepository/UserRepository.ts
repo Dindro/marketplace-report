@@ -1,20 +1,29 @@
 import User, { type UserId } from '@/entities/User';
 import type IUserRepository from '@/use-cases/IUserRepository';
-import type IUserData from '@/infastructure/UserRepository/IUserData';
 import type { Maybe } from '@/types/common';
 
-export default class UserRepository implements IUserRepository {
-    private data: IUserData[];
+import data from '@/data/users.json';
 
-    constructor(data: IUserData[]) {
-        this.data = data;
+export default class UserRepository implements IUserRepository {
+    create(id: number, name: string): Promise<User> {
+        data.push({ id, name });
+        const created = new User(id, name);
+        return Promise.resolve(created);
+    }
+
+    createAnonymous(): Promise<User> {
+        let id: UserId = 0;
+        const last = data[data.length - 1];
+        if (last) id = last.id + 1;
+
+        const name: string = `Неизвестный-${id}`;
+
+        return this.create(id, name);
     }
 
     getById(userId: UserId): Promise<Maybe<User>> {
-        const foundUser = this.data.find(item => item.id ===  userId);
-        if (foundUser) {
-            return Promise.resolve(new User(foundUser.id, foundUser.name));
-        }
+        const foundUser = data.find(item => item.id === userId);
+        if (foundUser) return Promise.resolve(new User(foundUser.id, foundUser.name));
 
         return Promise.resolve(null);
     }

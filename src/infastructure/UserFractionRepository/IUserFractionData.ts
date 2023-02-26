@@ -1,6 +1,8 @@
+import type ProductId from '@/entities/ProductId';
+
 export default interface IUserFractionData {
     id: number;
     userIds: number[],
-    productId: number;
+    productId: ProductId;
     value: number;
 }

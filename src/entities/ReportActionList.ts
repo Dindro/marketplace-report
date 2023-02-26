@@ -1,66 +1,149 @@
 import type ReportAction from '@/entities/ReportAction';
-import type { ProductId } from '@/entities/Product';
+import type ProductId from '@/entities/ProductId';
 import type { Maybe } from '@/types/common';
 import type Product from '@/entities/Product';
 
 export default class ReportActionList extends Array<ReportAction> {
-    stateTaxPercent: number;
+    taxPercent: number;
 
     constructor(taxPercent: number = 0, ...items: ReportAction[]) {
         super(...items);
 
-        this.stateTaxPercent = taxPercent;
+        this.taxPercent = taxPercent;
     }
     
     get buyList() {
         return this.filter(item => item.type === 'buy');
     }
 
+    get buyCorrectList() {
+        return this.filter(item => item.type === 'buy-correct');
+    }
+
     get deliveryList() {
         return this.filter(item => item.type === 'delivery');
+    }
+
+    get deliveryReturnList() {
+        return this.filter(item => item.type === 'delivery-return');
     }
 
     get returnList() {
         return this.filter(item => item.type === 'return');
     }
 
-    get orderCount() {
+    get marriageList() {
+        return this.filter(item => item.type === 'marriage');
+    }
+
+    get lostProductList() {
+        return this.filter(item => item.type === 'lost-product');
+    }
+
+    get reversalList() {
+        return this.filter(item => item.type === 'reversal');
+    }
+
+    get finesList() {
+        return this.filter(item => item.type === 'fines');
+    }
+
+    get unkownList() {
+        return this.filter(item => item.type === 'unkown');
+    }
+
+    get orderCount(): number {
         return this.buyList.length;
     }
 
+    get marriageCount(): number {
+        return this.marriageList.length;
+    }
+
+    get lostProductCount(): number {
+        return this.lostProductList.length;
+    }
+
+    get deliveryCount(): number {
+        return this.deliveryList.length;
+    }
+
+    get deliveryReturnCount(): number {
+        return this.deliveryReturnList.length;
+    }
+
+    get returnCount(): number {
+        return this.returnList.length;
+    }
+
+    get finesCount(): number {
+        return this.finesList.length;
+    }
+
+    get unkownCount(): number {
+        return this.unkownList.length;
+    }
+
     get price(): number {
-        return this.buyList.reduce((sum, item) => sum + item.transferredToSellerPrice, 0);
+        return this.buyList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    get buyerPaid(): number {
+        return this.buyList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
     get deliveryPrice(): number {
         return this.deliveryList.reduce((sum, item) => sum + item.deliveryPrice, 0);
     }
 
+    get deliveryReturnPrice(): number {
+        return this.deliveryReturnList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
     get returnPrice(): number {
-        return this.returnList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+        return this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
-    /** Государственный налог, ₽ */
-    get stateTax(): number {
-        return this.price / 100 * this.stateTaxPercent;
+    /** Оплата брака, Копейки */
+    get marriagePrice(): number {
+        return this.marriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
-    /** Чистая прибыль + Выручка, ₽ */
-    get revenuePriceWithouteStateTax(): number {
-        return this.price - this.returnPrice - this.deliveryPrice;
+    /** Оплата за потерянный товар, Копейки */
+    get lostProductPrice(): number {
+        return this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    }
+
+    /** Штрафы, Копейки */ 
+    get finesPrice(): number {
+        return this.finesList.reduce((sum, item) => sum + item.fines, 0);
+    }
+
+    get taxSource(): number {
+        return this.buyerPaid + this.marriagePrice + this.lostProductPrice;
+    }
+
+    /** Государственный налог, Копейки */
+    get tax(): number {
+        return this.taxSource / 100 * this.taxPercent;
+    }
+
+    /** Доход (Сумму которую перечислили), Копейки */
+    get revenuePrice(): number {
+        return this.price + this.marriagePrice + this.lostProductPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice;
     }
     
-    /** Чистая прибыль + Выручка - Налог, ₽ */
-    get revenuePrice(): number {
-        return this.revenuePriceWithouteStateTax - this.stateTax;
+    /** Доход (Сумму которую перечислили) с вычетом налога */
+    get revenuePriceWithoutTax(): number {
+        return this.revenuePrice - this.tax;
     }
 
     getListByProductId(productId: ProductId): ReportActionList {
-        return this.filter(item => item.product.id === productId) as ReportActionList;
+        return this.filter(item => item.product.id.compare(productId)) as ReportActionList;
     }
 
     getProductByProductId(productId: ProductId): Maybe<Product> {
-        const foundReportAction = this.find(item => item.product.id === productId);
+        const foundReportAction = this.find(item => item.product.id.compare(productId));
         if (foundReportAction) {
             return foundReportAction.product;
         }

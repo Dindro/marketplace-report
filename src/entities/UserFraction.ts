@@ -1,30 +1,33 @@
-import User from '@/entities/User';
-import type { ProductId } from './Product';
+import User, { type UserId } from '@/entities/User';
+import type ProductId from '@/entities/ProductId';
 
 export type UserFractionId = number;
 
 export default class UserFraction {
     id: UserFractionId;
 
-    users: User[];
+    userIds: UserId[];
+
+    users: User[] = [];
 
     productId: ProductId;
 
     /** Значение доли, % */
     private fractionValue: number = 0;
 
-    constructor(id: UserFractionId, users: User[], fraction: number, productId: ProductId) {
+    constructor(id: UserFractionId, users: UserId[], fraction: number, productId: ProductId) {
         this.id = id;
-        this.users = users;
+        this.userIds = users;
         this.fraction = fraction;
         this.productId = productId;
     }
 
-    get name() {
-        return this.users.map(user => user.name).join('&');
+    get name(): string {
+        if (this.users.length) return this.users.map(user => user.name).join('&');
+        else return this.userIds.join('&');
     }
 
-    get fraction() {
+    get fraction(): number {
         return this.fractionValue;
     }
 
@@ -48,7 +51,7 @@ export default class UserFraction {
 
     static compareUserFraction(a: UserFraction, b: UserFraction): boolean {
         if (a.fraction === b.fraction) {
-            return User.compareUsers(a.users, b.users);
+            return User.compareUsersId(a.userIds, b.userIds);
         }
 
         return false;

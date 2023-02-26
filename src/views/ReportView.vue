@@ -1,33 +1,22 @@
 <template>
-    <div class="product-info">
+    <div class="container product-info">
+
+        <p class="product-info__title">Загрузите отчет</p>
         <input type="file" @change="onChangeFile">
 
-        <div class="product-info__report">
-            <p>
-                Перечисления:
-                <span class="product-info__price-value">{{ price / 100 }}₽</span>
-            </p>
-            <p>Логистика: {{ delivery / 100 }}₽</p>
-            <p>Логистика возврата: {{ returnDelivery / 100 }}₽</p>
+        <div v-if="summary" class="product-info__block">
+            <p class="product-info__title">Итого</p>
+            <div class="product-info__total">
+                <Summary :summary="summary" />
+            </div>
         </div>
 
-        <div class="product-info__list">
-            <ProductReport
-            v-for="productInfo of productInfoList"
-                :key="productInfo.product.id"
-                class="product-info__item"
-                :code="String(productInfo.product.id)"
-                :category="productInfo.product.category"
-                :name="productInfo.product.name"
-                :price="productInfo.price"
-                :delivery="productInfo.delivery"
-                :state-tax="productInfo.stateTax"
-                :fraction="productInfo.fraction"
-                :revenue="productInfo.revenue"
-                :order-count="productInfo.orderCount"
-                :return="productInfo.return"
-                :barcode="productInfo.product.barcode"
-                :brand="productInfo.product.brand"
+        <div v-if="summary" class="product-info__block">
+            <p class="product-info__title">По долям</p>
+            <FractionSummary
+                v-for="(fraction, index) in fractions"
+                :key="index"
+                :fraction-summary="fraction"
             />
         </div>
     </div>
@@ -35,19 +24,22 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import UploadReportUseCase from '@/use-cases/UploadReport/UploadReportUseCase';
-import { ReportDetailRepository } from '@/infastructure/ReportDetailRepository';
-import type { IProductInfoResponse } from '@/use-cases/UploadReport/IUploadReportResponseModel';
+import GetReportUseCase from '@/use-cases/GetReportUseCase/GetReportUseCase';
+import ReportDetailRepository from '@/infastructure/ReportDetailRepository/ReportDetailRepository';
+import UserFractionRepository from '@/infastructure/UserFractionRepository/UserFractionRepository';
+import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
+
+import UserRepository from '@/infastructure/UserRepository/UserRepository';
 
 import ProductReport from '@/components/Report/ProductReport.vue';
+import Summary from '@/components/Report/Summary.vue';
+import FractionSummary from '@/components/Report/FractionSummary.vue';
 
-const productInfoList = ref<IProductInfoResponse[]>([]);
-const price = ref<number>(0);
-const delivery = ref<number>(0);
-const returnDelivery = ref<number>(0);
+const summary = ref<ISummaryReport>();
+const fractions = ref<IFractionSummaryReport[]>([]);
 
-function onChangeFile(event: Event) {
-    const target = event.target as HTMLInputElement;
+function onChangeFile(event) {
+    const target = event.target;
     const file = target.files?.[0];
     if (file) {
         const fileReader = new FileReader();
@@ -63,33 +55,35 @@ function onChangeFile(event: Event) {
 
 async function getProductActionByFile(file: ArrayBuffer) {
     const detailRepository = new ReportDetailRepository(file);
-    const result = await new UploadReportUseCase(detailRepository).execute();
-    productInfoList.value = result.productList;
-    price.value = result.price;
-    delivery.value = result.delivery;
-    returnDelivery.value = result.return;
+    const userFractionRepository = new UserFractionRepository();
+    const userRepository = new UserRepository();
+    
+    const result = await new GetReportUseCase(detailRepository, userFractionRepository, userRepository).execute();
+    summary.value = result.summary;
+    fractions.value = result.fractions;
 }
 </script>
 
 <style lang="scss" scoped>
 .product-info {
-    &__report {
-        margin-top: 40px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    &__block {
+        margin-top: 64px;
     }
 
-    &__price-value {
+    &__title {
+        font-size: 16px;
         font-weight: bold;
-        font-size: large;
+        margin-bottom: 12px;
     }
 
-    &__list {
-        margin-top: 40px;
-    }
-
-    &__item {
-        & + & {
-            margin-top: 32px;
-        }
+    &__total {
+        display: inline-block;
+        background-color: #F5F5F5;
+        border-radius: 12px;
+        padding: 16px;
     }
 }
 </style>

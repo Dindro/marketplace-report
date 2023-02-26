@@ -14,15 +14,21 @@ export default class User {
         return new User(userId, 'Неизвестный');
     }
 
-    static compareUsers(a: User[], b: User[]): boolean {
+    static compareUsersId(a: UserId[], b: UserId[]): boolean {
         if (a.length === b.length) {
-            return a.every(aUser => b.find(bUser => this.compareUser(bUser, aUser)));
-        }
+            const aSorted = a.sort();
+            const bSorted = b.sort();
 
+            return aSorted.every((value, index) => value === bSorted[index]);
+        }
+        
         return false;
     }
 
-    static compareUser(a: User, b: User): boolean {
-        return a.id === b.id;
+    static compareUsers(a: User[], b: User[]): boolean {
+        const aId = a.map(user => user.id);
+        const bId = a.map(user => user.id);
+
+        return this.compareUsersId(aId, bId);
     }
 }

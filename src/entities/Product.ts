@@ -1,7 +1,7 @@
-export type ProductId = number;
+import ProductId from '@/entities/ProductId';
 
 export default class Product {
-    id: ProductId;
+    code: number;
 
     name: string;
 
@@ -13,12 +13,18 @@ export default class Product {
 
     barcode: number;
 
-    constructor(id: ProductId, name: string, category: string, article: string, brand: string, barcode: number) {
-        this.id = id;
+    hatch: number;
+
+    id: ProductId;
+
+    constructor(code: number, name: string, category: string, article: string, brand: string, barcode: number, hatch: number) {
+        this.code = code;
         this.name = name;
         this.category = category;
         this.article = article;
         this.brand = brand;
         this.barcode = barcode;
+        this.hatch = hatch;
+        this.id = new ProductId(this.code, this.article, this.barcode, this.hatch);
     }
 }
