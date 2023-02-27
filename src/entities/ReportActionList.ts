@@ -115,17 +115,17 @@ export default class ReportActionList extends Array<ReportAction> {
     }
 
     get returnPrice(): number {
-        return this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        return this.returnList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Оплата брака, Копейки */
     get marriagePrice(): number {
-        return this.marriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        return this.marriageList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Оплата за потерянный товар, Копейки */
     get lostProductPrice(): number {
-        return this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        return this.lostProductList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Штрафы, Копейки */ 
