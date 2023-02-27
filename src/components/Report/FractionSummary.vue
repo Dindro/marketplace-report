@@ -1,76 +1,89 @@
 <template>
     <div class="fraction-summary">
-        <div
-            v-if="props.fractionSummary.userFractions.length"
-            class="fraction-summary__fractions"
-        >
-            <FractionPatch
-                v-for="userFraction in props.fractionSummary.userFractions"
-                :key="userFraction.userFraction.id"
-                :name="userFraction.userFraction.name"
-                :fraction-percent="userFraction.userFraction.fraction"
-            />
-        </div>
-
-        <div class="fraction-summary__products">
+        <div class="fraction-summary__header">
             <div
-                v-for="productSummary in props.fractionSummary.products"
-                :key="productSummary.product.id.toString()"
-                class="product-summary"
+                v-if="props.fractionSummary.userFractions.length"
+                class="fraction-summary__fractions"
             >
-                <div class="product">
-                    <div class="product__numbers">
-                        <div v-if="productSummary.product.article" class="patch">
-                            <b>Артикул</b> {{ productSummary.product.article }}
-                        </div>
-                        <div v-if="productSummary.product.code" class="patch">
-                            <b>Код</b> {{ productSummary.product.code }}
-                        </div>
-                        <div v-if="productSummary.product.hatch" class="patch">
-                            <b>ШК</b> {{ productSummary.product.hatch }}
-                        </div>
-                        <div v-if="productSummary.product.barcode" class="patch">
-                            <b>Баркод</b> {{ productSummary.product.barcode }}
-                        </div>
-                    </div>
-                    <p class="product__brand">{{ productSummary.product.brand }}</p>
-                    <p class="product__name">
-                        <span class="product__category">{{ productSummary.product.category }} / </span>
-                        {{ productSummary.product.name }}
-                    </p>
-                </div>
-
-                <Summary class="product-summary__summary" :summary="productSummary.summary" />
+                <FractionPatch
+                    v-for="userFraction in props.fractionSummary.userFractions"
+                    :key="userFraction.userFraction.id"
+                    :name="userFraction.userFraction.name"
+                    :fraction-percent="userFraction.userFraction.fraction"
+                />
             </div>
-        </div>
 
-        <div
-            v-if="props.fractionSummary.products.length > 1"
-            class="fraction-summary__total fraction-summary-total"
-        >
-            <div class="fraction-summary-total__delimeter"></div>
-            
-            <p class="fraction-summary-total__title">Итог</p>
-
-            <Summary :summary="fractionSummary.summary"/>
-        </div>
-
-        <div
-            v-if="props.fractionSummary.userFractions.length"
-            class="fraction-summary__fractions"
-        >
-            <FractionPatch
-                v-for="userFraction in props.fractionSummary.userFractions"
-                :key="userFraction.userFraction.id"
-                :name="userFraction.userFraction.name"
-                :fraction-percent="userFraction.userFraction.fraction"
-                :fraction-price="userFraction.price"
+            <button
+                type="button"
+                class="fraction-summary__collapse-action"
+                :class="{ 'fraction-summary__collapse-action--collapsed': collapsed }"
+                @click="collapsed = !collapsed"
             />
+        </div>
+
+        <div v-show="collapsed" class="fraction-summary__body">
+            <div class="fraction-summary__products">
+                <div
+                    v-for="productSummary in props.fractionSummary.products"
+                    :key="productSummary.product.id.toString()"
+                    class="product-summary"
+                >
+                    <div class="product">
+                        <div class="product__numbers">
+                            <div v-if="productSummary.product.article" class="patch">
+                                <b>Артикул</b> {{ productSummary.product.article }}
+                            </div>
+                            <div v-if="productSummary.product.code" class="patch">
+                                <b>Код</b> {{ productSummary.product.code }}
+                            </div>
+                            <div v-if="productSummary.product.hatch" class="patch">
+                                <b>ШК</b> {{ productSummary.product.hatch }}
+                            </div>
+                            <div v-if="productSummary.product.barcode" class="patch">
+                                <b>Баркод</b> {{ productSummary.product.barcode }}
+                            </div>
+                        </div>
+                        <p class="product__brand">{{ productSummary.product.brand }}</p>
+                        <p class="product__name">
+                            <span class="product__category">{{ productSummary.product.category }} / </span>
+                            {{ productSummary.product.name }}
+                        </p>
+                    </div>
+
+                    <Summary class="product-summary__summary" :summary="productSummary.summary" />
+                </div>
+            </div>
+
+            <div
+                v-if="props.fractionSummary.products.length > 1"
+                class="fraction-summary__total fraction-summary-total"
+            >
+                <div class="fraction-summary-total__delimeter"></div>
+                
+                <p class="fraction-summary-total__title">Итог</p>
+
+                <Summary :summary="fractionSummary.summary"/>
+            </div>
+
+            <div
+                v-if="props.fractionSummary.userFractions.length"
+                class="fraction-summary__fractions"
+            >
+                <FractionPatch
+                    v-for="userFraction in props.fractionSummary.userFractions"
+                    :key="userFraction.userFraction.id"
+                    :name="userFraction.userFraction.name"
+                    :fraction-percent="userFraction.userFraction.fraction"
+                    :fraction-price="userFraction.price"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+    import { ref, type Ref } from 'vue';
+
     import type { IFractionSummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 
     import Summary from '@/components/Report/Summary.vue';
@@ -79,6 +92,8 @@
     const props = defineProps<{
         fractionSummary: IFractionSummaryReport,
     }>();
+
+    const collapsed: Ref<boolean> = ref(true);
 </script>
 
 <style lang="scss" scoped>
@@ -93,15 +108,71 @@
             margin-top: 40px;
         }
 
+        &__header {
+            display: flex;
+        }
+
+        &__body {
+            margin-top: 20px;
+        }
+
+        &__collapse-action {
+            flex-shrink: 0;
+            position: relative;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-left: 16px;
+            border: none;
+            background-color: #D9D9D9;
+            padding: 0;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #5394F5;
+
+                &::after,
+                &::before {
+                    background-color: white;
+                }
+            }
+
+            &::after,
+            &::before {
+                position: absolute;
+                content: '';
+                display: block;
+            
+                border-radius: 2px;
+                background-color: rgba(black, 0.7);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &::after {
+                height: 2px;
+                width: 65%;
+            }
+
+            &::before {
+                height: 65%;
+                width: 2px;
+            }
+
+            &--collapsed {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
         &__fractions {
             display: flex;
+            flex: 1;
             flex-wrap: wrap;
             margin-top: -8px;
             margin-left: -8px;
-
-            &:first-child {
-                margin-bottom: 20px;
-            }
 
             &:last-child {
                 margin-top: 24px;
