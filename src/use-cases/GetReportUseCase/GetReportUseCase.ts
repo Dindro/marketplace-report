@@ -170,6 +170,8 @@ export default class UploadReportUseCase {
             price: reportActionList.price,
             marriage: reportActionList.marriagePrice,
             marriageCount: reportActionList.marriageCount,
+            buyCorrect: reportActionList.buyCorrectPrice,
+            buyCorrectCount: reportActionList.buyCorrectCount,
             lost: reportActionList.lostProductPrice,
             lostCount: reportActionList.lostProductCount,
             delivery: reportActionList.deliveryPrice,

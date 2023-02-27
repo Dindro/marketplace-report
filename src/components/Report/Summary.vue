@@ -11,6 +11,14 @@
                 <p class="summary-item__title">Продажа</p>
                 <p class="summary-item__value">{{ (props.summary.price / 100).toLocaleString() }} ₽</p>
             </div>
+            <div v-if="props.summary.buyCorrect" class="summary__item summary-item">
+                <p class="summary-item__title">Корректная продажа</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.buyCorrect / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.buyCorrectCount }}</span>
+                    <span class="info">Временно не участвует в расчетах</span>
+                </p>
+            </div>
             <div v-if="props.summary.marriage" class="summary__item summary-item">
                 <p class="summary-item__title">Оплата брака</p>
                 <p class="summary-item__value">
@@ -125,7 +133,8 @@
             display: flex;
             align-items: center;
 
-            .snap {
+            .snap,
+            .info {
                 margin-left: 4px;
             }
         }
@@ -158,5 +167,11 @@
         &--minor {
             background-color: #808080;
         }
+    }
+
+    .info {
+        color: rgba(black, 0.5);
+        font-size: 11px;
+        line-height: 1.1;
     }
 </style>

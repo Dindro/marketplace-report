@@ -6,6 +6,8 @@ export interface ISummaryReport {
     price: number;
     marriage: number;
     marriageCount: number;
+    buyCorrect: number;
+    buyCorrectCount: number;
     lost: number;
     lostCount: number;
     delivery: number;

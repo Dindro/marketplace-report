@@ -98,7 +98,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Корректная продажа */
     get buyCorrectPrice(): number {
-        return this.buyList.reduce((sum, item) => sum + item.transferredPrice, 0);
+        return this.buyCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     get deliveryPrice(): number {
