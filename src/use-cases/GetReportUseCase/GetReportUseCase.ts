@@ -153,7 +153,7 @@ export default class UploadReportUseCase {
             let foundProductIdList: Maybe<ProductId[]> = null;
 
             for (const [resultUserFractionList, resultProductIdList] of map) {
-                const same = UserFraction.compareUserFractions(userFractionList, resultUserFractionList);
+                const same = UserFraction.compareList(userFractionList, resultUserFractionList);
                 if (same) {
                     foundProductIdList = resultProductIdList;
                     break;

@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=yo2bMGnIKE8
 npm run build
 git add dist -f
 git commit -m 'dist'
-git subtree push --prefix dist origin gh-pages
+git subtree push --prefix dist origin gh-pages2
 
 This template should help get you started developing with Vue 3 in Vite.
 

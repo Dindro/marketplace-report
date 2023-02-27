@@ -41,56 +41,17 @@ export default class UserFraction {
         }
     }
 
-    static compareUserFractions(a: UserFraction[], b: UserFraction[]): boolean {
+    static compareList(a: UserFraction[], b: UserFraction[]): boolean {
         if (a.length === b.length) {
-            return a.every(aUserFraction => b.find(bUserFraction => UserFraction.compareUserFraction(bUserFraction, aUserFraction)));
+            return a.every(aUserFraction => b.find(bUserFraction => bUserFraction.compare(aUserFraction)));
         }
 
         return false;
     }
 
-    static compareUserFraction(a: UserFraction, b: UserFraction): boolean {
-        if (a.fraction === b.fraction) {
-            return User.compareUsersId(a.userIds, b.userIds);
-        }
+    compare(comparable: UserFraction): boolean {
+        if (this.fraction === comparable.fraction) User.compareUsersId(this.userIds, comparable.userIds);
 
         return false;
-    }
-
-    static toGroupUserFractionsBySame(userFractionsList: UserFraction[][]): UserFraction[][][] {
-        const grouped: UserFraction[][][] = [];
-
-        for (let index = 0; index < userFractionsList.length; index++) {
-            const userFractions = userFractionsList[index];
-            
-            for (let groupedIndex = 0; groupedIndex < grouped.length; groupedIndex++) {
-                const groupedUserFractionsList = grouped[groupedIndex];
-                const groupedUserFractions = groupedUserFractionsList[0];
-                const compared = UserFraction.compareUserFractions(userFractions, groupedUserFractions);
-                if (compared) {
-                    groupedUserFractionsList.push(groupedUserFractions);
-                } else {
-                    grouped.push([groupedUserFractions]);
-                }
-            }
-        }
-
-        return grouped;
-    }
-
-    static getProductIdsUserFractionsMap(groupedUserFractionsBySame: UserFraction[][][]): Map<ProductId[], UserFraction[]> {
-        const map = new Map<ProductId[], UserFraction[]>();
-        
-        for (const groupedUserFractionsList of groupedUserFractionsBySame) {
-            const productIds: ProductId[] = [];
-
-            for (const groupedUserFractions of groupedUserFractionsList) {
-                productIds.push(groupedUserFractions[0].productId);
-            }
-
-            map.set(productIds, groupedUserFractionsList[0]);
-        }
-
-        return map;
     }
 }
