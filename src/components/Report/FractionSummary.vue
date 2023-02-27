@@ -65,16 +65,22 @@
                 <Summary :summary="fractionSummary.summary"/>
             </div>
 
-            <div
-                v-if="props.fractionSummary.userFractions.length"
-                class="fraction-summary__fractions"
-            >
-                <FractionPatch
-                    v-for="userFraction in props.fractionSummary.userFractions"
-                    :key="userFraction.userFraction.id"
-                    :name="userFraction.userFraction.name"
-                    :fraction-percent="userFraction.userFraction.fraction"
-                    :fraction-price="userFraction.price"
+            <div v-if="props.fractionSummary.userFractions.length" class="fraction-summary__footer">
+                <div class="fraction-summary__fractions">
+                    <FractionPatch
+                        v-for="userFraction in props.fractionSummary.userFractions"
+                        :key="userFraction.userFraction.id"
+                        :name="userFraction.userFraction.name"
+                        :fraction-percent="userFraction.userFraction.fraction"
+                        :fraction-price="userFraction.price"
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    class="fraction-summary__collapse-action"
+                    :class="{ 'fraction-summary__collapse-action--collapsed': collapsed }"
+                    @click="collapsed = !collapsed"
                 />
             </div>
         </div>
@@ -114,6 +120,11 @@
 
         &__body {
             margin-top: 20px;
+        }
+
+        &__footer {
+            display: flex;
+            margin-top: 24px;
         }
 
         &__collapse-action {
@@ -173,10 +184,6 @@
             flex-wrap: wrap;
             margin-top: -8px;
             margin-left: -8px;
-
-            &:last-child {
-                margin-top: 24px;
-            }
 
             > * {
                 margin-top: 8px;
