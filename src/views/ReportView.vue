@@ -66,8 +66,8 @@ async function getProductActionByFile(file: ArrayBuffer) {
 
 <style lang="scss" scoped>
 .product-info {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 
     &__block {
         margin-top: 64px;
