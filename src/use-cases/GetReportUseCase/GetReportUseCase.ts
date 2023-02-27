@@ -26,12 +26,6 @@ export default class UploadReportUseCase {
         this.userRepository = userRepository;
     }
 
-    /**
-     * Требования:
-     * - Расценки за весь отчет:
-     * - Расценки по долям:
-     *   Доля - Список товаров, Итог
-     */ 
     async execute(): Promise<IGetReportReponseModel> {
         const reportActions = await this.reportRepository.getList();
         const reportActionList = new ReportActionList(this.tax, ...reportActions);

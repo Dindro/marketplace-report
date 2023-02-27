@@ -50,7 +50,7 @@ export default class UserFraction {
     }
 
     compare(comparable: UserFraction): boolean {
-        if (this.fraction === comparable.fraction) User.compareUsersId(this.userIds, comparable.userIds);
+        if (this.fraction === comparable.fraction) return User.compareUsersId(this.userIds, comparable.userIds);
 
         return false;
     }
