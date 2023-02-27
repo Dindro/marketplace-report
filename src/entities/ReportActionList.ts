@@ -92,6 +92,7 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.buyList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    /** Покупатель заплатил в продажах */
     get buyerPaid(): number {
         return this.buyList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
@@ -99,6 +100,11 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Корректная продажа */
     get buyCorrectPrice(): number {
         return this.buyCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Покупатель заплатил в корректной продаже */
+    get buyerPaidCorrectPrice(): number {
+        return this.buyCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
     get deliveryPrice(): number {
@@ -134,7 +140,7 @@ export default class ReportActionList extends Array<ReportAction> {
     }
 
     get taxSource(): number {
-        return this.buyerPaid + this.marriagePrice + this.lostProductPrice;
+        return this.buyerPaid + this.buyerPaidCorrectPrice + this.marriagePrice + this.lostProductPrice;
     }
 
     /** Государственный налог, Копейки */
@@ -144,7 +150,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.price + this.marriagePrice + this.lostProductPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice;
+        return this.price + this.marriagePrice + this.lostProductPrice + this.buyCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */
