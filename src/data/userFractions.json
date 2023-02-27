@@ -702,5 +702,16 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 64,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 149151385,
+            "article": "Naborkosm29lena",
+            "barcode": 2037538924896,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
