@@ -2,6 +2,7 @@
 
 ## Deploy
 https://www.youtube.com/watch?v=yo2bMGnIKE8
+npm run build
 git add dist -f
 git commit -m 'dist'
 git subtree push --prefix dist origin gh-pages
