@@ -32,21 +32,21 @@
                 <p class="summary-item__title">Логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.delivery / 100).toLocaleString() }} ₽
-                    <span class="snap">{{ props.summary.deliveryCount }}</span>
+                    <span v-if="props.summary.deliveryCount" class="snap">{{ props.summary.deliveryCount }}</span>
                 </p>
             </div>
             <div class="summary__item summary-item">
                 <p class="summary-item__title">Обратная логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryReturn / 100).toLocaleString() }} ₽
-                    <span class="snap">{{ props.summary.deliveryReturnCount }}</span>
+                    <span v-if="props.summary.deliveryReturnCount" class="snap">{{ props.summary.deliveryReturnCount }}</span>
                 </p>
             </div>
             <div class="summary__item summary-item">
                 <p class="summary-item__title">Возврат</p>
                 <p class="summary-item__value">
                     {{ (props.summary.return / 100).toLocaleString() }} ₽
-                    <span class="snap">{{ props.summary.returnCount }}</span>
+                    <span v-if="props.summary.returnCount" class="snap">{{ props.summary.returnCount }}</span>
                 </p>
             </div>
             <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
@@ -67,7 +67,7 @@
                 <p class="summary-item__title">НДС</p>
                 <p class="summary-item__value">
                     {{ (props.summary.tax / 100).toLocaleString() }} ₽
-                    <span class="snap snap--minor">{{ props.summary.taxPercent }}% от {{ (props.summary.taxSource / 100).toLocaleString() }} ₽</span>
+                    <span v-if="props.summary.tax" class="snap snap--minor">{{ props.summary.taxPercent }}% от {{ (props.summary.taxSource / 100).toLocaleString() }} ₽</span>
                 </p>
             </div>
             <div class="summary__item summary-item">
