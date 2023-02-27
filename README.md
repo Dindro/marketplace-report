@@ -1,5 +1,8 @@
 # marketplace-report
 
+## Deploy
+https://www.youtube.com/watch?v=yo2bMGnIKE8
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
