@@ -64,6 +64,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.lostProductList.length;
     }
 
+    get buyCorrectCount(): number {
+        return this.buyCorrectList.length;
+    }
+
     get deliveryCount(): number {
         return this.deliveryList.length;
     }
@@ -92,12 +96,22 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.buyList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
+    /** Корректная продажа */
+    get buyCorrectPrice(): number {
+        return this.buyList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
     get deliveryPrice(): number {
         return this.deliveryList.reduce((sum, item) => sum + item.deliveryPrice, 0);
     }
 
     get deliveryReturnPrice(): number {
         return this.deliveryReturnList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
+    /** Общая сумма логистики, Копейки */
+    get deliveryCommonPrice(): number {
+        return this.deliveryPrice + this.deliveryReturnPrice;
     }
 
     get returnPrice(): number {
