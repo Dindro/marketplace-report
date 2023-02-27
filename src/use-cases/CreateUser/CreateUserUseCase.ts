@@ -10,6 +10,6 @@ export default class CreateUserUseCase {
 
     execute(request: ICreateUserRequestModel) {
         const user = new User(0, request.name);
-        this.userRepository.create(user);
+        // this.userRepository.create(user);
     }
 }

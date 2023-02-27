@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import GetReportUseCase from '@/use-cases/GetReportUseCase/GetReportUseCase';
 import ReportDetailRepository from '@/infastructure/ReportDetailRepository/ReportDetailRepository';
 import UserFractionRepository from '@/infastructure/UserFractionRepository/UserFractionRepository';
@@ -31,15 +31,14 @@ import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetRepo
 
 import UserRepository from '@/infastructure/UserRepository/UserRepository';
 
-import ProductReport from '@/components/Report/ProductReport.vue';
 import Summary from '@/components/Report/Summary.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
 
 const summary = ref<ISummaryReport>();
 const fractions = ref<IFractionSummaryReport[]>([]);
 
-function onChangeFile(event) {
-    const target = event.target;
+function onChangeFile(event: Event) {
+    const target = event.target as HTMLInputElement;
     const file = target.files?.[0];
     if (file) {
         const fileReader = new FileReader();
