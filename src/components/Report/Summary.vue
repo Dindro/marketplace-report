@@ -85,14 +85,14 @@
                 <p class="summary-item__value">{{ (props.summary.revenue / 100).toLocaleString() }} ₽</p>
             </div>
             <div class="summary__item summary-item">
-                <p class="summary-item__title">НДС</p>
+                <p class="summary-item__title">УСН</p>
                 <p class="summary-item__value">
                     {{ (props.summary.tax / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.tax" class="snap snap--minor">{{ props.summary.taxPercent }}% от {{ (props.summary.taxSource / 100).toLocaleString() }} ₽</span>
                 </p>
             </div>
             <div class="summary__item summary-item">
-                <p class="summary-item__title">К переводу без НДС</p>
+                <p class="summary-item__title">К переводу без УСН</p>
                 <p class="summary-item__value">{{ (props.summary.revenueWithoutTax / 100).toLocaleString() }} ₽</p>
             </div>
         </div>
