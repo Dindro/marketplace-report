@@ -57,6 +57,14 @@
                     <span v-if="props.summary.returnCount" class="snap">{{ props.summary.returnCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.reversal" class="summary__item summary-item">
+                <p class="summary-item__title">Сторно продаж</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.reversal / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.reversalCount" class="snap">{{ props.summary.reversalCount }}</span>
+                    <span class="info">Учитывается в расчетах</span>
+                </p>
+            </div>
             <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
                 <p class="summary-item__title">Штрафы</p>
                 <p class="summary-item__value">

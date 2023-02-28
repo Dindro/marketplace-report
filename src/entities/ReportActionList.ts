@@ -84,6 +84,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.finesList.length;
     }
 
+    get reversalCount(): number {
+        return this.reversalList.length;
+    }
+
     get unkownCount(): number {
         return this.unkownList.length;
     }
@@ -134,6 +138,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.lostProductList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    /** Сумма сторно продаж, Копейки */
+    get reversalPrice(): number {
+        return this.reversalList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
     /** Штрафы, Копейки */ 
     get finesPrice(): number {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
@@ -155,7 +164,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.price + this.marriagePrice + this.lostProductPrice + this.buyCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice;
+        return this.price + this.marriagePrice + this.lostProductPrice + this.buyCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

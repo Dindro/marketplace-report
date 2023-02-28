@@ -185,6 +185,8 @@ export default class UploadReportUseCase {
             deliveryReturnCount: reportActionList.deliveryReturnCount,
             return: reportActionList.returnPrice,
             returnCount: reportActionList.returnCount,
+            reversal: reportActionList.reversalPrice,
+            reversalCount: reportActionList.reversalCount,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
