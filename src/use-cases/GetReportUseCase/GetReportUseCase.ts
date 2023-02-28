@@ -13,17 +13,20 @@ import type { UserId } from '@/entities/User';
 import type User from '@/entities/User';
 import type IUserRepository from '../IUserRepository';
 import UserFractionPrice from '@/entities/UserFractionPrice';
+import type IProductPictureRepository from '../IProductPictureRepository';
 
 export default class UploadReportUseCase {
     private readonly reportRepository: IReportDetailRepository;
     private readonly userFractionRepository: IUserFractionRepository;
     private readonly userRepository: IUserRepository;
+    private readonly productPictureRepository: IProductPictureRepository;
     private readonly tax: number = 7;
 
-    constructor(reportRepository: IReportDetailRepository, userFractionRepository: IUserFractionRepository, userRepository: IUserRepository) {
+    constructor(reportRepository: IReportDetailRepository, userFractionRepository: IUserFractionRepository, userRepository: IUserRepository, productPictureRepository: IProductPictureRepository) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
         this.userRepository = userRepository;
+        this.productPictureRepository = productPictureRepository;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
@@ -49,7 +52,9 @@ export default class UploadReportUseCase {
 
             for (const productId of productIdList) {
                 const reportActionList = productIdActionListMap.get(productId) as ReportActionList;
-                const product = reportActionList.getProductByProductId(productId) as Product;                
+                const product = reportActionList.getProductByProductId(productId) as Product;
+                if (product.code) product.picture = await this.productPictureRepository.get(product.code);
+
                 const summary = this.getSummaryReport(reportActionList);
                 
                 productSummaryList.push({ product, summary });

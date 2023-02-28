@@ -40,6 +40,7 @@ import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetRepo
 import Summary from '@/components/Report/Summary.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
 import VersionHistory from '@/components/Version/VersionHistory.vue';
+import ProductPictureRepository from '@/infastructure/ProductPictureRepository/ProductPictureRepository';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
@@ -63,8 +64,9 @@ async function getProductActionByFile(file: ArrayBuffer) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
+    const productPictureRepository = new ProductPictureRepository();
     
-    const result = await new GetReportUseCase(detailRepository, userFractionRepository, userRepository).execute();
+    const result = await new GetReportUseCase(detailRepository, userFractionRepository, userRepository, productPictureRepository).execute();
     summary.value = result.summary;
     fractions.value = result.fractions;
 }

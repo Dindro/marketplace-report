@@ -29,37 +29,48 @@
                     class="product-summary"
                 >
                     <div class="product">
-                        <div class="product__numbers">
-                            <a
-                                v-if="productSummary.product.article"
-                                class="patch"
-                                :href="getSiteByArticle(productSummary.product.article)" 
-                                target="_blank"
-                                title="Открыть страницу в кабинете поставщика"
-                            >
-                                <b>Артикул</b> {{ productSummary.product.article }}
-                            </a>
-                            <a
-                                v-if="productSummary.product.code"
-                                class="patch"
-                                :href="getSiteByCode(productSummary.product.code)" 
-                                target="_blank"
-                                title="Открыть страницу на Wildberries"
-                            >
-                                <b>Код</b> {{ productSummary.product.code }}
-                            </a>
-                            <div v-if="productSummary.product.hatch" class="patch">
-                                <b>ШК</b> {{ productSummary.product.hatch }}
+                        <div class="product__header">
+                            <div v-if="productSummary.product.picture && productSummary.product.picture.preview" class="product__picture">
+                                <img
+                                    class="product__preview"
+                                    :src="productSummary.product.picture.preview"
+                                    :alt="String(productSummary.product.code)"
+                                >
                             </div>
-                            <div v-if="productSummary.product.barcode" class="patch">
-                                <b>Баркод</b> {{ productSummary.product.barcode }}
+                            <div class="product__info">
+                                <div class="product__numbers">
+                                    <a
+                                        v-if="productSummary.product.article"
+                                        class="patch"
+                                        :href="getSiteByArticle(productSummary.product.article)" 
+                                        target="_blank"
+                                        title="Открыть страницу в кабинете поставщика"
+                                    >
+                                        <b>Артикул</b> {{ productSummary.product.article }}
+                                    </a>
+                                    <a
+                                        v-if="productSummary.product.code"
+                                        class="patch"
+                                        :href="getSiteByCode(productSummary.product.code)" 
+                                        target="_blank"
+                                        title="Открыть страницу на Wildberries"
+                                    >
+                                        <b>Код</b> {{ productSummary.product.code }}
+                                    </a>
+                                    <div v-if="productSummary.product.hatch" class="patch">
+                                        <b>ШК</b> {{ productSummary.product.hatch }}
+                                    </div>
+                                    <div v-if="productSummary.product.barcode" class="patch">
+                                        <b>Баркод</b> {{ productSummary.product.barcode }}
+                                    </div>
+                                </div>
+                                <p class="product__brand">{{ productSummary.product.brand }}</p>
+                                <p class="product__name">
+                                    <span class="product__category">{{ productSummary.product.category }} / </span>
+                                    {{ productSummary.product.name }}
+                                </p>
                             </div>
                         </div>
-                        <p class="product__brand">{{ productSummary.product.brand }}</p>
-                        <p class="product__name">
-                            <span class="product__category">{{ productSummary.product.category }} / </span>
-                            {{ productSummary.product.name }}
-                        </p>
                     </div>
 
                     <Summary class="product-summary__summary" :summary="productSummary.summary" />
@@ -128,7 +139,7 @@
         border-radius: 12px;
         padding: 16px;
         width: 100%;
-        max-width: 600px;
+        max-width: 670px;
         
         & + & {
             margin-top: 40px;
@@ -238,6 +249,25 @@
     }
 
     .product {
+        &__header {
+            display: flex;
+        }
+
+        &__info {
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+        }
+
+        &__picture {
+            font-size: 0;
+        }
+
+        &__preview {
+            border-radius: 4px;
+            height: 58px
+        }
+
         &__numbers {
             display: flex;
             flex-wrap: wrap;
