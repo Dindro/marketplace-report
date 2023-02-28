@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div v-if="summary" class="product-info__block">
+        <div v-if="fractions.length" class="product-info__block">
             <p class="product-info__title">По долям</p>
             <FractionSummary
                 v-for="(fraction, index) in fractions"
@@ -19,6 +19,12 @@
                 :fraction-summary="fraction"
             />
         </div>
+
+        <div class="product-info__block">
+            <p class="product-info__title">История изменений</p>
+            <VersionHistory />
+        </div>
+
     </div>
 </template>
 
@@ -33,6 +39,7 @@ import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetRepo
 
 import Summary from '@/components/Report/Summary.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
+import VersionHistory from '@/components/Version/VersionHistory.vue';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
