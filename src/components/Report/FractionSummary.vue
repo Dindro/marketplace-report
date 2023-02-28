@@ -288,7 +288,7 @@
         }
 
         &__category {
-            color: rgba(black, 0.7);
+            color: rgba(black, 0.5);
         }
 
         &__name {
