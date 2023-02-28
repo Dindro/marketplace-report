@@ -25,6 +25,14 @@
     const data: IVersion[] = [
         {
             date: '28.02.2023',
+            time: '17:30',
+            points: [
+                'Добавил ссылку на страницу товара при нажатии на Код',
+                'Добавил ссылку на страницу товара в кабинете поставщика при нажатии на Артикул'
+            ]
+        },
+        {
+            date: '28.02.2023',
             time: '17:00',
             points: ['Добавлено история изменений']
         },
@@ -34,7 +42,7 @@
 <style lang="scss" scoped>
     .version-history {
         font-size: 12px;
-        line-height: 1.1;
+        line-height: 1.2;
         background-color: #F5F5F5;
         padding: 16px;
         width: 320px;

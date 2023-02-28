@@ -30,12 +30,24 @@
                 >
                     <div class="product">
                         <div class="product__numbers">
-                            <div v-if="productSummary.product.article" class="patch">
+                            <a
+                                v-if="productSummary.product.article"
+                                class="patch"
+                                :href="getSiteByArticle(productSummary.product.article)" 
+                                target="_blank"
+                                title="Открыть страницу в кабинете поставщика"
+                            >
                                 <b>Артикул</b> {{ productSummary.product.article }}
-                            </div>
-                            <div v-if="productSummary.product.code" class="patch">
+                            </a>
+                            <a
+                                v-if="productSummary.product.code"
+                                class="patch"
+                                :href="getSiteByCode(productSummary.product.code)" 
+                                target="_blank"
+                                title="Открыть страницу на Wildberries"
+                            >
                                 <b>Код</b> {{ productSummary.product.code }}
-                            </div>
+                            </a>
                             <div v-if="productSummary.product.hatch" class="patch">
                                 <b>ШК</b> {{ productSummary.product.hatch }}
                             </div>
@@ -100,6 +112,14 @@
     }>();
 
     const collapsed: Ref<boolean> = ref(true);
+
+    function getSiteByCode(code: number): string {
+        return `https://www.wildberries.ru/catalog/${code}/detail.aspx`;
+    }
+
+    function getSiteByArticle(article: string): string {
+        return `https://seller.wildberries.ru/new-goods/new-product-card?vendorCode=${article}`;
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -254,13 +274,17 @@
         color: white;
         font-size: 12px;
         padding: 0 6px;
+        white-space: nowrap;
+        text-decoration: none;
 
         b {
             font-weight: 600;
         }
-    }
 
-    .fraction {
-        
+        &[href] {
+            &:hover {
+                background-color: #3f7fdd;
+            }
+        }
     }
 </style>
