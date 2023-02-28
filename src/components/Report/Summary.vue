@@ -61,7 +61,12 @@
                 <p class="summary-item__title">Штрафы</p>
                 <p class="summary-item__value">
                     {{ (props.summary.fines / 100).toLocaleString() }} ₽
-                    <span class="snap snap--warning">{{ props.summary.finesCount }}</span>
+                    <span
+                        class="snap snap--warning"
+                        :title="finesTitle"
+                    >
+                        {{ props.summary.finesCount }}
+                    </span>
                 </p>
             </div>
         </div>
@@ -87,9 +92,17 @@
 </template>
 
 <script lang="ts" setup>
+    import { computed } from 'vue';
+
     import type { ISummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 
     const props = defineProps<{ summary: ISummaryReport }>();
+
+    const finesTitle = computed(() => {
+        if (!props.summary.finesDescription.length) return '';
+        else if (props.summary.finesDescription.length === 1) return props.summary.finesDescription.join();
+        else return props.summary.finesDescription.map((description, index) => `${index + 1}. ${description}`).join('\n');
+    });
 </script>
 
 <style lang="scss" scoped>
@@ -166,6 +179,10 @@
 
         &--minor {
             background-color: #808080;
+        }
+
+        &[title] {
+            cursor: help;
         }
     }
 

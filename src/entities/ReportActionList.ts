@@ -139,6 +139,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
     }
 
+    /** Описание штрафов */
+    get finesDescription(): string[] {
+        return this.finesList.filter((item) => item.comment).map((item) => item.comment);
+    }
+
     get taxSource(): number {
         return this.buyerPaid + this.buyerPaidCorrectPrice + this.marriagePrice + this.lostProductPrice;
     }

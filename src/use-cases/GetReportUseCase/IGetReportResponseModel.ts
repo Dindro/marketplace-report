@@ -18,6 +18,7 @@ export interface ISummaryReport {
     returnCount: number;
     fines: number;
     finesCount: number;
+    finesDescription: string[],
     tax: number;
     taxPercent: number;
     taxSource: number;
