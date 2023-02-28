@@ -76,6 +76,17 @@
                     <span class="info">Учитывается в расчетах</span>
                 </p>
             </div>
+            <div v-if="false" class="summary__item summary-item">
+                <p class="summary-item__title">Хранение</p>
+                <p class="summary-item__value">
+                    {{ (123456 / 100).toLocaleString() }} ₽
+                    <span class="snap snap--minor" title="1 шт = 12,45 ₽">99 шт от 406 шт</span>
+                </p>
+            </div>
+            <div v-if="false" class="summary__item summary-item">
+                <p class="summary-item__title">Реклама</p>
+                <p class="summary-item__value">{{ (94560 / 100).toLocaleString() }} ₽</p>
+            </div>
             <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
                 <p class="summary-item__title">Штрафы</p>
                 <p class="summary-item__value">
