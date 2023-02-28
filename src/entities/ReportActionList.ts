@@ -76,6 +76,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.deliveryReturnList.length;
     }
 
+    get deliveryCommonCount(): number {
+        return this.deliveryCount + this.deliveryReturnCount;
+    }
+
     get returnCount(): number {
         return this.returnList.length;
     }

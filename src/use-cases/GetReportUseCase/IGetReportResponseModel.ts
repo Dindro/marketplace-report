@@ -14,6 +14,8 @@ export interface ISummaryReport {
     deliveryCount: number;
     deliveryReturn: number;
     deliveryReturnCount: number;
+    deliveryCommon: number;
+    deliveryCommonCount: number;
     return: number;
     returnCount: number;
     reversal: number;

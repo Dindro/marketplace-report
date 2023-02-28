@@ -37,19 +37,30 @@
 
         <div class="summary__group">
             <div class="summary__item summary-item">
+                <p class="summary-item__title">Общая логистика</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.deliveryCommon / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.deliveryCommonCount" class="snap" title="Логистика + Обратная логистика">{{ props.summary.deliveryCommonCount }}</span>
+                </p>
+            </div>
+
+            <div class="summary__item summary-item summary-item--sub">
                 <p class="summary-item__title">Логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.delivery / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.deliveryCount" class="snap">{{ props.summary.deliveryCount }}</span>
                 </p>
             </div>
-            <div class="summary__item summary-item">
+            <div class="summary__item summary-item summary-item--sub">
                 <p class="summary-item__title">Обратная логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryReturn / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.deliveryReturnCount" class="snap">{{ props.summary.deliveryReturnCount }}</span>
                 </p>
             </div>
+        </div>
+
+        <div class="summary__group">
             <div class="summary__item summary-item">
                 <p class="summary-item__title">Возврат</p>
                 <p class="summary-item__value">
@@ -164,6 +175,13 @@
             &,
             #{$b}__title {
                 color: #D15C5C;
+            }
+        }
+
+        &--sub {
+            #{$b}__title {
+                color: rgba(black, 0.35);
+                padding-left: 12px;
             }
         }
     }
