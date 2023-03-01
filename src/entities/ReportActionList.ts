@@ -12,12 +12,12 @@ export default class ReportActionList extends Array<ReportAction> {
         this.taxPercent = taxPercent;
     }
     
-    get buyList() {
-        return this.filter(item => item.type === 'buy');
+    get saleList() {
+        return this.filter(item => item.type === 'sale');
     }
 
-    get buyCorrectList() {
-        return this.filter(item => item.type === 'buy-correct');
+    get saleCorrectList() {
+        return this.filter(item => item.type === 'sale-correct');
     }
 
     get deliveryList() {
@@ -52,10 +52,6 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'unkown');
     }
 
-    get orderCount(): number {
-        return this.buyList.length;
-    }
-
     get marriageCount(): number {
         return this.marriageList.length;
     }
@@ -64,8 +60,8 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.lostProductList.length;
     }
 
-    get buyCorrectCount(): number {
-        return this.buyCorrectList.length;
+    get saleCorrectCount(): number {
+        return this.saleCorrectList.length;
     }
 
     get deliveryCount(): number {
@@ -96,23 +92,26 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.unkownList.length;
     }
 
-    get price(): number {
-        return this.buyList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    get salePrice(): number {
+        return this.saleList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
-    /** Покупатель заплатил в продажах */
+    /** Покупатель заплатил */
     get buyerPaid(): number {
-        return this.buyList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const sale = this.saleList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const saleCorrect = this.saleCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const saleMarriage = this.marriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const saleLostProduct = this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
+
+        const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
+
+        return sale + saleCorrect + saleMarriage + saleLostProduct - returnSale - reversalSale;
     }
 
     /** Корректная продажа */
-    get buyCorrectPrice(): number {
-        return this.buyCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
-    }
-
-    /** Покупатель заплатил в корректной продаже */
-    get buyerPaidCorrectPrice(): number {
-        return this.buyCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    get saleCorrectPrice(): number {
+        return this.saleCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     get deliveryPrice(): number {
@@ -158,7 +157,7 @@ export default class ReportActionList extends Array<ReportAction> {
     }
 
     get taxSource(): number {
-        return this.buyerPaid + this.buyerPaidCorrectPrice + this.marriagePrice + this.lostProductPrice;
+        return this.buyerPaid;
     }
 
     /** Государственный налог, Копейки */
@@ -168,7 +167,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.price + this.marriagePrice + this.lostProductPrice + this.buyCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

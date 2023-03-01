@@ -81,6 +81,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     
                     if (deliveryCount > 0) type = 'delivery';
                     else if (returnCount > 0) type ='delivery-return';
+                    else type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(

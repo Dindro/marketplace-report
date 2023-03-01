@@ -1,8 +1,8 @@
 import type { ReportActionType } from "@/entities/ReportAction";
 
 const map: { [key: string]: ReportActionType } = {
-    'Продажа': 'buy',
-    'Корректная продажа': 'buy-correct',
+    'Продажа': 'sale',
+    'Корректная продажа': 'sale-correct',
     'Сторно продаж': 'reversal',
     'Возврат': 'return',
     'Логистика': 'delivery',

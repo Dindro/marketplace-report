@@ -9,13 +9,13 @@
         <div class="summary__group">
             <div class="summary__item summary-item">
                 <p class="summary-item__title">Продажа</p>
-                <p class="summary-item__value">{{ (props.summary.price / 100).toLocaleString() }} ₽</p>
+                <p class="summary-item__value">{{ (props.summary.sale / 100).toLocaleString() }} ₽</p>
             </div>
-            <div v-if="props.summary.buyCorrect" class="summary__item summary-item">
+            <div v-if="props.summary.saleCorrect" class="summary__item summary-item">
                 <p class="summary-item__title">Корректная продажа</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.buyCorrect / 100).toLocaleString() }} ₽
-                    <span class="snap">{{ props.summary.buyCorrectCount }}</span>
+                    {{ (props.summary.saleCorrect / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.saleCorrectCount }}</span>
                 </p>
             </div>
             <div v-if="props.summary.marriage" class="summary__item summary-item">
