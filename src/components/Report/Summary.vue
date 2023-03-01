@@ -72,7 +72,6 @@
                 <p class="summary-item__value">
                     {{ (props.summary.reversal / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.reversalCount" class="snap">{{ props.summary.reversalCount }}</span>
-                    <span class="info">Учитывается в расчетах</span>
                 </p>
             </div>
             <div v-if="false" class="summary__item summary-item">
