@@ -8,6 +8,12 @@ import type { IReportDetailRepository } from '@/use-cases/IReportDetailRepositor
 import type { ReportActionType } from '@/entities/ReportAction';
 import type { ReportActionId } from '@/entities/ReportAction';
 
+type TypeDocument = 'return' | 'sale' | 'unkown';
+const typeDocumentMap: { [key: string]: TypeDocument } = {
+    'Продажа': 'sale',
+    'Возврат': 'return',
+};
+
 export default class ReportDetailRepository implements IReportDetailRepository {
     private report: ArrayBuffer;
     
@@ -73,6 +79,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                 const transferredPrice: number = +row['К перечислению Продавцу за реализованный Товар'];
                 const comment: string = row['Виды логистики, штрафов и доплат'];
                 const paymentReason: string = row['Обоснование для оплаты'];
+                const typeDocument: TypeDocument = typeDocumentMap[row['Тип документа']] || 'unkown';
                 let type: ReportActionType = reportActionTypeMap[paymentReason] || 'unkown';
                 
                 if (type === 'delivery') {
@@ -82,6 +89,9 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     if (deliveryCount > 0) type = 'delivery';
                     else if (returnCount > 0) type ='delivery-return';
                     else type = 'unkown';
+
+                } else if (type === 'reversal' && typeDocument !== 'return') {
+                    type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(
