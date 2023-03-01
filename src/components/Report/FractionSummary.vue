@@ -1,16 +1,16 @@
 <template>
     <div class="fraction-summary">
         <div class="fraction-summary__header">
-            <div
-                v-if="props.fractionSummary.userFractions.length"
-                class="fraction-summary__fractions"
-            >
-                <FractionPatch
-                    v-for="userFraction in props.fractionSummary.userFractions"
-                    :key="userFraction.userFraction.id"
-                    :name="userFraction.userFraction.name"
-                    :fraction-percent="userFraction.userFraction.fraction"
-                />
+            <div class="fraction-summary__fractions">
+                <template v-if="props.fractionSummary.userFractions.length">
+                    <FractionPatch
+                        v-for="userFraction in props.fractionSummary.userFractions"
+                        :key="userFraction.userFraction.id"
+                        :name="userFraction.userFraction.name"
+                        :fraction-percent="userFraction.userFraction.fraction"
+                    />
+                </template>
+                <FractionPatch v-else name="Без доли" />
             </div>
 
             <button
@@ -207,6 +207,10 @@
                     display: none;
                 }
             }
+
+            &:first-child {
+                margin-left: auto;
+            }
         }
 
         &__fractions {
@@ -228,6 +232,7 @@
             font-size: 14px;
             line-height: 1.1;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         &__delimeter {

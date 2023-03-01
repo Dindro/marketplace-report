@@ -52,6 +52,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'unkown');
     }
 
+    get saleCount(): number {
+        return this.saleList.length;
+    }
+
     get marriageCount(): number {
         return this.marriageList.length;
     }
@@ -92,11 +96,7 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.unkownList.length;
     }
 
-    get salePrice(): number {
-        return this.saleList.reduce((sum, item) => sum + item.transferredPrice, 0);
-    }
-
-    /** Покупатель заплатил */
+    /** Покупатель заплатил (Продажа в отчетах) */
     get buyerPaid(): number {
         const sale = this.saleList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const saleCorrect = this.saleCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -107,6 +107,15 @@ export default class ReportActionList extends Array<ReportAction> {
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale + saleCorrect + saleMarriage + saleLostProduct - returnSale - reversalSale;
+    }
+
+    /** Перечисления за товары */
+    get transferredForProducts(): number {
+        return this.salePrice + this.saleCorrectPrice + this.marriagePrice + this.lostProductPrice - this.returnPrice - this.reversalPrice;
+    }
+
+    get salePrice(): number {
+        return this.saleList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Корректная продажа */

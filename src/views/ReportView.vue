@@ -7,7 +7,7 @@
         <div v-if="summary" class="product-info__block">
             <p class="product-info__title">Итого</p>
             <div class="product-info__total">
-                <Summary :summary="summary" />
+                <Summary visible-sales :summary="summary" />
             </div>
         </div>
 

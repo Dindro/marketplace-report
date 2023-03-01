@@ -172,6 +172,9 @@ export default class UploadReportUseCase {
     private getSummaryReport(reportActionList: ReportActionList): ISummaryReport {
         return {
             unkownCount: reportActionList.unkownCount,
+            buyerPaid: reportActionList.buyerPaid,
+            transferredForProducts: reportActionList.transferredForProducts,
+            saleCount: reportActionList.saleCount,
             sale: reportActionList.salePrice,
             marriage: reportActionList.marriagePrice,
             marriageCount: reportActionList.marriageCount,

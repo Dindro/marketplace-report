@@ -3,7 +3,10 @@ import type UserFractionPrice from '@/entities/UserFractionPrice';
 
 export interface ISummaryReport {
     unkownCount: number;
+    buyerPaid: number;
+    transferredForProducts: number;
     sale: number;
+    saleCount: number;
     marriage: number;
     marriageCount: number;
     saleCorrect: number;

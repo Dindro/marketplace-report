@@ -6,10 +6,30 @@
             Расчет может быть не правильным.
         </p>
 
+        <div v-if="visibleSales" class="summary__group">
+            <div class="summary__item summary-item">
+                <p class="summary-item__title">Реализовали товар</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.buyerPaid / 100).toLocaleString() }} ₽
+                    <span class="info">В отчете «Продажа»</span>
+                </p>
+            </div>
+            <div class="summary__item summary-item">
+                <p class="summary-item__title">Перевод за продажи</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.transferredForProducts / 100).toLocaleString() }} ₽
+                    <span class="info">В отчете «К перечислению за товар»</span>
+                </p>
+            </div>
+        </div>
+
         <div class="summary__group">
             <div class="summary__item summary-item">
-                <p class="summary-item__title">Продажа</p>
-                <p class="summary-item__value">{{ (props.summary.sale / 100).toLocaleString() }} ₽</p>
+                <p class="summary-item__title">Продажи</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.sale / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.saleCount" class="snap">{{ props.summary.saleCount }}</span>
+                </p>
             </div>
             <div v-if="props.summary.saleCorrect" class="summary__item summary-item">
                 <p class="summary-item__title">Корректная продажа</p>
@@ -40,6 +60,7 @@
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryCommon / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.deliveryCommonCount" class="snap" title="Логистика + Обратная логистика">{{ props.summary.deliveryCommonCount }}</span>
+                    <span v-if="visibleSales" class="info">В отчете «Стоимость логистики»</span>
                 </p>
             </div>
 
@@ -47,14 +68,14 @@
                 <p class="summary-item__title">Логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.delivery / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.deliveryCount" class="snap">{{ props.summary.deliveryCount }}</span>
+                    <span v-if="props.summary.deliveryCount" class="snap snap--minor">{{ props.summary.deliveryCount }}</span>
                 </p>
             </div>
             <div class="summary__item summary-item summary-item--sub">
                 <p class="summary-item__title">Обратная логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryReturn / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.deliveryReturnCount" class="snap">{{ props.summary.deliveryReturnCount }}</span>
+                    <span v-if="props.summary.deliveryReturnCount" class="snap snap--minor">{{ props.summary.deliveryReturnCount }}</span>
                 </p>
             </div>
         </div>
@@ -109,13 +130,22 @@
         <div class="summary__group">
             <div class="summary__item summary-item">
                 <p class="summary-item__title">К переводу</p>
-                <p class="summary-item__value">{{ (props.summary.revenue / 100).toLocaleString() }} ₽</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.revenue / 100).toLocaleString() }} ₽
+                    <span v-if="visibleSales" class="info">В отчете «Итого к оплате»</span>
+                </p>
             </div>
             <div class="summary__item summary-item">
                 <p class="summary-item__title">УСН</p>
                 <p class="summary-item__value">
                     {{ (props.summary.tax / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.tax" class="snap snap--minor">{{ props.summary.taxPercent }}% от {{ (props.summary.taxSource / 100).toLocaleString() }} ₽</span>
+                    <span
+                        v-if="props.summary.tax"
+                        class="snap snap--minor"
+                        :title="taxTitle"
+                    >
+                        {{ props.summary.taxPercent }}% от {{ (props.summary.taxSource / 100).toLocaleString() }} ₽
+                    </span>
                 </p>
             </div>
             <div class="summary__item summary-item">
@@ -131,12 +161,19 @@
 
     import type { ISummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 
-    const props = defineProps<{ summary: ISummaryReport }>();
+    const props = defineProps<{
+        summary: ISummaryReport,
+        visibleSales?: boolean,
+    }>();
 
     const finesTitle = computed(() => {
         if (!props.summary.finesDescription.length) return '';
         else if (props.summary.finesDescription.length === 1) return props.summary.finesDescription.join();
         else return props.summary.finesDescription.map((description, index) => `${index + 1}. ${description}`).join('\n');
+    });
+
+    const taxTitle = computed(() => {
+        return `${(props.summary.taxSource / 100).toLocaleString()} ₽ = Реализовали товар`;
     });
 </script>
 
@@ -182,8 +219,12 @@
             align-items: center;
 
             .snap,
-            .info {
+            .snap + .info {
                 margin-left: 4px;
+            }
+
+            .info {
+                margin-left: 8px;
             }
         }
 
