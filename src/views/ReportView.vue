@@ -1,8 +1,7 @@
 <template>
     <div class="container product-info">
 
-        <p class="product-info__title">Загрузите отчет</p>
-        <input type="file" @change="onChangeFile">
+        <Form @calculate="onCalculate" />
 
         <div v-if="summary" class="product-info__block">
             <p class="product-info__title">Итого</p>
@@ -37,6 +36,7 @@ import UserFractionRepository from '@/infastructure/UserFractionRepository/UserF
 import UserRepository from '@/infastructure/UserRepository/UserRepository';
 import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 
+import Form, { type IFormStructure } from '@/components/Report/Form.vue';
 import Summary from '@/components/Report/Summary.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
 import VersionHistory from '@/components/Version/VersionHistory.vue';
@@ -45,20 +45,9 @@ import ProductPictureRepository from '@/infastructure/ProductPictureRepository/P
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 
-function onChangeFile(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const file = target.files?.[0];
-    if (file) {
-        const fileReader = new FileReader();
-        fileReader.onload = async (event: ProgressEvent<FileReader>) => {
-            const data = event.target?.result;
-            if (data) {
-                getProductActionByFile(data as ArrayBuffer);
-            }
-        };
-        fileReader.readAsBinaryString(file);
-    }
-};
+function onCalculate(form: IFormStructure): void {
+    getProductActionByFile(form.file);
+}
 
 async function getProductActionByFile(file: ArrayBuffer) {
     const detailRepository = new ReportDetailRepository(file);
