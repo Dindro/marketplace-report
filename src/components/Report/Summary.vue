@@ -109,11 +109,11 @@
                     <span v-if="props.summary.adCount" class="snap">{{ props.summary.adCount }}</span>
                 </p>
             </div>
-            <div v-if="false" class="summary__item summary-item">
+            <div v-if="props.summary.underpayment" class="summary__item summary-item summary-item--warning">
                 <p class="summary-item__title">Недоплата</p>
                 <p class="summary-item__value">
-                    {{ (94560 / 100).toLocaleString() }} ₽
-                    <span class="snap snap--minor" title="8.123% – доля от общей продажи">8.123% от {{ (94560 / 100).toLocaleString() }} ₽</span>
+                    {{ (props.summary.underpayment / 100).toLocaleString() }} ₽
+                    <span v-if="false" class="snap snap--warning" title="8.123% – доля от общей продажи">8.123% от {{ (94560 / 100).toLocaleString() }} ₽</span>
                 </p>
             </div>
             <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">

@@ -6,8 +6,6 @@ import type { ReportActionId } from '@/entities/ReportAction';
 
 export default class ReportActionList extends Array<ReportAction> {
     taxPercent: number;
-    
-    underpayment: number = 0;
 
     constructor(taxPercent: number = 0, ...items: ReportAction[]) {
         super(...items);
@@ -57,6 +55,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get storageList() {
         return this.filter(item => item.type === 'storage');
+    }
+
+    get underpaymentList() {
+        return this.filter(item => item.type === 'underpayment');
     }
 
     get unkownList() {
@@ -184,6 +186,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.storageList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
+    /** Сумма недоплаты */
+    get underpaymentPrice(): number {
+        return this.underpaymentList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    }
+
     /** Штрафы, Копейки */ 
     get finesPrice(): number {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
@@ -205,7 +212,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.adPrice - this.storagePrice - this.underpayment;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.adPrice - this.storagePrice - this.underpaymentPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

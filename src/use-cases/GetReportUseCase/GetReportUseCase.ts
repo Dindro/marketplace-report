@@ -26,6 +26,7 @@ export default class UploadReportUseCase {
     private readonly adProductRepository: IAdProductRepository;
     private readonly storageProductRepository: IStorageProductRepository;
     private readonly tax: number = 7;
+    private underpayment: number;
 
     constructor(
         reportRepository: IReportDetailRepository,
@@ -34,6 +35,7 @@ export default class UploadReportUseCase {
         productPictureRepository: IProductPictureRepository,
         adProductRepository: IAdProductRepository,
         storageProductRepository: IStorageProductRepository,
+        underpayment: number = 0,
     ) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
@@ -41,6 +43,7 @@ export default class UploadReportUseCase {
         this.productPictureRepository = productPictureRepository;
         this.adProductRepository = adProductRepository;
         this.storageProductRepository = storageProductRepository;
+        this.underpayment = underpayment;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
@@ -73,8 +76,7 @@ export default class UploadReportUseCase {
                 }
             } else {
                 const productCount = reportActionList.uniqueProductIdList.length;
-                for (const [productId, productReports] of productIdActionListMap) {
-                    if (!productReports.saleCommonCount) continue;
+                for (const [productId] of productIdActionListMap) {
                     const productStorage = storage / productCount;
                     const reportId = reportActionList.lastId + 1;
                     const product = reportActionList.getProductByProductId(productId) as Product;
@@ -84,7 +86,30 @@ export default class UploadReportUseCase {
             }
         }
 
-         // Группируем Id продукта - Список репортов
+        if (this.underpayment > 0) {
+            const price = reportActionList.transferredForProducts;
+            if (price > 0) {
+                for (const [productId, productReports] of productIdActionListMap) {
+                    if (productReports.transferredForProducts <= 0) continue;
+                    const productUnderpayment = this.underpayment / price * productReports.transferredForProducts;
+                    const reportId = reportActionList.lastId + 1;
+                    const product = reportActionList.getProductByProductId(productId) as Product;
+                    const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
+                    reportActionList.push(report);
+                }
+            } else {
+                const productCount = reportActionList.uniqueProductIdList.length;
+                for (const [productId] of productIdActionListMap) {
+                    const productUnderpayment = this.underpayment / productCount;
+                    const reportId = reportActionList.lastId + 1;
+                    const product = reportActionList.getProductByProductId(productId) as Product;
+                    const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
+                    reportActionList.push(report);
+                }
+            }
+        }
+
+        // Группируем Id продукта - Список репортов
         productIdActionListMap
             = this.toGroupProductIdReportActionList(reportActionList);
 
@@ -246,6 +271,7 @@ export default class UploadReportUseCase {
             ad: reportActionList.adPrice,
             adCount: reportActionList.adCount,
             storage: reportActionList.storagePrice,
+            underpayment: reportActionList.underpaymentPrice,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,

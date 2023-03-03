@@ -73,7 +73,7 @@
         emit('calculate', {
             file: file.value,
             storage: +storage.value,
-            underpayment: 0,
+            underpayment: +underpayment.value,
             ads: ads as IAdsStructure,
         });
     }
