@@ -2,9 +2,14 @@ import type ReportAction from '@/entities/ReportAction';
 import type ProductId from '@/entities/ProductId';
 import type { Maybe } from '@/types/common';
 import type Product from '@/entities/Product';
+import type { ReportActionId } from '@/entities/ReportAction';
 
 export default class ReportActionList extends Array<ReportAction> {
     taxPercent: number;
+
+    storage: number = 0;
+    
+    underpayment: number = 0;
 
     constructor(taxPercent: number = 0, ...items: ReportAction[]) {
         super(...items);
@@ -48,6 +53,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'fines');
     }
 
+    get adList() {
+        return this.filter(item => item.type === 'ad');
+    }
+
     get unkownList() {
         return this.filter(item => item.type === 'unkown');
     }
@@ -66,6 +75,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get saleCorrectCount(): number {
         return this.saleCorrectList.length;
+    }
+
+    get saleCommonCount(): number {
+        return this.saleCount + this.marriageCount + this.lostProductCount + this.saleCorrectCount;
     }
 
     get deliveryCount(): number {
@@ -90,6 +103,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get reversalCount(): number {
         return this.reversalList.length;
+    }
+
+    get adCount(): number {
+        return this.adList.length;
     }
 
     get unkownCount(): number {
@@ -155,6 +172,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.reversalList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    get adPrice() {
+        return this.adList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    }
+
     /** Штрафы, Копейки */ 
     get finesPrice(): number {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
@@ -176,12 +197,30 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.adPrice - this.storage - this.underpayment;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */
     get revenuePriceWithoutTax(): number {
         return this.revenuePrice - this.tax;
+    }
+
+    /** Получить уникальный список id продукта */
+    get uniqueProductIdList(): ProductId[] {
+        const result: ProductId[] = [];
+
+        const productIds = this.map(report => report.product.id);
+        
+        for (const productId of productIds) {
+            const found = result.find(item => item.compare(productId));
+            if (!found) result.push(productId);
+        }
+
+        return result;
+    }
+
+    get lastId(): ReportActionId {
+        return Math.max(...this.map(report => report.id));
     }
 
     getListByProductId(productId: ProductId): ReportActionList {
@@ -190,9 +229,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     getProductByProductId(productId: ProductId): Maybe<Product> {
         const foundReportAction = this.find(item => item.product.id.compare(productId));
-        if (foundReportAction) {
-            return foundReportAction.product;
-        }
+        if (foundReportAction) return foundReportAction.product;
 
         return null;
     }

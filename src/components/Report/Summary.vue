@@ -102,9 +102,12 @@
                     <span class="snap snap--minor" title="1 шт = 12,45 ₽">99 шт от 406 шт</span>
                 </p>
             </div>
-            <div v-if="false" class="summary__item summary-item">
+            <div v-if="props.summary.ad" class="summary__item summary-item">
                 <p class="summary-item__title">Реклама</p>
-                <p class="summary-item__value">{{ (94560 / 100).toLocaleString() }} ₽</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.ad / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.adCount" class="snap">{{ props.summary.adCount }}</span>
+                </p>
             </div>
             <div v-if="false" class="summary__item summary-item">
                 <p class="summary-item__title">Недоплата</p>

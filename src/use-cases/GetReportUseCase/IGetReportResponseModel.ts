@@ -23,6 +23,8 @@ export interface ISummaryReport {
     returnCount: number;
     reversal: number;
     reversalCount: number;
+    ad: number;
+    adCount: number;
     fines: number;
     finesCount: number;
     finesDescription: string[],

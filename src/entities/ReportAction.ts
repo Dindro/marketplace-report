@@ -1,7 +1,7 @@
 import type Product from '@/entities/Product';
 
 export type ReportActionId = number;
-export type ReportActionType = 'delivery' | 'sale' | 'sale-correct' | 'delivery-return' | 'return' | 'marriage' | 'lost-product' | 'reversal' | 'fines' | 'unkown';
+export type ReportActionType = 'delivery' | 'sale' | 'sale-correct' | 'delivery-return' | 'return' | 'marriage' | 'lost-product' | 'reversal' | 'fines' | 'ad' | 'unkown';
 
 export default class ReportAction {
     id: ReportActionId;

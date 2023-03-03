@@ -35,27 +35,49 @@ import ReportDetailRepository from '@/infastructure/ReportDetailRepository/Repor
 import UserFractionRepository from '@/infastructure/UserFractionRepository/UserFractionRepository';
 import UserRepository from '@/infastructure/UserRepository/UserRepository';
 import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
+import ProductPictureRepository from '@/infastructure/ProductPictureRepository/ProductPictureRepository';
+import AdProductRepository from '@/infastructure/AdProductRepository/AdProductRepository';
+import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
 
 import Form, { type IFormStructure } from '@/components/Report/Form.vue';
-import Summary from '@/components/Report/Summary.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
+import Summary from '@/components/Report/Summary.vue';
 import VersionHistory from '@/components/Version/VersionHistory.vue';
-import ProductPictureRepository from '@/infastructure/ProductPictureRepository/ProductPictureRepository';
+import ProductId from '@/entities/ProductId';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 
 function onCalculate(form: IFormStructure): void {
-    getProductActionByFile(form.file);
+    let ads: IAdProductData[] = [];
+
+    if (Array.isArray(form.ads.ads)) {
+        for (const ad of form.ads.ads) {
+            ads.push({
+                productId: new ProductId(ad.article, '', 0, 0),
+                price: +(ad.price * 100).toFixed(),
+            });
+        }
+    }
+    
+    getProductActionByFile(form.file, ads);
 }
 
-async function getProductActionByFile(file: ArrayBuffer) {
+async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[]) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
     const productPictureRepository = new ProductPictureRepository();
+    const adProductRepository = new AdProductRepository(ads);
     
-    const result = await new GetReportUseCase(detailRepository, userFractionRepository, userRepository, productPictureRepository).execute();
+    const result = await new GetReportUseCase(
+        detailRepository,
+        userFractionRepository,
+        userRepository,
+        productPictureRepository,
+        adProductRepository,
+    ).execute();
+
     summary.value = result.summary;
     fractions.value = result.fractions;
 }

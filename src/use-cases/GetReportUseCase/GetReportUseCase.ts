@@ -1,40 +1,58 @@
 import ReportActionList from '@/entities/ReportActionList';
 import UserFraction from '@/entities/UserFraction';
+import ReportAction from '@/entities/ReportAction';
+import UserFractionPrice from '@/entities/UserFractionPrice';
 
 import type Product from '@/entities/Product';
-import type ReportAction from '@/entities/ReportAction';
-import type IGetReportReponseModel from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
-import type { DetailReportAction, IReportDetailRepository } from '@/use-cases/IReportDetailRepository';
-import type IUserFractionRepository from '@/use-cases/IUserFractionRepository';
 import type ProductId from '@/entities/ProductId';
+import type User from '@/entities/User';
+import type IGetReportReponseModel from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
+import type { IReportDetailRepository } from '@/use-cases/IReportDetailRepository';
+import type IUserFractionRepository from '@/use-cases/IUserFractionRepository';
 import type { IFractionSummaryReport, IProductSummaryReport, ISummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 import type { Maybe } from '@/types/common';
 import type { UserId } from '@/entities/User';
-import type User from '@/entities/User';
 import type IUserRepository from '../IUserRepository';
-import UserFractionPrice from '@/entities/UserFractionPrice';
-import type IProductPictureRepository from '../IProductPictureRepository';
+import type IProductPictureRepository from '@/use-cases/IProductPictureRepository';
+import type IAdProductRepository from '@/use-cases/IAdProductRepository';
+import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
 
 export default class UploadReportUseCase {
     private readonly reportRepository: IReportDetailRepository;
     private readonly userFractionRepository: IUserFractionRepository;
     private readonly userRepository: IUserRepository;
     private readonly productPictureRepository: IProductPictureRepository;
+    private readonly adProductRepository: IAdProductRepository;
     private readonly tax: number = 7;
 
-    constructor(reportRepository: IReportDetailRepository, userFractionRepository: IUserFractionRepository, userRepository: IUserRepository, productPictureRepository: IProductPictureRepository) {
+    constructor(
+        reportRepository: IReportDetailRepository,
+        userFractionRepository: IUserFractionRepository,
+        userRepository: IUserRepository,
+        productPictureRepository: IProductPictureRepository,
+        adProductRepository: IAdProductRepository,
+    ) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
         this.userRepository = userRepository;
         this.productPictureRepository = productPictureRepository;
+        this.adProductRepository = adProductRepository;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
         const reportActions = await this.reportRepository.getList();
         const reportActionList = new ReportActionList(this.tax, ...reportActions);
 
-        // Группируем Id продукта - Список репорторв
-        const productIdActionListMap: Map<ProductId, ReportActionList> 
+        const ads: IAdProductData[] = await this.adProductRepository.getList();
+        for (const ad of ads) {
+            const reportId = reportActionList.lastId + 1;
+            const product = reportActionList.getProductByProductId(ad.productId) as Product;
+            const report = new ReportAction(reportId, 'ad', ad.price, 0, 0, 0, '', product);
+            reportActionList.push(report);
+        }
+
+        // Группируем Id продукта - Список репортов
+        const productIdActionListMap: Map<ProductId, ReportActionList>
             = this.toGroupProductIdReportActionList(reportActionList);
 
         // Получаем Id продукта - Список долей
@@ -192,6 +210,8 @@ export default class UploadReportUseCase {
             returnCount: reportActionList.returnCount,
             reversal: reportActionList.reversalPrice,
             reversalCount: reportActionList.reversalCount,
+            ad: reportActionList.adPrice,
+            adCount: reportActionList.adCount,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
