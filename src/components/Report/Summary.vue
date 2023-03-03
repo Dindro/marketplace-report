@@ -95,11 +95,11 @@
                     <span v-if="props.summary.reversalCount" class="snap">{{ props.summary.reversalCount }}</span>
                 </p>
             </div>
-            <div v-if="false" class="summary__item summary-item">
+            <div v-if="props.summary.storage" class="summary__item summary-item">
                 <p class="summary-item__title">Хранение</p>
                 <p class="summary-item__value">
-                    {{ (123456 / 100).toLocaleString() }} ₽
-                    <span class="snap snap--minor" title="1 шт = 12,45 ₽">99 шт от 406 шт</span>
+                    {{ (props.summary.storage / 100).toLocaleString() }} ₽
+                    <span v-if="false" class="snap snap--minor" title="1 шт = 12,45 ₽">99 шт от 406 шт</span>
                 </p>
             </div>
             <div v-if="props.summary.ad" class="summary__item summary-item">

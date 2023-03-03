@@ -40,7 +40,7 @@
     }
 
     const emit = defineEmits<{
-        (e: 'calculate', value: IFormStructure ): void
+        (e: 'calculate', value: IFormStructure): void;
     }>();
     
     const file: Ref<Maybe<ArrayBuffer>> = ref(null);
@@ -72,7 +72,7 @@
 
         emit('calculate', {
             file: file.value,
-            storage: 0,
+            storage: +storage.value,
             underpayment: 0,
             ads: ads as IAdsStructure,
         });

@@ -44,31 +44,34 @@ import FractionSummary from '@/components/Report/FractionSummary.vue';
 import Summary from '@/components/Report/Summary.vue';
 import VersionHistory from '@/components/Version/VersionHistory.vue';
 import ProductId from '@/entities/ProductId';
+import StorageProductRepository from '@/infastructure/StorageProductRepository/StorageProductRepository';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 
 function onCalculate(form: IFormStructure): void {
+    const storage = +(form.storage * 100).toFixed();
     let ads: IAdProductData[] = [];
 
     if (Array.isArray(form.ads.ads)) {
         for (const ad of form.ads.ads) {
             ads.push({
-                productId: new ProductId(ad.article, '', 0, 0),
+                productId: new ProductId(ad.code, '', 0, 0),
                 price: +(ad.price * 100).toFixed(),
             });
         }
     }
     
-    getProductActionByFile(form.file, ads);
+    getProductActionByFile(form.file, ads, storage);
 }
 
-async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[]) {
+async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], storage: number) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
     const productPictureRepository = new ProductPictureRepository();
     const adProductRepository = new AdProductRepository(ads);
+    const storageProductRepository = new StorageProductRepository(storage);
     
     const result = await new GetReportUseCase(
         detailRepository,
@@ -76,6 +79,7 @@ async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[]) 
         userRepository,
         productPictureRepository,
         adProductRepository,
+        storageProductRepository,
     ).execute();
 
     summary.value = result.summary;

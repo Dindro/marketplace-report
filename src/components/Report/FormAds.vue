@@ -15,7 +15,7 @@
                     :key="index"
                     class="ads-product__row"
                 >
-                    <input v-model="ad.article" type="text" placeholder="Артикул">
+                    <input v-model="ad.code" type="text" placeholder="Код товара">
                     <input v-model="ad.price" type="text" placeholder="Сумма ₽">
                     <button v-if="ads.length > 1" type="button" @click="removeAd(index)">Удалить</button>
                 </div>
@@ -33,7 +33,7 @@
     import { ref, watch, type Ref } from 'vue';
 
     export interface IAdStructure {
-        article: number;
+        code: number;
         price: number;
     }
 
@@ -43,7 +43,7 @@
     }
 
     interface IAd {
-        article: string;
+        code: string;
         price: string;
     }
 
@@ -61,7 +61,7 @@
     watch(ads, update, { deep: true });
 
     function addAd(): void {
-        ads.value.push({ article: '', price: '' });
+        ads.value.push({ code: '', price: '' });
     }
 
     function removeAd(index: number): void {
@@ -73,8 +73,8 @@
 
         if (productWay.value) {
             adsResponse = ads.value
-                .filter(ad => ad.article && ad.price)
-                .map(ad => ({ article: +ad.article, price: +ad.price }));
+                .filter(ad => ad.code && ad.price)
+                .map(ad => ({ code: +ad.code, price: +ad.price }));
         } else {
             adsResponse = +price.value;
         }

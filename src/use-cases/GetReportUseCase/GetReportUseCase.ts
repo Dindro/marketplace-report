@@ -16,6 +16,7 @@ import type IUserRepository from '../IUserRepository';
 import type IProductPictureRepository from '@/use-cases/IProductPictureRepository';
 import type IAdProductRepository from '@/use-cases/IAdProductRepository';
 import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
+import type IStorageProductRepository from '@/use-cases/IStorageProductRepository';
 
 export default class UploadReportUseCase {
     private readonly reportRepository: IReportDetailRepository;
@@ -23,6 +24,7 @@ export default class UploadReportUseCase {
     private readonly userRepository: IUserRepository;
     private readonly productPictureRepository: IProductPictureRepository;
     private readonly adProductRepository: IAdProductRepository;
+    private readonly storageProductRepository: IStorageProductRepository;
     private readonly tax: number = 7;
 
     constructor(
@@ -31,12 +33,14 @@ export default class UploadReportUseCase {
         userRepository: IUserRepository,
         productPictureRepository: IProductPictureRepository,
         adProductRepository: IAdProductRepository,
+        storageProductRepository: IStorageProductRepository,
     ) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
         this.userRepository = userRepository;
         this.productPictureRepository = productPictureRepository;
         this.adProductRepository = adProductRepository;
+        this.storageProductRepository = storageProductRepository;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
@@ -52,7 +56,36 @@ export default class UploadReportUseCase {
         }
 
         // Группируем Id продукта - Список репортов
-        const productIdActionListMap: Map<ProductId, ReportActionList>
+        let productIdActionListMap: Map<ProductId, ReportActionList>
+            = this.toGroupProductIdReportActionList(reportActionList);
+
+        const storage = await this.storageProductRepository.get();
+        if (storage > 0) {
+            const saleCount = reportActionList.saleCommonCount;
+            if (saleCount) {
+                for (const [productId, productReports] of productIdActionListMap) {
+                    if (!productReports.saleCommonCount) continue;
+                    const productStorage = storage / saleCount * productReports.saleCommonCount;
+                    const reportId = reportActionList.lastId + 1;
+                    const product = reportActionList.getProductByProductId(productId) as Product;
+                    const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
+                    reportActionList.push(report);
+                }
+            } else {
+                const productCount = reportActionList.uniqueProductIdList.length;
+                for (const [productId, productReports] of productIdActionListMap) {
+                    if (!productReports.saleCommonCount) continue;
+                    const productStorage = storage / productCount;
+                    const reportId = reportActionList.lastId + 1;
+                    const product = reportActionList.getProductByProductId(productId) as Product;
+                    const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
+                    reportActionList.push(report);
+                }
+            }
+        }
+
+         // Группируем Id продукта - Список репортов
+        productIdActionListMap
             = this.toGroupProductIdReportActionList(reportActionList);
 
         // Получаем Id продукта - Список долей
@@ -212,6 +245,7 @@ export default class UploadReportUseCase {
             reversalCount: reportActionList.reversalCount,
             ad: reportActionList.adPrice,
             adCount: reportActionList.adCount,
+            storage: reportActionList.storagePrice,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
