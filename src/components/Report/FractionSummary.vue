@@ -48,19 +48,28 @@
                                     >
                                         <b>Артикул</b> {{ productSummary.product.article }}
                                     </a>
-                                    <a
+                                    <div
                                         v-if="productSummary.product.code"
-                                        class="patch"
-                                        :href="getSiteByCode(productSummary.product.code)" 
-                                        target="_blank"
-                                        title="Открыть страницу на Wildberries"
+                                        class="patch patch--copy"
+                                        title="Нажмите чтобы скопировать"
+                                        @click="copy(String(productSummary.product.code))"
                                     >
                                         <b>Код</b> {{ productSummary.product.code }}
-                                    </a>
-                                    <div v-if="productSummary.product.hatch" class="patch">
+                                    </div>
+                                    <div
+                                        v-if="productSummary.product.hatch"
+                                        class="patch patch--copy"
+                                        title="Нажмите чтобы скопировать"
+                                        @click="copy(String(productSummary.product.hatch))"
+                                    >
                                         <b>ШК</b> {{ productSummary.product.hatch }}
                                     </div>
-                                    <div v-if="productSummary.product.barcode" class="patch">
+                                    <div
+                                        v-if="productSummary.product.barcode"
+                                        class="patch patch--copy"
+                                        title="Нажмите чтобы скопировать"
+                                        @click="copy(String(productSummary.product.barcode))"
+                                    >
                                         <b>Баркод</b> {{ productSummary.product.barcode }}
                                     </div>
                                 </div>
@@ -83,7 +92,7 @@
             >
                 <div class="fraction-summary-total__delimeter"></div>
                 
-                <p class="fraction-summary-total__title">Итог</p>
+                <p class="fraction-summary-total__title">Итого</p>
 
                 <Summary :summary="fractionSummary.summary"/>
             </div>
@@ -130,6 +139,10 @@
 
     function getSiteByArticle(article: string): string {
         return `https://seller.wildberries.ru/new-goods/new-product-card?vendorCode=${article}`;
+    }
+
+    function copy(text: string) {
+        if (text) window.navigator.clipboard.writeText(text);
     }
 </script>
 
@@ -320,6 +333,10 @@
             &:hover {
                 background-color: #3f7fdd;
             }
+        }
+
+        &--copy {
+            cursor: copy;
         }
     }
 </style>
