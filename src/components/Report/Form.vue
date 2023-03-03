@@ -10,10 +10,20 @@
             <div class="form__counter">2</div>
             <div class="form__controls">
                 <div class="form__storage">
-                    <input v-model="storage" type="text" placeholder="Хранение ₽" />
+                    <TextField
+                        v-model="storage"
+                        label="Хранение ₽"
+                        sub="Хранение распределяется пропорционально по количеству продаж"
+                        placeholder="0"
+                    />
                 </div>
                 <div class="form__underpayment">
-                    <input v-model="underpayment" type="text" placeholder="Недоплата ₽" />
+                    <TextField
+                        v-model="underpayment"
+                        label="Недоплата ₽"
+                        sub="Недоплата распределяется пропорционально по сумме перечисления по продукту"
+                        placeholder="0"
+                    />
                 </div>
                 <div class="form__ads">
                     <FormAds @update="onUpdateFormAds" />
@@ -21,7 +31,8 @@
             </div>
         </div>
         <div class="form__footer">
-            <button type="button" @click="calculate">Вычислить</button>
+            <p class="form__footer-info">После ввода значений нажмите на&nbsp;«Вычислить»</p>
+            <Button @click="calculate">Вычислить</Button>
         </div>
     </div>
 </template>
@@ -29,14 +40,17 @@
 <script setup lang="ts">
     import { ref, watch, type Ref } from 'vue';
 
-    import FormAds, { type IAdsStructure } from '@/components/Report/FormAds.vue';
     import type { Maybe } from '@/types/common';
+
+    import Button from '@/components/UI/Button.vue';
+    import TextField from '@/components/UI/TextField.vue';
+    import FormAds, { type IAdStructure } from '@/components/Report/FormAds.vue';
 
     export interface IFormStructure {
         file: ArrayBuffer;
         storage: number;
         underpayment: number;
-        ads: IAdsStructure;
+        ads: IAdStructure[];
     }
 
     const emit = defineEmits<{
@@ -46,7 +60,7 @@
     const file: Ref<Maybe<ArrayBuffer>> = ref(null);
     const storage: Ref<string> = ref('');
     const underpayment: Ref<string> = ref('');
-    let ads: Maybe<IAdsStructure> = null;
+    let ads: IAdStructure[] = [];
 
     watch(file, calculate);
 
@@ -63,7 +77,7 @@
         fileReader.readAsBinaryString(targetFile);
     }
 
-    function onUpdateFormAds(value: IAdsStructure): void {
+    function onUpdateFormAds(value: IAdStructure[]): void {
         ads = value;
     }
 
@@ -74,7 +88,69 @@
             file: file.value,
             storage: +storage.value,
             underpayment: +underpayment.value,
-            ads: ads as IAdsStructure,
+            ads,
         });
     }
 </script>
+
+<style lang="scss">
+    .form {
+        background-color: #F5F5F5;
+        border-radius: 12px;
+        padding: 16px;
+        max-width: 447px;
+
+        &__step {
+            display: flex;
+
+            & + & {
+                margin-top: 16px;
+            }
+        }
+
+        &__counter {
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center ;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: #d8d4d4;
+            margin-right: 16px;
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 16px;
+            padding-left: 46px;
+        }
+
+        &__footer-info {
+            margin-right: 16px;
+            font-size: 11px;
+            line-height: 1.1;
+            color: rgba(black, 0.5);
+        }
+
+        &__controls {
+            display: flex;
+            flex-wrap: wrap;
+
+            margin: -12px;
+
+            > * {
+                padding: 12px;
+            }
+        }
+
+        &__storage,
+        &__underpayment {
+            width: 50%;
+        }
+    }
+</style>

@@ -52,15 +52,13 @@ const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 function onCalculate(form: IFormStructure): void {
     const storage = +(form.storage * 100).toFixed();
     const underpayment = +(form.underpayment * 100).toFixed();
+    
     let ads: IAdProductData[] = [];
-
-    if (Array.isArray(form.ads.ads)) {
-        for (const ad of form.ads.ads) {
-            ads.push({
-                productId: new ProductId(ad.code, '', 0, 0),
-                price: +(ad.price * 100).toFixed(),
-            });
-        }
+    for (const ad of form.ads) {
+        ads.push({
+            productId: new ProductId(ad.code, '', 0, 0),
+            price: +(ad.price * 100).toFixed(),
+        });
     }
     
     getProductActionByFile(form.file, ads, storage, underpayment);
