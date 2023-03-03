@@ -19,7 +19,7 @@
                     <input v-model="ad.price" type="text" placeholder="Сумма ₽">
                     <button v-if="ads.length > 1" type="button" @click="removeAd(index)">Удалить</button>
                 </div>
-                <button type="button" @click="addAd">Добавить</button>
+                <button type="button" @click="addAd">Добавить еще</button>
             </div>
 
             <div v-else class="ads__total">
