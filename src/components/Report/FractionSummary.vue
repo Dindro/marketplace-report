@@ -31,7 +31,20 @@
                     <div class="product">
                         <div class="product__header">
                             <div v-if="productSummary.product.picture && productSummary.product.picture.preview" class="product__picture">
+                                <a
+                                    v-if="productSummary.product.code"
+                                    :href="getSiteByCode(productSummary.product.code)"
+                                    target="_blank"
+                                >
+                                    <img
+                                        class="product__preview"
+                                        :src="productSummary.product.picture.preview"
+                                        :alt="String(productSummary.product.code)"
+                                    >
+                                </a>
+                                
                                 <img
+                                    v-else
                                     class="product__preview"
                                     :src="productSummary.product.picture.preview"
                                     :alt="String(productSummary.product.code)"
