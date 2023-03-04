@@ -130,6 +130,18 @@
                     <span v-if="false" class="snap snap--warning" title="8.123% – доля от общей продажи">8.123% от {{ (94560 / 100).toLocaleString() }} ₽</span>
                 </p>
             </div>
+            <div v-if="props.summary.finesCommon" class="summary__item summary-item summary-item--warning">
+                <p class="summary-item__title">Общие штрафы</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.finesCommon / 100).toLocaleString() }} ₽
+                    <span
+                        class="snap snap--warning"
+                        title="Уменьшает сумму параметра «К переводу»"
+                    >
+                        ?
+                    </span>
+                </p>
+            </div>
             <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
                 <p class="summary-item__title">Штрафы</p>
                 <p class="summary-item__value">

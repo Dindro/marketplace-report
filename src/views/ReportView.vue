@@ -59,6 +59,7 @@ const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 function onCalculate(form: IFormStructure): void {
     const storage = +(form.storage * 100).toFixed();
     const underpayment = +(form.underpayment * 100).toFixed();
+    const commonFines = +(form.commonFines * 100).toFixed();
     
     let ads: IAdProductData[] = [];
     for (const ad of form.ads) {
@@ -68,10 +69,10 @@ function onCalculate(form: IFormStructure): void {
         });
     }
     
-    getProductActionByFile(form.file, ads, storage, underpayment);
+    getProductActionByFile(form.file, ads, storage, underpayment, commonFines);
 }
 
-async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], storage: number, underpayment: number) {
+async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], storage: number, underpayment: number, commonFines: number) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
@@ -87,6 +88,7 @@ async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], 
         adProductRepository,
         storageProductRepository,
         underpayment,
+        commonFines,
     ).execute();
 
     summary.value = result.summary;

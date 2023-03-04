@@ -27,6 +27,7 @@ export default class UploadReportUseCase {
     private readonly storageProductRepository: IStorageProductRepository;
     private readonly tax: number = 7;
     private underpayment: number;
+    private commonFines: number;
 
     constructor(
         reportRepository: IReportDetailRepository,
@@ -36,6 +37,7 @@ export default class UploadReportUseCase {
         adProductRepository: IAdProductRepository,
         storageProductRepository: IStorageProductRepository,
         underpayment: number = 0,
+        commonFines: number = 0,
     ) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
@@ -44,6 +46,7 @@ export default class UploadReportUseCase {
         this.adProductRepository = adProductRepository;
         this.storageProductRepository = storageProductRepository;
         this.underpayment = underpayment;
+        this.commonFines = commonFines;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
@@ -65,47 +68,55 @@ export default class UploadReportUseCase {
         const storage = await this.storageProductRepository.get();
         if (storage > 0) {
             const saleCount = reportActionList.saleCommonCount;
-            if (saleCount) {
-                for (const [productId, productReports] of productIdActionListMap) {
+            for (const [productId, productReports] of productIdActionListMap) {
+                let productStorage: number;
+                if (storage > 0) {
                     if (!productReports.saleCommonCount) continue;
-                    const productStorage = storage / saleCount * productReports.saleCommonCount;
-                    const reportId = reportActionList.lastId + 1;
-                    const product = reportActionList.getProductByProductId(productId) as Product;
-                    const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
-                    reportActionList.push(report);
+                    productStorage = storage / saleCount * productReports.saleCommonCount;
+                } else {
+                    productStorage = storage / reportActionList.uniqueProductIdList.length;;
                 }
-            } else {
-                const productCount = reportActionList.uniqueProductIdList.length;
-                for (const [productId] of productIdActionListMap) {
-                    const productStorage = storage / productCount;
-                    const reportId = reportActionList.lastId + 1;
-                    const product = reportActionList.getProductByProductId(productId) as Product;
-                    const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
-                    reportActionList.push(report);
-                }
+                
+                const reportId = reportActionList.lastId + 1;
+                const product = reportActionList.getProductByProductId(productId) as Product;
+                const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
+                reportActionList.push(report);
             }
         }
 
         if (this.underpayment > 0) {
             const price = reportActionList.transferredForProducts;
-            if (price > 0) {
-                for (const [productId, productReports] of productIdActionListMap) {
+            for (const [productId, productReports] of productIdActionListMap) {
+                let productUnderpayment: number;
+                if (price > 0) {
                     if (productReports.transferredForProducts <= 0) continue;
-                    const productUnderpayment = this.underpayment / price * productReports.transferredForProducts;
-                    const reportId = reportActionList.lastId + 1;
-                    const product = reportActionList.getProductByProductId(productId) as Product;
-                    const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
-                    reportActionList.push(report);
+                    productUnderpayment = this.underpayment / price * productReports.transferredForProducts;
+                } else {
+                    productUnderpayment = this.underpayment / reportActionList.uniqueProductIdList.length;
                 }
-            } else {
-                const productCount = reportActionList.uniqueProductIdList.length;
-                for (const [productId] of productIdActionListMap) {
-                    const productUnderpayment = this.underpayment / productCount;
-                    const reportId = reportActionList.lastId + 1;
-                    const product = reportActionList.getProductByProductId(productId) as Product;
-                    const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
-                    reportActionList.push(report);
+
+                const reportId = reportActionList.lastId + 1;
+                const product = reportActionList.getProductByProductId(productId) as Product;
+                const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
+                reportActionList.push(report);
+            }
+        }
+
+        if (this.commonFines > 0) {
+            const price = reportActionList.transferredForProducts;
+            for (const [productId, productReports] of productIdActionListMap) {
+                let productCommonFines: number;
+                if (price > 0) {
+                    if (productReports.transferredForProducts <= 0) continue;
+                    productCommonFines = this.commonFines / price * productReports.transferredForProducts;
+                } else {
+                    productCommonFines = this.commonFines / reportActionList.uniqueProductIdList.length;
                 }
+                
+                const reportId = reportActionList.lastId + 1;
+                const product = reportActionList.getProductByProductId(productId) as Product;
+                const report = new ReportAction(reportId, 'common-fines', 0, 0, 0, productCommonFines, '', product);
+                reportActionList.push(report);
             }
         }
 
@@ -279,6 +290,7 @@ export default class UploadReportUseCase {
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
+            finesCommon: reportActionList.commonFinesPrice,
             tax: reportActionList.tax,
             taxPercent: reportActionList.taxPercent,
             taxSource: reportActionList.taxSource,

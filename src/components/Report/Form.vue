@@ -13,7 +13,7 @@
                     <TextField
                         v-model="storage"
                         label="Хранение ₽"
-                        sub="Хранение распределяется пропорционально по количеству продаж"
+                        sub="Хранение распределяется по количествам продаж"
                         placeholder="0"
                     />
                 </div>
@@ -21,7 +21,15 @@
                     <TextField
                         v-model="underpayment"
                         label="Недоплата ₽"
-                        sub="Недоплата распределяется пропорционально по сумме перечисления по продукту"
+                        sub="Недоплата распределяется по сумме перечисления по товарам"
+                        placeholder="0"
+                    />
+                </div>
+                <div class="form__fines">
+                    <TextField
+                        v-model="commonFines"
+                        label="Общие штрафы ₽"
+                        sub="Штраф распределяется по сумме перечисления по товарам"
                         placeholder="0"
                     />
                 </div>
@@ -58,6 +66,7 @@
         file: ArrayBuffer;
         storage: number;
         underpayment: number;
+        commonFines: number;
         ads: IAdStructure[];
     }
 
@@ -69,6 +78,7 @@
     const file: Ref<Maybe<ArrayBuffer>> = ref(null);
     const storage: Ref<string> = ref('');
     const underpayment: Ref<string> = ref('');
+    const commonFines: Ref<string> = ref('');
     let ads: IAdStructure[] = [];
 
     watch(file, calculate);
@@ -97,6 +107,7 @@
             file: file.value,
             storage: +storage.value,
             underpayment: +underpayment.value,
+            commonFines: +commonFines.value,
             ads,
         });
     }
@@ -111,7 +122,7 @@
         background-color: #F5F5F5;
         border-radius: 12px;
         padding: 16px;
-        max-width: 447px;
+        max-width: 580px;
 
         &__step {
             display: flex;
@@ -137,7 +148,6 @@
 
         &__footer {
             display: flex;
-            justify-content: flex-end;
             align-items: center;
             margin-top: 16px;
             padding-left: 46px;
@@ -152,6 +162,7 @@
             font-size: 11px;
             line-height: 1.1;
             color: rgba(black, 0.5);
+            margin-right: auto;
         }
 
         &__controls {
@@ -166,8 +177,9 @@
         }
 
         &__storage,
-        &__underpayment {
-            width: 50%;
+        &__underpayment,
+        &__fines {
+            width: calc(100% / 3);
         }
     }
 </style>

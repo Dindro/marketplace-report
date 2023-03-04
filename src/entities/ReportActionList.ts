@@ -57,6 +57,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'fines');
     }
 
+    get commonFinesList() {
+        return this.filter(item => item.type === 'common-fines');
+    }
+
     get adList() {
         return this.filter(item => item.type === 'ad');
     }
@@ -229,6 +233,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.finesList.filter((item) => item.comment).map((item) => item.comment);
     }
 
+    /** Общие штрафы */
+    get commonFinesPrice(): number {
+        return this.commonFinesList.reduce((sum, item) => sum + item.fines, 0);
+    }
+
     get taxSource(): number {
         return this.buyerPaid;
     }
@@ -240,7 +249,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice - this.commonFinesPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */
