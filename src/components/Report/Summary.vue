@@ -38,6 +38,13 @@
                     <span class="snap">{{ props.summary.saleCorrectCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.reversalReturn" class="summary__item summary-item">
+                <p class="summary-item__title">Сторно возвратов</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.reversalReturn / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.reversalReturnCount }}</span>
+                </p>
+            </div>
             <div v-if="props.summary.marriage" class="summary__item summary-item">
                 <p class="summary-item__title">Оплата брака</p>
                 <p class="summary-item__value">
@@ -86,6 +93,13 @@
                 <p class="summary-item__value">
                     {{ (props.summary.return / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.returnCount" class="snap">{{ props.summary.returnCount }}</span>
+                </p>
+            </div>
+            <div v-if="props.summary.returnCorrect" class="summary__item summary-item">
+                <p class="summary-item__title">Корректный возврат</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.returnCorrect / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.returnCorrectCount" class="snap">{{ props.summary.returnCorrectCount }}</span>
                 </p>
             </div>
             <div v-if="props.summary.reversal" class="summary__item summary-item">

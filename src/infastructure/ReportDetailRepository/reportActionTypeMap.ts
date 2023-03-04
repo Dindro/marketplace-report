@@ -9,6 +9,8 @@ const map: { [key: string]: ReportActionType } = {
     'Оплата брака': 'marriage',
     'Оплата потерянного товара': 'lost-product',
     'Штрафы': 'fines',
+    'Корректный возврат': 'return-correct',
+    'Сторно возвратов': 'reversal-return',
 };
 
 export default map;

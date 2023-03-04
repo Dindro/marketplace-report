@@ -29,6 +29,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'delivery-return');
     }
 
+    get returnCorrectList() {
+        return this.filter(item => item.type === 'return-correct');
+    }
+
     get returnList() {
         return this.filter(item => item.type === 'return');
     }
@@ -43,6 +47,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get reversalList() {
         return this.filter(item => item.type === 'reversal');
+    }
+
+    get reversalReturnList() {
+        return this.filter(item => item.type === 'reversal-return');
     }
 
     get finesList() {
@@ -82,7 +90,7 @@ export default class ReportActionList extends Array<ReportAction> {
     }
 
     get saleCommonCount(): number {
-        return this.saleCount + this.marriageCount + this.lostProductCount + this.saleCorrectCount;
+        return this.saleCount + this.marriageCount + this.lostProductCount + this.saleCorrectCount + this.reversalReturnCount;
     }
 
     get deliveryCount(): number {
@@ -99,6 +107,14 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get returnCount(): number {
         return this.returnList.length;
+    }
+
+    get returnCorrectCount(): number {
+        return this.returnCorrectList.length;
+    }
+
+    get reversalReturnCount(): number {
+        return this.reversalReturnList.length;
     }
 
     get finesCount(): number {
@@ -123,16 +139,18 @@ export default class ReportActionList extends Array<ReportAction> {
         const saleCorrect = this.saleCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const saleMarriage = this.marriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const saleLostProduct = this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const reversalReturn = this.reversalReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnCorrectSale = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
-        return sale + saleCorrect + saleMarriage + saleLostProduct - returnSale - reversalSale;
+        return sale + saleCorrect + saleMarriage + saleLostProduct + reversalReturn - returnSale - reversalSale - returnCorrectSale;
     }
 
     /** Перечисления за товары */
     get transferredForProducts(): number {
-        return this.salePrice + this.saleCorrectPrice + this.marriagePrice + this.lostProductPrice - this.returnPrice - this.reversalPrice;
+        return this.salePrice + this.saleCorrectPrice + this.marriagePrice + this.lostProductPrice + this.reveralReturnPrice - this.returnPrice - this.reversalPrice - this.returnCorrectPrice;
     }
 
     get salePrice(): number {
@@ -159,6 +177,16 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get returnPrice(): number {
         return this.returnList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма сторно возвратов (продажа), Копейки */
+    get reveralReturnPrice(): number {
+        return this.reversalReturnList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Корректный возврат, Копейки */
+    get returnCorrectPrice(): number {
+        return this.returnCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Оплата брака, Копейки */
@@ -212,7 +240,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.adPrice - this.storagePrice - this.underpaymentPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */
