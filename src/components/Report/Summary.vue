@@ -215,6 +215,7 @@
         &__title {
             color: rgba(black, 0.5);
             width: 150px;
+            flex-shrink: 0;
         }
 
         &__value {

@@ -283,7 +283,7 @@
 
         &__preview {
             border-radius: 4px;
-            height: 58px
+            height: 56px;
         }
 
         &__numbers {
@@ -321,7 +321,8 @@
         border-radius: 4px;
         color: white;
         font-size: 12px;
-        padding: 0 6px;
+        line-height: 1.1;
+        padding: 2px 6px;
         white-space: nowrap;
         text-decoration: none;
 

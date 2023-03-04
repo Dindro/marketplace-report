@@ -3,7 +3,7 @@
         <div class="form__step">
             <div class="form__counter">1</div>
             <div class="form__controls">
-                <input type="file" @change="onChangeFile" />
+                <input type="file" accept=".xls,.xlsx" @change="onChangeFile" />
             </div>
         </div>
         <div class="form__step">

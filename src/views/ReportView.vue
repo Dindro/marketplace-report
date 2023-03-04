@@ -3,6 +3,12 @@
 
         <Form @calculate="onCalculate" />
 
+        <div class="product-info__fast">
+            <a href="https://cmp.wildberries.ru/finance/upd" target="_blank">
+                <Button>💰 История затрат рекламы</Button>
+            </a>
+        </div>
+
         <div v-if="summary" class="product-info__block">
             <p class="product-info__title">Итого</p>
             <div class="product-info__total">
@@ -45,6 +51,7 @@ import Summary from '@/components/Report/Summary.vue';
 import VersionHistory from '@/components/Version/VersionHistory.vue';
 import ProductId from '@/entities/ProductId';
 import StorageProductRepository from '@/infastructure/StorageProductRepository/StorageProductRepository';
+import Button from '@/components/UI/Button.vue';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
@@ -91,6 +98,10 @@ async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], 
 .product-info {
     padding-top: 100px;
     padding-bottom: 100px;
+
+    &__fast {
+        margin-top: 16px;
+    }
 
     &__block {
         margin-top: 64px;
