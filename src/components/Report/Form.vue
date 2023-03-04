@@ -34,10 +34,10 @@
             <p class="form__footer-info">После ввода значений нажмите на&nbsp;«Вычислить»</p>
             <Button :disabled="!file" @click="calculate">Вычислить</Button>
             <Button
-                :disabled="!file"
+                disabled
                 title="Будет реализовано в будущем"
                 box
-                @click="calculate"
+                @click="exports"
             >
                 ⬇️
             </Button>
@@ -63,6 +63,7 @@
 
     const emit = defineEmits<{
         (e: 'calculate', value: IFormStructure): void;
+        (e: 'export'): void;
     }>();
     
     const file: Ref<Maybe<ArrayBuffer>> = ref(null);
@@ -98,6 +99,10 @@
             underpayment: +underpayment.value,
             ads,
         });
+    }
+
+    function exports(): void {
+        emit('export');
     }
 </script>
 
