@@ -13,7 +13,15 @@
                 >
                     <TextField v-model="ad.code" class="ads-product__code" placeholder="Код товара" />
                     <TextField v-model="ad.price" class="ads-product__price" placeholder="Сумма ₽" />
-                    <Button v-if="ads.length > 1" class="ads-product__remove" mini color="red" @click="removeAd(index)">Удалить</Button>
+                    <Button
+                        v-if="ads.length > 1"
+                        class="ads-product__remove"
+                        mini
+                        color="red"
+                        @click="removeAd(index)"
+                    >
+                        Удалить
+                    </Button>
                 </div>
                 <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
             </div>

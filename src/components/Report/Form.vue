@@ -32,7 +32,7 @@
         </div>
         <div class="form__footer">
             <p class="form__footer-info">После ввода значений нажмите на&nbsp;«Вычислить»</p>
-            <Button @click="calculate">Вычислить</Button>
+            <Button :disabled="!file" @click="calculate">Вычислить</Button>
         </div>
     </div>
 </template>

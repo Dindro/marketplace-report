@@ -41,7 +41,12 @@
         cursor: pointer;
         height: 30px;
 
-        &:active {
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: #99bdf3;
+        }
+
+        &:active:not([disabled]) {
             background-color: #4582de;
         }
 
@@ -54,8 +59,12 @@
         &--red {
             background-color: #D15C5C;
 
-            &:active {
+            &:active:not([disabled]) {
                 background-color: #ba4646;
+            }
+
+            &[disabled] {
+                background-color: #f9a2a2;
             }
         }
     }
