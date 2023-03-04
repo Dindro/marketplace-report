@@ -33,6 +33,14 @@
         <div class="form__footer">
             <p class="form__footer-info">После ввода значений нажмите на&nbsp;«Вычислить»</p>
             <Button :disabled="!file" @click="calculate">Вычислить</Button>
+            <Button
+                :disabled="!file"
+                title="Будет реализовано в будущем"
+                box
+                @click="calculate"
+            >
+                ⬇️
+            </Button>
         </div>
     </div>
 </template>
@@ -128,6 +136,10 @@
             align-items: center;
             margin-top: 16px;
             padding-left: 46px;
+
+            .button + .button {
+                margin-left: 8px;
+            }
         }
 
         &__footer-info {

@@ -8,9 +8,10 @@
     import { computed } from 'vue';
 
     const props = defineProps<{
-        mini?: boolean,
-        disabled?: boolean,
-        color?: 'red',
+        mini?: boolean;
+        disabled?: boolean;
+        color?: 'red';
+        box?: boolean;
     }>();
 
     const classes = computed(() => {
@@ -19,6 +20,7 @@
 
         if (props.mini) classes.push(`${buttonClass}--mini`);
         if (props.color) classes.push(`${buttonClass}--${props.color}`);
+        if (props.box) classes.push(`${buttonClass}--box`);
 
         return classes;
     });
@@ -26,6 +28,8 @@
 
 <style lang="scss" scoped>
     .button {
+        $b: #{&};
+
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -50,10 +54,21 @@
             background-color: #4582de;
         }
 
+        &--box {
+            width: 30px;
+            padding-left: 2px !important;
+            padding-right: 2px !important;
+            flex-shrink: 0;
+        }
+
         &--mini {
             padding: 4px 8px;
             height: 24px;
             font-size: 11px;
+
+            &#{$b}--box {
+                width: 24px;
+            }
         }
 
         &--red {
