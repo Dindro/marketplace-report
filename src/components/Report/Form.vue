@@ -34,7 +34,11 @@
                     />
                 </div>
                 <div class="form__ads">
-                    <FormAds @update="onUpdateFormAds" />
+                    <FormCosts
+                        title="Реклама"
+                        first-action-title="Добавить рекламу"
+                        @update="onUpdateFormAds"
+                    />
                 </div>
             </div>
         </div>
@@ -60,14 +64,14 @@
 
     import Button from '@/components/UI/Button.vue';
     import TextField from '@/components/UI/TextField.vue';
-    import FormAds, { type IAdStructure } from '@/components/Report/FormAds.vue';
+    import FormCosts, { type ICostStructure } from '@/components/Report/FormCosts.vue';
 
     export interface IFormStructure {
         file: ArrayBuffer;
         storage: number;
         underpayment: number;
         commonFines: number;
-        ads: IAdStructure[];
+        ads: ICostStructure[];
     }
 
     const emit = defineEmits<{
@@ -79,7 +83,7 @@
     const storage: Ref<string> = ref('');
     const underpayment: Ref<string> = ref('');
     const commonFines: Ref<string> = ref('');
-    let ads: IAdStructure[] = [];
+    let ads: ICostStructure[] = [];
 
     watch(file, calculate);
 
@@ -96,7 +100,7 @@
         fileReader.readAsBinaryString(targetFile);
     }
 
-    function onUpdateFormAds(value: IAdStructure[]): void {
+    function onUpdateFormAds(value: ICostStructure[]): void {
         ads = value;
     }
 

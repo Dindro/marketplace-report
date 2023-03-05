@@ -1,35 +1,35 @@
 <template>
-    <div class="ads">
-        <Button v-if="!settingVisible" @click="settingVisible = true">Добавить рекламу</Button>
+    <div class="cost">
+        <Button v-if="!settingVisible" @click="settingVisible = true">{{ firstActionTitle }}</Button>
         <template v-else>
-            <div class="ads__header">
-                <p class="ads__title">Реклама</p>
+            <div class="cost__header">
+                <p class="cost__title">{{ props.title }}</p>
             </div>
 
-            <div class="ads__body">
-                <div class="ads__product ads-product">
+            <div class="cost__body">
+                <div class="cost__product ads-product">
                     <div
-                        v-for="(ad, index) in ads"
+                        v-for="(cost, index) in costs"
                         :key="index"
-                        class="ads-product__row"
+                        class="cost-product__row"
                     >
-                        <TextField v-model="ad.code" class="ads-product__code" placeholder="Код товара" />
-                        <TextField v-model="ad.price" class="ads-product__price" placeholder="Сумма ₽" />
+                        <TextField v-model="cost.code" class="cost-product__code" placeholder="Код товара" />
+                        <TextField v-model="cost.price" class="cost-product__price" placeholder="Сумма ₽" />
                         <Button
-                            v-if="ads.length > 1"
-                            class="ads-product__remove"
+                            v-if="costs.length > 1"
+                            class="cost-product__remove"
                             mini
                             color="red"
-                            @click="removeAd(index)"
+                            @click="removeCost(index)"
                         >
                             Удалить
                         </Button>
                     </div>
-                    <div class="ads-product__footer">
-                        <div class="ads-product__footer-add">
-                            <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
+                    <div class="cost-product__footer">
+                        <div class="cost-product__footer-add">
+                            <Button class="cost-product__add" mini @click="addCost">Добавить еще</Button>
                         </div>
-                        <p class="ads-product__footer-price">Общая сумма: {{ commonPrice.toLocaleString() }} ₽</p>
+                        <p class="cost-product__footer-price">Общая сумма: {{ commonPrice.toLocaleString() }} ₽</p>
                     </div>
                 </div>
             </div>
@@ -43,55 +43,57 @@
     import Button from '@/components/UI/Button.vue';
     import TextField from '@/components/UI/TextField.vue';
 
-    export interface IAdStructure {
+    export interface ICostStructure {
         code: number;
         price: number;
     }
 
-    interface IAd {
+    interface ICost {
         code: string;
         price: string;
     }
 
     const props = defineProps<{
+        title: string;
         /** Показывать изначально кнопку для показа настроек */
         firstAction?: boolean;
+        firstActionTitle: string;
     }>();
 
     const emit = defineEmits<{
-        (e: 'update', value: IAdStructure[] ): void
+        (e: 'update', value: ICostStructure[] ): void
     }>();
     
     const settingVisible: Ref<boolean> = ref(!props.firstAction);
-    const ads: Ref<IAd[]> = ref([]);
-    watch(ads, update, { deep: true });
+    const costs: Ref<ICost[]> = ref([]);
+    watch(costs, update, { deep: true });
 
     const commonPrice = computed(() => {
-        return ads.value.map(ad => +ad.price).reduce((sum, price) => sum + price, 0);
+        return costs.value.map(cost => +cost.price).reduce((sum, price) => sum + price, 0);
     });
 
-    function addAd(): void {
-        ads.value.push({ code: '', price: '' });
+    function addCost(): void {
+        costs.value.push({ code: '', price: '' });
     }
 
-    function removeAd(index: number): void {
-        ads.value = ads.value.filter((ad, adIndex) => adIndex !== index);
+    function removeCost(index: number): void {
+        costs.value = costs.value.filter((cost, costIndex) => costIndex !== index);
     }
 
     function update(): void {
-        const adsResponse = ads.value
-            .filter(ad => ad.code && ad.price)
-            .map(ad => ({ code: +ad.code, price: +ad.price }));
+        const costsResponse = costs.value
+            .filter(cost => cost.code && cost.price)
+            .map(cost => ({ code: +cost.code, price: +cost.price }));
 
-        emit('update', adsResponse);
+        emit('update', costsResponse);
     }
 
-    addAd();
+    addCost();
     update();
 </script>
 
 <style lang="scss" scoped>
-    .ads {
+    .cost {
         &__header {
             margin-bottom: 4px;
         }
@@ -103,7 +105,7 @@
         }
     }
 
-    .ads-product {
+    .cost-product {
         &__row {
             display: flex;
             align-items: center;
