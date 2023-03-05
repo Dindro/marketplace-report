@@ -73,6 +73,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'underpayment');
     }
 
+    get paidReceptionList() {
+        return this.filter(item => item.type === 'paid-reception');
+    }
+
     get unkownList() {
         return this.filter(item => item.type === 'unkown');
     }
@@ -223,6 +227,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.underpaymentList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
+    get paidReceptionPrice(): number {
+        return this.paidReceptionList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    }
+
     /** Штрафы, Копейки */ 
     get finesPrice(): number {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
@@ -249,7 +257,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice - this.commonFinesPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice - this.commonFinesPrice - this.paidReceptionPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

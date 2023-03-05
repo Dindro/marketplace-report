@@ -58,6 +58,8 @@ import VersionHistory from '@/components/Version/VersionHistory.vue';
 import ProductId from '@/entities/ProductId';
 import StorageProductRepository from '@/infastructure/StorageProductRepository/StorageProductRepository';
 import Button from '@/components/UI/Button.vue';
+import type IReceptionProductData from '@/infastructure/ReceptionProductRepository/IReceptionProductData';
+import ReceptionProductRepository from '@/infastructure/ReceptionProductRepository/ReceptionProductRepository';
 
 const summary = ref<ISummaryReport>();
 const fractions: Ref<IFractionSummaryReport[]> = ref([]);
@@ -65,26 +67,29 @@ const fractions: Ref<IFractionSummaryReport[]> = ref([]);
 function onCalculate(form: IFormStructure): void {
     const storage = +(form.storage * 100).toFixed();
     const underpayment = +(form.underpayment * 100).toFixed();
-    const commonFines = +(form.commonFines * 100).toFixed();
+    const commonRetention = +(form.commonRetention * 100).toFixed();
+
+    const retention: IAdProductData[] = form.retention.map(retention => ({
+        productId: new ProductId(retention.code, '', 0, 0),
+        price: +(retention.price * 100).toFixed(),
+    }));
+
+    const paidReсeptions: IReceptionProductData[] = form.paidReсeptions.map(reception => ({
+        productId: new ProductId(reception.code, '', 0, 0),
+        price: +(reception.price * 100).toFixed(),
+    }));
     
-    let ads: IAdProductData[] = [];
-    for (const ad of form.ads) {
-        ads.push({
-            productId: new ProductId(ad.code, '', 0, 0),
-            price: +(ad.price * 100).toFixed(),
-        });
-    }
-    
-    getProductActionByFile(form.file, ads, storage, underpayment, commonFines);
+    getProductActionByFile(form.file, retention, storage, underpayment, commonRetention, paidReсeptions);
 }
 
-async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], storage: number, underpayment: number, commonFines: number) {
+async function getProductActionByFile(file: ArrayBuffer, retention: IAdProductData[], storage: number, underpayment: number, commonRetention: number, paidReсeptions: IReceptionProductData[]) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
     const productPictureRepository = new ProductPictureRepository();
-    const adProductRepository = new AdProductRepository(ads);
+    const adProductRepository = new AdProductRepository(retention);
     const storageProductRepository = new StorageProductRepository(storage);
+    const receptionProductRepository = new ReceptionProductRepository(paidReсeptions);
     
     const result = await new GetReportUseCase(
         detailRepository,
@@ -93,8 +98,9 @@ async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], 
         productPictureRepository,
         adProductRepository,
         storageProductRepository,
+        receptionProductRepository,
         underpayment,
-        commonFines,
+        commonRetention,
     ).execute();
 
     summary.value = result.summary;

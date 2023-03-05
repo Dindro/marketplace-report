@@ -31,6 +31,7 @@ export interface ISummaryReport {
     adCount: number;
     storage: number;
     underpayment: number;
+    paidReception: number;
     fines: number;
     finesCount: number;
     finesDescription: string[],

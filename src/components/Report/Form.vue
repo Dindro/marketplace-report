@@ -9,11 +9,21 @@
         <div class="form__step">
             <div class="form__counter">2</div>
             <div class="form__controls">
+                <p class="form__info">Информация: Сумму вводить через точку!</p>
+
                 <div class="form__storage">
                     <TextField
                         v-model="storage"
                         label="Хранение ₽"
                         sub="Хранение распределяется по количествам продаж"
+                        placeholder="0"
+                    />
+                </div>
+                <div class="form__common-retention">
+                    <TextField
+                        v-model="commonRetention"
+                        label="Общие удержания ₽"
+                        sub="Общие удержания распределяются по сумме перечисления по товарам"
                         placeholder="0"
                     />
                 </div>
@@ -25,19 +35,19 @@
                         placeholder="0"
                     />
                 </div>
-                <div class="form__fines">
-                    <TextField
-                        v-model="commonFines"
-                        label="Общие штрафы ₽"
-                        sub="Штраф распределяется по сумме перечисления по товарам"
-                        placeholder="0"
+                <div class="form__retention">
+                    <FormCosts
+                        title="Прочие удержания"
+                        first-action-title="💰 Добавить прочие удержания"
+                        @update="onUpdateRetention"
                     />
                 </div>
-                <div class="form__ads">
+                <div class="form__paid-reсeptions">
                     <FormCosts
-                        title="Реклама"
-                        first-action-title="Добавить рекламу"
-                        @update="onUpdateFormAds"
+                        title="Платная приемка"
+                        first-action
+                        first-action-title="📦 Добавить платную приемку"
+                        @update="onUpdatePaidReсeptions"
                     />
                 </div>
             </div>
@@ -70,8 +80,9 @@
         file: ArrayBuffer;
         storage: number;
         underpayment: number;
-        commonFines: number;
-        ads: ICostStructure[];
+        commonRetention: number;
+        retention: ICostStructure[];
+        paidReсeptions: ICostStructure[];
     }
 
     const emit = defineEmits<{
@@ -82,8 +93,9 @@
     const file: Ref<Maybe<ArrayBuffer>> = ref(null);
     const storage: Ref<string> = ref('');
     const underpayment: Ref<string> = ref('');
-    const commonFines: Ref<string> = ref('');
-    let ads: ICostStructure[] = [];
+    const commonRetention: Ref<string> = ref('');
+    let retention: ICostStructure[] = [];
+    let paidReсeptions: ICostStructure[] = [];
 
     watch(file, calculate);
 
@@ -100,8 +112,12 @@
         fileReader.readAsBinaryString(targetFile);
     }
 
-    function onUpdateFormAds(value: ICostStructure[]): void {
-        ads = value;
+    function onUpdateRetention(value: ICostStructure[]): void {
+        retention = value;
+    }
+
+    function onUpdatePaidReсeptions(value: ICostStructure[]): void {
+        paidReсeptions = value;
     }
 
     function calculate(): void {
@@ -111,8 +127,9 @@
             file: file.value,
             storage: +storage.value,
             underpayment: +underpayment.value,
-            commonFines: +commonFines.value,
-            ads,
+            commonRetention: +commonRetention.value,
+            retention,
+            paidReсeptions,
         });
     }
 
@@ -182,8 +199,21 @@
 
         &__storage,
         &__underpayment,
-        &__fines {
+        &__common-retention {
             width: calc(100% / 3);
+        }
+
+        &__info,
+        &__retention,
+        &__paid-reсeptions {
+            width: 100%;
+        }
+
+        &__info {
+            font-size: 11px;
+            line-height: 1.1;
+            color: rgba(black, 0.5);
+            padding-bottom: 0;
         }
     }
 </style>

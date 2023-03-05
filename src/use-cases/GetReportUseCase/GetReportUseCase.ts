@@ -17,6 +17,8 @@ import type IProductPictureRepository from '@/use-cases/IProductPictureRepositor
 import type IAdProductRepository from '@/use-cases/IAdProductRepository';
 import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
 import type IStorageProductRepository from '@/use-cases/IStorageProductRepository';
+import type IReceptionProductRepository from '@/use-cases/IReceptionProductRepository';
+import type IReceptionProductData from '@/infastructure/ReceptionProductRepository/IReceptionProductData';
 
 export default class UploadReportUseCase {
     private readonly reportRepository: IReportDetailRepository;
@@ -25,6 +27,7 @@ export default class UploadReportUseCase {
     private readonly productPictureRepository: IProductPictureRepository;
     private readonly adProductRepository: IAdProductRepository;
     private readonly storageProductRepository: IStorageProductRepository;
+    private readonly receptionProductRepository: IReceptionProductRepository;
     private readonly tax: number = 7;
     private underpayment: number;
     private commonFines: number;
@@ -36,6 +39,7 @@ export default class UploadReportUseCase {
         productPictureRepository: IProductPictureRepository,
         adProductRepository: IAdProductRepository,
         storageProductRepository: IStorageProductRepository,
+        receptionProductRepository: IReceptionProductRepository,
         underpayment: number = 0,
         commonFines: number = 0,
     ) {
@@ -45,6 +49,7 @@ export default class UploadReportUseCase {
         this.productPictureRepository = productPictureRepository;
         this.adProductRepository = adProductRepository;
         this.storageProductRepository = storageProductRepository;
+        this.receptionProductRepository = receptionProductRepository;
         this.underpayment = underpayment;
         this.commonFines = commonFines;
     }
@@ -58,6 +63,14 @@ export default class UploadReportUseCase {
             const reportId = reportActionList.lastId + 1;
             const product = reportActionList.getProductByProductId(ad.productId) as Product;
             const report = new ReportAction(reportId, 'ad', ad.price, 0, 0, 0, '', product);
+            reportActionList.push(report);
+        }
+
+        const paidReceptions: IReceptionProductData[] = await this.receptionProductRepository.getPaidList();
+        for (const reception of paidReceptions) {
+            const reportId = reportActionList.lastId + 1;
+            const product = reportActionList.getProductByProductId(reception.productId) as Product;
+            const report = new ReportAction(reportId, 'paid-reception', reception.price, 0, 0, 0, '', product);
             reportActionList.push(report);
         }
 
@@ -287,6 +300,7 @@ export default class UploadReportUseCase {
             adCount: reportActionList.adCount,
             storage: reportActionList.storagePrice,
             underpayment: reportActionList.underpaymentPrice,
+            paidReception: reportActionList.paidReceptionPrice,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
