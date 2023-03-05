@@ -135,7 +135,10 @@
                     <span v-if="false" class="snap snap--warning" title="8.123% – доля от общей продажи">8.123% от {{ (94560 / 100).toLocaleString() }} ₽</span>
                 </p>
             </div>
-            <div v-if="props.summary.paidReception" class="summary__item summary-item summary-item--warning">
+            <div v-if="props.summary.paidReception"
+                class="summary__item summary-item"
+                :class="props.summary.paidReception < 0 ? 'summary-item--success' : 'summary-item--warning'"
+            >
                 <p class="summary-item__title">Платная приемка</p>
                 <p class="summary-item__value">
                     {{ (props.summary.paidReception / 100).toLocaleString() }} ₽
@@ -271,6 +274,13 @@
             &,
             #{$b}__title {
                 color: #D15C5C;
+            }
+        }
+
+        &--success {
+            &,
+            #{$b}__title {
+                color: #13a310;
             }
         }
 
