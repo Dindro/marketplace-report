@@ -27,16 +27,16 @@ export interface ISummaryReport {
     reversalCount: number;
     reversalReturn: number;
     reversalReturnCount: number;
-    ad: number;
-    adCount: number;
+    retention: number;
+    retentionCount: number;
     storage: number;
     underpayment: number;
     paidReception: number;
     fines: number;
     finesCount: number;
     finesDescription: string[],
-    finesCommon: number;
-    totalReception: number;
+    retentionCommon: number;
+    retentionTotal: number;
     tax: number;
     taxPercent: number;
     taxSource: number;

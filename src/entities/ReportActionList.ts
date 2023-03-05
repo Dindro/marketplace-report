@@ -57,12 +57,12 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'fines');
     }
 
-    get commonFinesList() {
-        return this.filter(item => item.type === 'common-fines');
+    get commonRetentionList() {
+        return this.filter(item => item.type === 'common-retention');
     }
 
-    get adList() {
-        return this.filter(item => item.type === 'ad');
+    get retentionList() {
+        return this.filter(item => item.type === 'retention');
     }
 
     get storageList() {
@@ -133,8 +133,8 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.reversalList.length;
     }
 
-    get adCount(): number {
-        return this.adList.length;
+    get retentionCount(): number {
+        return this.retentionList.length;
     }
 
     get unkownCount(): number {
@@ -212,9 +212,9 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.reversalList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
-    /** Сумма рекламы */
-    get adPrice(): number {
-        return this.adList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    /** Сумма удержания */
+    get retentionPrice(): number {
+        return this.retentionList.reduce((sum, item) => sum + item.buyerPaid, 0);
     }
 
     /** Стомость хранения */
@@ -241,14 +241,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.finesList.filter((item) => item.comment).map((item) => item.comment);
     }
 
-    /** Общие штрафы */
-    get commonFinesPrice(): number {
-        return this.commonFinesList.reduce((sum, item) => sum + item.fines, 0);
+    /** Общие удержания */
+    get commonRetentionPrice(): number {
+        return this.commonRetentionList.reduce((sum, item) => sum + item.fines, 0);
     }
 
     /** Прочие удержания */
-    get totalReceptionPrice(): number {
-        return this.commonFinesPrice + this.adPrice;
+    get totalRetentionPrice(): number {
+        return this.commonRetentionPrice + this.retentionPrice;
     }
 
     get taxSource(): number {
@@ -262,7 +262,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.adPrice - this.storagePrice - this.underpaymentPrice - this.commonFinesPrice - this.paidReceptionPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.retentionPrice - this.storagePrice - this.underpaymentPrice - this.commonRetentionPrice - this.paidReceptionPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

@@ -150,36 +150,36 @@
                 </p>
             </div>
             <div
-                v-if="props.summary.totalReception"
+                v-if="props.summary.retentionTotal"
                 class="summary__item summary-item"
-                :class="props.summary.totalReception < 0 ? 'summary-item--success' : 'summary-item--warning'"
+                :class="props.summary.retentionTotal < 0 ? 'summary-item--success' : 'summary-item--warning'"
             >
                 <p class="summary-item__title">Прочие удержания</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.totalReception / 100).toLocaleString() }} ₽
-                    <span class="snap" :class="props.summary.totalReception < 0 ? 'snap--success' : 'snap--warning'" title="Удержания за товар + Общие удержания">?</span>
+                    {{ (props.summary.retentionTotal / 100).toLocaleString() }} ₽
+                    <span class="snap" :class="props.summary.retentionTotal < 0 ? 'snap--success' : 'snap--warning'" title="Удержания за товар + Общие удержания">?</span>
                     <span v-if="visibleSales" class="info">В отчете «Прочие удержания»</span>
                 </p>
             </div>
              <div
-                v-if="props.summary.ad"
+                v-if="props.summary.retention"
                 class="summary__item summary-item summary-item--sub"
-                :class="props.summary.ad < 0 ? 'summary-item--success' : 'summary-item--warning'"
+                :class="props.summary.retention < 0 ? 'summary-item--success' : 'summary-item--warning'"
             >
                 <p class="summary-item__title">За товар</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.ad / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.adCount" class="snap" :class="props.summary.ad < 0 ? 'snap--success' : 'snap--warning'">{{ props.summary.adCount }}</span>
+                    {{ (props.summary.retention / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.retentionCount" class="snap" :class="props.summary.retention < 0 ? 'snap--success' : 'snap--warning'">{{ props.summary.retentionCount }}</span>
                 </p>
             </div>
             <div
-                v-if="props.summary.finesCommon"
+                v-if="props.summary.retentionCommon"
                 class="summary__item summary-item summary-item--sub"
-                :class="props.summary.finesCommon < 0 ? 'summary-item--success' : 'summary-item--warning'"
+                :class="props.summary.retentionCommon < 0 ? 'summary-item--success' : 'summary-item--warning'"
             >
                 <p class="summary-item__title">Общие</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.finesCommon / 100).toLocaleString() }} ₽
+                    {{ (props.summary.retentionCommon / 100).toLocaleString() }} ₽
                 </p>
             </div>
         </div>

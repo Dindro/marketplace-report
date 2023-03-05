@@ -14,8 +14,8 @@ import type { Maybe } from '@/types/common';
 import type { UserId } from '@/entities/User';
 import type IUserRepository from '../IUserRepository';
 import type IProductPictureRepository from '@/use-cases/IProductPictureRepository';
-import type IAdProductRepository from '@/use-cases/IAdProductRepository';
-import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
+import type IRetentionRepository from '@/use-cases/IRetentionRepository';
+import type IRetentionData from '@/infastructure/RetentionRepository/IRetentionData';
 import type IStorageProductRepository from '@/use-cases/IStorageProductRepository';
 import type IReceptionProductRepository from '@/use-cases/IReceptionProductRepository';
 import type IReceptionProductData from '@/infastructure/ReceptionProductRepository/IReceptionProductData';
@@ -25,44 +25,44 @@ export default class UploadReportUseCase {
     private readonly userFractionRepository: IUserFractionRepository;
     private readonly userRepository: IUserRepository;
     private readonly productPictureRepository: IProductPictureRepository;
-    private readonly adProductRepository: IAdProductRepository;
+    private readonly retentionRepository: IRetentionRepository;
     private readonly storageProductRepository: IStorageProductRepository;
     private readonly receptionProductRepository: IReceptionProductRepository;
     private readonly tax: number = 7;
     private underpayment: number;
-    private commonFines: number;
+    private commonRetention: number;
 
     constructor(
         reportRepository: IReportDetailRepository,
         userFractionRepository: IUserFractionRepository,
         userRepository: IUserRepository,
         productPictureRepository: IProductPictureRepository,
-        adProductRepository: IAdProductRepository,
+        retentionRepository: IRetentionRepository,
         storageProductRepository: IStorageProductRepository,
         receptionProductRepository: IReceptionProductRepository,
         underpayment: number = 0,
-        commonFines: number = 0,
+        commonRetention: number = 0,
     ) {
         this.reportRepository = reportRepository;
         this.userFractionRepository = userFractionRepository;
         this.userRepository = userRepository;
         this.productPictureRepository = productPictureRepository;
-        this.adProductRepository = adProductRepository;
+        this.retentionRepository = retentionRepository;
         this.storageProductRepository = storageProductRepository;
         this.receptionProductRepository = receptionProductRepository;
         this.underpayment = underpayment;
-        this.commonFines = commonFines;
+        this.commonRetention = commonRetention;
     }
 
     async execute(): Promise<IGetReportReponseModel> {
         const reportActions = await this.reportRepository.getList();
         const reportActionList = new ReportActionList(this.tax, ...reportActions);
 
-        const ads: IAdProductData[] = await this.adProductRepository.getList();
-        for (const ad of ads) {
+        const retentions: IRetentionData[] = await this.retentionRepository.getList();
+        for (const retention of retentions) {
             const reportId = reportActionList.lastId + 1;
-            const product = reportActionList.getProductByProductId(ad.productId) as Product;
-            const report = new ReportAction(reportId, 'ad', ad.price, 0, 0, 0, '', product);
+            const product = reportActionList.getProductByProductId(retention.productId) as Product;
+            const report = new ReportAction(reportId, 'retention', retention.price, 0, 0, 0, '', product);
             reportActionList.push(report);
         }
 
@@ -112,17 +112,17 @@ export default class UploadReportUseCase {
         }
 
         for (const [productId, productReports] of productIdActionListMap) {
-            let productCommonFines: number;
+            let productCommonRetention: number;
             if (transferredForProducts > 0) {
                 if (productReports.transferredForProducts <= 0) continue;
-                productCommonFines = this.commonFines / transferredForProducts * productReports.transferredForProducts;
+                productCommonRetention = this.commonRetention / transferredForProducts * productReports.transferredForProducts;
             } else {
-                productCommonFines = this.commonFines / reportActionList.uniqueProductIdList.length;
+                productCommonRetention = this.commonRetention / reportActionList.uniqueProductIdList.length;
             }
             
             const reportId = reportActionList.lastId + 1;
             const product = reportActionList.getProductByProductId(productId) as Product;
-            const report = new ReportAction(reportId, 'common-fines', 0, 0, 0, productCommonFines, '', product);
+            const report = new ReportAction(reportId, 'common-retention', 0, 0, 0, productCommonRetention, '', product);
             reportActionList.push(report);
         }
 
@@ -289,16 +289,16 @@ export default class UploadReportUseCase {
             reversalCount: reportActionList.reversalCount,
             reversalReturn: reportActionList.reveralReturnPrice,
             reversalReturnCount: reportActionList.reversalReturnCount,
-            ad: reportActionList.adPrice,
-            adCount: reportActionList.adCount,
+            retention: reportActionList.retentionPrice,
+            retentionCount: reportActionList.retentionCount,
             storage: reportActionList.storagePrice,
             underpayment: reportActionList.underpaymentPrice,
             paidReception: reportActionList.paidReceptionPrice,
             fines: reportActionList.finesPrice,
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
-            finesCommon: reportActionList.commonFinesPrice,
-            totalReception: reportActionList.totalReceptionPrice,
+            retentionCommon: reportActionList.commonRetentionPrice,
+            retentionTotal: reportActionList.totalRetentionPrice,
             tax: reportActionList.tax,
             taxPercent: reportActionList.taxPercent,
             taxSource: reportActionList.taxSource,

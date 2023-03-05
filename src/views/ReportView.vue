@@ -48,8 +48,8 @@ import UserFractionRepository from '@/infastructure/UserFractionRepository/UserF
 import UserRepository from '@/infastructure/UserRepository/UserRepository';
 import type { ISummaryReport, IFractionSummaryReport } from '@/use-cases/GetReportUseCase/IGetReportResponseModel';
 import ProductPictureRepository from '@/infastructure/ProductPictureRepository/ProductPictureRepository';
-import AdProductRepository from '@/infastructure/AdProductRepository/AdProductRepository';
-import type IAdProductData from '@/infastructure/AdProductRepository/IAdProductData';
+import RetentionRepository from '@/infastructure/RetentionRepository/RetentionRepository';
+import type IRetentionData from '@/infastructure/RetentionRepository/IRetentionData';
 
 import Form, { type IFormStructure } from '@/components/Report/Form.vue';
 import FractionSummary from '@/components/Report/FractionSummary.vue';
@@ -69,7 +69,7 @@ function onCalculate(form: IFormStructure): void {
     const underpayment = +(form.underpayment * 100).toFixed();
     const commonRetention = +(form.commonRetention * 100).toFixed();
 
-    const retention: IAdProductData[] = form.retention.map(retention => ({
+    const retentions: IRetentionData[] = form.retentions.map(retention => ({
         productId: new ProductId(retention.code, '', 0, 0),
         price: +(retention.price * 100).toFixed(),
     }));
@@ -79,15 +79,15 @@ function onCalculate(form: IFormStructure): void {
         price: +(reception.price * 100).toFixed(),
     }));
     
-    getProductActionByFile(form.file, retention, storage, underpayment, commonRetention, paidReсeptions);
+    getProductActionByFile(form.file, retentions, storage, underpayment, commonRetention, paidReсeptions);
 }
 
-async function getProductActionByFile(file: ArrayBuffer, retention: IAdProductData[], storage: number, underpayment: number, commonRetention: number, paidReсeptions: IReceptionProductData[]) {
+async function getProductActionByFile(file: ArrayBuffer, retentions: IRetentionData[], storage: number, underpayment: number, commonRetention: number, paidReсeptions: IReceptionProductData[]) {
     const detailRepository = new ReportDetailRepository(file);
     const userFractionRepository = new UserFractionRepository();
     const userRepository = new UserRepository();
     const productPictureRepository = new ProductPictureRepository();
-    const adProductRepository = new AdProductRepository(retention);
+    const retentionRepository = new RetentionRepository(retentions);
     const storageProductRepository = new StorageProductRepository(storage);
     const receptionProductRepository = new ReceptionProductRepository(paidReсeptions);
     
@@ -96,7 +96,7 @@ async function getProductActionByFile(file: ArrayBuffer, retention: IAdProductDa
         userFractionRepository,
         userRepository,
         productPictureRepository,
-        adProductRepository,
+        retentionRepository,
         storageProductRepository,
         receptionProductRepository,
         underpayment,

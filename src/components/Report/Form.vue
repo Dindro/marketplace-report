@@ -82,7 +82,7 @@
         storage: number;
         underpayment: number;
         commonRetention: number;
-        retention: ICostStructure[];
+        retentions: ICostStructure[];
         paidReсeptions: ICostStructure[];
     }
 
@@ -95,7 +95,7 @@
     const storage: Ref<string> = ref('');
     const underpayment: Ref<string> = ref('');
     const commonRetention: Ref<string> = ref('');
-    let retention: ICostStructure[] = [];
+    let retentions: ICostStructure[] = [];
     let paidReсeptions: ICostStructure[] = [];
 
     watch(file, calculate);
@@ -114,7 +114,7 @@
     }
 
     function onUpdateRetention(value: ICostStructure[]): void {
-        retention = value;
+        retentions = value;
     }
 
     function onUpdatePaidReсeptions(value: ICostStructure[]): void {
@@ -129,7 +129,7 @@
             storage: +storage.value,
             underpayment: +underpayment.value,
             commonRetention: +commonRetention.value,
-            retention,
+            retentions: retentions,
             paidReсeptions,
         });
     }

@@ -1,6 +1,6 @@
 import type ProductId from '@/entities/ProductId';
 
-export default interface IProductData {
+export default interface IRetentionData {
     productId: ProductId;
     price: number;
 }
