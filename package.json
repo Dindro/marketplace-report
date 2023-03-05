@@ -6,7 +6,8 @@
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "github": "npm run build && git add dist -f && git commit -m 'dist' && git subtree push --prefix dist origin gh-pages2 && git push"
   },
   "dependencies": {
     "vue": "^3.2.37",
