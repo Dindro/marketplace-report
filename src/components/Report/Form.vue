@@ -9,11 +9,10 @@
         <div class="form__step">
             <div class="form__counter">2</div>
             <div class="form__controls">
-                <p class="form__info">Информация: Сумму вводить через точку!</p>
-
                 <div class="form__storage">
                     <TextField
                         v-model="storage"
+                        number
                         label="Хранение ₽"
                         sub="Хранение распределяется по количествам продаж"
                         placeholder="0"
@@ -22,6 +21,7 @@
                 <div class="form__common-retention">
                     <TextField
                         v-model="commonRetention"
+                        number
                         label="Общие удержания ₽"
                         sub="Общие удержания распределяются по сумме перечисления по товарам"
                         placeholder="0"
@@ -30,6 +30,7 @@
                 <div class="form__underpayment">
                     <TextField
                         v-model="underpayment"
+                        number
                         label="Недоплата ₽"
                         sub="Недоплата распределяется по сумме перечисления по товарам"
                         placeholder="0"
@@ -203,17 +204,9 @@
             width: calc(100% / 3);
         }
 
-        &__info,
         &__retention,
         &__paid-reсeptions {
             width: 100%;
-        }
-
-        &__info {
-            font-size: 11px;
-            line-height: 1.1;
-            color: rgba(black, 0.5);
-            padding-bottom: 0;
         }
     }
 </style>

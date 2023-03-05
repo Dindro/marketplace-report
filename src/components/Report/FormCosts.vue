@@ -14,7 +14,7 @@
                         class="cost-product__row"
                     >
                         <TextField v-model="cost.code" class="cost-product__code" placeholder="Код товара" />
-                        <TextField v-model="cost.price" class="cost-product__price" placeholder="Сумма ₽" />
+                        <TextField v-model="cost.price" class="cost-product__price" number placeholder="Сумма ₽" />
                         <Button
                             v-if="costs.length > 1"
                             class="cost-product__remove"
