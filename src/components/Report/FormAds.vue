@@ -1,36 +1,39 @@
 <template>
     <div class="ads">
-        <div class="ads__header">
-            <p class="ads__title">Реклама</p>
-        </div>
+        <Button v-if="!settingVisible" @click="settingVisible = true">Добавить рекламу</Button>
+        <template v-else>
+            <div class="ads__header">
+                <p class="ads__title">Реклама</p>
+            </div>
 
-        <div class="ads__body">
-            <div class="ads__product ads-product">
-                <div
-                    v-for="(ad, index) in ads"
-                    :key="index"
-                    class="ads-product__row"
-                >
-                    <TextField v-model="ad.code" class="ads-product__code" placeholder="Код товара" />
-                    <TextField v-model="ad.price" class="ads-product__price" placeholder="Сумма ₽" />
-                    <Button
-                        v-if="ads.length > 1"
-                        class="ads-product__remove"
-                        mini
-                        color="red"
-                        @click="removeAd(index)"
+            <div class="ads__body">
+                <div class="ads__product ads-product">
+                    <div
+                        v-for="(ad, index) in ads"
+                        :key="index"
+                        class="ads-product__row"
                     >
-                        Удалить
-                    </Button>
-                </div>
-                <div class="ads-product__footer">
-                    <div class="ads-product__footer-add">
-                        <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
+                        <TextField v-model="ad.code" class="ads-product__code" placeholder="Код товара" />
+                        <TextField v-model="ad.price" class="ads-product__price" placeholder="Сумма ₽" />
+                        <Button
+                            v-if="ads.length > 1"
+                            class="ads-product__remove"
+                            mini
+                            color="red"
+                            @click="removeAd(index)"
+                        >
+                            Удалить
+                        </Button>
                     </div>
-                    <p class="ads-product__footer-price">Общая сумма: {{ commonPrice.toLocaleString() }} ₽</p>
+                    <div class="ads-product__footer">
+                        <div class="ads-product__footer-add">
+                            <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
+                        </div>
+                        <p class="ads-product__footer-price">Общая сумма: {{ commonPrice.toLocaleString() }} ₽</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </template>
     </div>
 </template>
 
@@ -50,17 +53,22 @@
         price: string;
     }
 
+    const props = defineProps<{
+        /** Показывать изначально кнопку для показа настроек */
+        firstAction?: boolean;
+    }>();
+
     const emit = defineEmits<{
         (e: 'update', value: IAdStructure[] ): void
     }>();
     
+    const settingVisible: Ref<boolean> = ref(!props.firstAction);
     const ads: Ref<IAd[]> = ref([]);
     watch(ads, update, { deep: true });
 
     const commonPrice = computed(() => {
         return ads.value.map(ad => +ad.price).reduce((sum, price) => sum + price, 0);
     });
-
 
     function addAd(): void {
         ads.value.push({ code: '', price: '' });
