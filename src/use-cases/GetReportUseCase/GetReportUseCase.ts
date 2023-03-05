@@ -305,6 +305,7 @@ export default class UploadReportUseCase {
             finesCount: reportActionList.finesCount,
             finesDescription: reportActionList.finesDescription,
             finesCommon: reportActionList.commonFinesPrice,
+            totalReception: reportActionList.totalReceptionPrice,
             tax: reportActionList.tax,
             taxPercent: reportActionList.taxPercent,
             taxSource: reportActionList.taxSource,

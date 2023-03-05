@@ -246,6 +246,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.commonFinesList.reduce((sum, item) => sum + item.fines, 0);
     }
 
+    /** Прочие удержания */
+    get totalReceptionPrice(): number {
+        return this.commonFinesPrice + this.adPrice;
+    }
+
     get taxSource(): number {
         return this.buyerPaid;
     }

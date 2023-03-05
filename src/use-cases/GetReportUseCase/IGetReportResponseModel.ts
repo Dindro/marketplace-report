@@ -36,6 +36,7 @@ export interface ISummaryReport {
     finesCount: number;
     finesDescription: string[],
     finesCommon: number;
+    totalReception: number;
     tax: number;
     taxPercent: number;
     taxSource: number;

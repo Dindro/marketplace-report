@@ -116,11 +116,16 @@
                     <span v-if="false" class="snap snap--minor" title="1 шт = 12,45 ₽">99 шт от 406 шт</span>
                 </p>
             </div>
-            <div v-if="props.summary.ad" class="summary__item summary-item">
-                <p class="summary-item__title">Реклама</p>
+            <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
+                <p class="summary-item__title">Штрафы</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.ad / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.adCount" class="snap">{{ props.summary.adCount }}</span>
+                    {{ (props.summary.fines / 100).toLocaleString() }} ₽
+                    <span
+                        class="snap snap--warning"
+                        :title="finesTitle"
+                    >
+                        {{ props.summary.finesCount }}
+                    </span>
                 </p>
             </div>
             <div v-if="props.summary.underpayment" class="summary__item summary-item summary-item--warning">
@@ -137,28 +142,25 @@
                     <span v-if="visibleSales" class="info">В отчете «Стоимость платной приемки»</span>
                 </p>
             </div>
-            <div v-if="props.summary.finesCommon" class="summary__item summary-item summary-item--warning">
-                <p class="summary-item__title">Общие штрафы</p>
+            <div v-if="props.summary.totalReception" class="summary__item summary-item summary-item--warning">
+                <p class="summary-item__title">Прочие удержания</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.finesCommon / 100).toLocaleString() }} ₽
-                    <span
-                        class="snap snap--warning"
-                        title="Уменьшает сумму параметра «К переводу»"
-                    >
-                        ?
-                    </span>
+                    {{ (props.summary.totalReception / 100).toLocaleString() }} ₽
+                    <span class="snap snap--warning" title="Удержания за товар + Общие удержания">?</span>
+                    <span v-if="visibleSales" class="info">В отчете «Прочие удержания»</span>
                 </p>
             </div>
-            <div v-if="props.summary.fines" class="summary__item summary-item summary-item--warning">
-                <p class="summary-item__title">Штрафы</p>
+             <div v-if="props.summary.ad" class="summary__item summary-item summary-item--warning summary-item--sub">
+                <p class="summary-item__title">За товар</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.fines / 100).toLocaleString() }} ₽
-                    <span
-                        class="snap snap--warning"
-                        :title="finesTitle"
-                    >
-                        {{ props.summary.finesCount }}
-                    </span>
+                    {{ (props.summary.ad / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.adCount" class="snap snap--warning">{{ props.summary.adCount }}</span>
+                </p>
+            </div>
+            <div v-if="props.summary.finesCommon" class="summary__item summary-item summary-item--warning summary-item--sub">
+                <p class="summary-item__title">Общие</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.finesCommon / 100).toLocaleString() }} ₽
                 </p>
             </div>
         </div>
@@ -274,7 +276,7 @@
 
         &--sub {
             #{$b}__title {
-                color: rgba(black, 0.35);
+                opacity: 0.7;
                 padding-left: 12px;
             }
         }
