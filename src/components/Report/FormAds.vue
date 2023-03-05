@@ -23,14 +23,19 @@
                         Удалить
                     </Button>
                 </div>
-                <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
+                <div class="ads-product__footer">
+                    <div class="ads-product__footer-add">
+                        <Button class="ads-product__add" mini @click="addAd">Добавить еще</Button>
+                    </div>
+                    <p class="ads-product__footer-price">Общая сумма: {{ commonPrice.toLocaleString() }} ₽</p>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { ref, watch, type Ref } from 'vue';
+    import { ref, watch, computed, type Ref } from 'vue';
 
     import Button from '@/components/UI/Button.vue';
     import TextField from '@/components/UI/TextField.vue';
@@ -50,8 +55,12 @@
     }>();
     
     const ads: Ref<IAd[]> = ref([]);
-
     watch(ads, update, { deep: true });
+
+    const commonPrice = computed(() => {
+        return ads.value.map(ad => +ad.price).reduce((sum, price) => sum + price, 0);
+    });
+
 
     function addAd(): void {
         ads.value.push({ code: '', price: '' });
@@ -103,9 +112,21 @@
         &__remove {
             margin-left: 8px;
         }
-
-        &__add {
+        
+        &__footer {
+            display: flex;
+            align-items: center;
             margin-top: 8px;
+        }
+
+        &__footer-add {
+            width: 152px;
+        }
+
+        &__footer-price {
+            font-size: 11px;
+            line-height: 1.1;
+            color: rgba(black, 0.5);
         }
     }
 </style>
