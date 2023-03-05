@@ -128,7 +128,11 @@
                     </span>
                 </p>
             </div>
-            <div v-if="props.summary.underpayment" class="summary__item summary-item summary-item--warning">
+            <div
+                v-if="props.summary.underpayment"
+                class="summary__item summary-item"
+                :class="props.summary.underpayment < 0 ? 'summary-item--success' : 'summary-item--warning'"
+            >
                 <p class="summary-item__title">Недоплата</p>
                 <p class="summary-item__value">
                     {{ (props.summary.underpayment / 100).toLocaleString() }} ₽
@@ -145,22 +149,34 @@
                     <span v-if="visibleSales" class="info">В отчете «Стоимость платной приемки»</span>
                 </p>
             </div>
-            <div v-if="props.summary.totalReception" class="summary__item summary-item summary-item--warning">
+            <div
+                v-if="props.summary.totalReception"
+                class="summary__item summary-item"
+                :class="props.summary.totalReception < 0 ? 'summary-item--success' : 'summary-item--warning'"
+            >
                 <p class="summary-item__title">Прочие удержания</p>
                 <p class="summary-item__value">
                     {{ (props.summary.totalReception / 100).toLocaleString() }} ₽
-                    <span class="snap snap--warning" title="Удержания за товар + Общие удержания">?</span>
+                    <span class="snap" :class="props.summary.totalReception < 0 ? 'snap--success' : 'snap--warning'" title="Удержания за товар + Общие удержания">?</span>
                     <span v-if="visibleSales" class="info">В отчете «Прочие удержания»</span>
                 </p>
             </div>
-             <div v-if="props.summary.ad" class="summary__item summary-item summary-item--warning summary-item--sub">
+             <div
+                v-if="props.summary.ad"
+                class="summary__item summary-item summary-item--sub"
+                :class="props.summary.ad < 0 ? 'summary-item--success' : 'summary-item--warning'"
+            >
                 <p class="summary-item__title">За товар</p>
                 <p class="summary-item__value">
                     {{ (props.summary.ad / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.adCount" class="snap snap--warning">{{ props.summary.adCount }}</span>
+                    <span v-if="props.summary.adCount" class="snap" :class="props.summary.ad < 0 ? 'snap--success' : 'snap--warning'">{{ props.summary.adCount }}</span>
                 </p>
             </div>
-            <div v-if="props.summary.finesCommon" class="summary__item summary-item summary-item--warning summary-item--sub">
+            <div
+                v-if="props.summary.finesCommon"
+                class="summary__item summary-item summary-item--sub"
+                :class="props.summary.finesCommon < 0 ? 'summary-item--success' : 'summary-item--warning'"
+            >
                 <p class="summary-item__title">Общие</p>
                 <p class="summary-item__value">
                     {{ (props.summary.finesCommon / 100).toLocaleString() }} ₽
@@ -311,6 +327,10 @@
 
         &--minor {
             background-color: #808080;
+        }
+
+        &--success {
+            background-color: #13a310;
         }
 
         &[title] {

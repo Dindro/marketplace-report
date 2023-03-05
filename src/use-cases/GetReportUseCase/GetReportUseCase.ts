@@ -79,58 +79,51 @@ export default class UploadReportUseCase {
             = this.toGroupProductIdReportActionList(reportActionList);
 
         const storage = await this.storageProductRepository.get();
-        if (storage > 0) {
-            const saleCount = reportActionList.saleCommonCount;
-            for (const [productId, productReports] of productIdActionListMap) {
-                let productStorage: number;
-                if (storage > 0) {
-                    if (!productReports.saleCommonCount) continue;
-                    productStorage = storage / saleCount * productReports.saleCommonCount;
-                } else {
-                    productStorage = storage / reportActionList.uniqueProductIdList.length;;
-                }
-                
-                const reportId = reportActionList.lastId + 1;
-                const product = reportActionList.getProductByProductId(productId) as Product;
-                const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
-                reportActionList.push(report);
+        const saleCount = reportActionList.saleCommonCount;
+        for (const [productId, productReports] of productIdActionListMap) {
+            let productStorage: number;
+            if (storage > 0) {
+                if (!productReports.saleCommonCount) continue;
+                productStorage = storage / saleCount * productReports.saleCommonCount;
+            } else {
+                productStorage = storage / reportActionList.uniqueProductIdList.length;;
             }
+            
+            const reportId = reportActionList.lastId + 1;
+            const product = reportActionList.getProductByProductId(productId) as Product;
+            const report = new ReportAction(reportId, 'storage', productStorage, 0, 0, 0, '', product);
+            reportActionList.push(report);
         }
 
-        if (this.underpayment > 0) {
-            const price = reportActionList.transferredForProducts;
-            for (const [productId, productReports] of productIdActionListMap) {
-                let productUnderpayment: number;
-                if (price > 0) {
-                    if (productReports.transferredForProducts <= 0) continue;
-                    productUnderpayment = this.underpayment / price * productReports.transferredForProducts;
-                } else {
-                    productUnderpayment = this.underpayment / reportActionList.uniqueProductIdList.length;
-                }
-
-                const reportId = reportActionList.lastId + 1;
-                const product = reportActionList.getProductByProductId(productId) as Product;
-                const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
-                reportActionList.push(report);
+        const transferredForProducts = reportActionList.transferredForProducts;
+        for (const [productId, productReports] of productIdActionListMap) {
+            let productUnderpayment: number;
+            if (transferredForProducts > 0) {
+                if (productReports.transferredForProducts <= 0) continue;
+                productUnderpayment = this.underpayment / transferredForProducts * productReports.transferredForProducts;
+            } else {
+                productUnderpayment = this.underpayment / reportActionList.uniqueProductIdList.length;
             }
+
+            const reportId = reportActionList.lastId + 1;
+            const product = reportActionList.getProductByProductId(productId) as Product;
+            const report = new ReportAction(reportId, 'underpayment', productUnderpayment, 0, 0, 0, '', product);
+            reportActionList.push(report);
         }
 
-        if (this.commonFines > 0) {
-            const price = reportActionList.transferredForProducts;
-            for (const [productId, productReports] of productIdActionListMap) {
-                let productCommonFines: number;
-                if (price > 0) {
-                    if (productReports.transferredForProducts <= 0) continue;
-                    productCommonFines = this.commonFines / price * productReports.transferredForProducts;
-                } else {
-                    productCommonFines = this.commonFines / reportActionList.uniqueProductIdList.length;
-                }
-                
-                const reportId = reportActionList.lastId + 1;
-                const product = reportActionList.getProductByProductId(productId) as Product;
-                const report = new ReportAction(reportId, 'common-fines', 0, 0, 0, productCommonFines, '', product);
-                reportActionList.push(report);
+        for (const [productId, productReports] of productIdActionListMap) {
+            let productCommonFines: number;
+            if (transferredForProducts > 0) {
+                if (productReports.transferredForProducts <= 0) continue;
+                productCommonFines = this.commonFines / transferredForProducts * productReports.transferredForProducts;
+            } else {
+                productCommonFines = this.commonFines / reportActionList.uniqueProductIdList.length;
             }
+            
+            const reportId = reportActionList.lastId + 1;
+            const product = reportActionList.getProductByProductId(productId) as Product;
+            const report = new ReportAction(reportId, 'common-fines', 0, 0, 0, productCommonFines, '', product);
+            reportActionList.push(report);
         }
 
         // Группируем Id продукта - Список репортов
