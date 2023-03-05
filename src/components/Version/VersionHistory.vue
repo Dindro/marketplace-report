@@ -28,6 +28,7 @@
             time: '20:30',
             points: [
                 'Добавил вычисление общей сумму при вводе рекламы',
+                'Добавил ссылку на Финансовые отчеты и Платная приемка',
             ],
         },
         {
@@ -99,7 +100,7 @@
         line-height: 1.2;
         background-color: #F5F5F5;
         padding: 16px;
-        width: 500px;
+        max-width: 500px;
         border-radius: 12px;
 
         &__time {

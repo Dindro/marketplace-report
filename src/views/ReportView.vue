@@ -4,8 +4,14 @@
         <Form @calculate="onCalculate" />
 
         <div class="product-info__fast">
+            <a href="https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/reports-weekly" target="_blank">
+                <Button>📈 Финансовые отчеты</Button>
+            </a>
             <a href="https://cmp.wildberries.ru/finance/upd" target="_blank">
                 <Button>💰 История затрат рекламы</Button>
+            </a>
+            <a href="https://seller.wildberries.ru/analytics/acceptance-report" target="_blank">
+                <Button>📦 Платная приемка</Button>
             </a>
         </div>
 
@@ -102,7 +108,15 @@ async function getProductActionByFile(file: ArrayBuffer, ads: IAdProductData[], 
     padding-bottom: 100px;
 
     &__fast {
-        margin-top: 16px;
+        margin-top: 8px;
+        margin-left: -8px;
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            margin-top: 8px;
+            margin-left: 8px;
+        }
     }
 
     &__block {
