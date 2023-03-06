@@ -7,6 +7,7 @@
             :type="type"
             :placeholder="props.placeholder"
             @input="onInput"
+            @change="onChange"
         >
         <p v-if="props.sub" class="text-field__sub">{{ props.sub }}</p>
     </div>
@@ -25,12 +26,17 @@
 
     const emit = defineEmits<{
         (e: 'update:modelValue', value: string): void;
+        (e: 'change', value: Event): void;
     }>();
 
     const type = computed(() => props.number ? 'number' : 'text');
 
     function onInput(event: Event): void {
         emit('update:modelValue', (event.target as HTMLInputElement).value);
+    }
+
+    function onChange(event: Event): void {
+        emit('change', event);
     }
 </script>
 
