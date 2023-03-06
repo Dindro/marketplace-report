@@ -287,6 +287,8 @@ export default class UploadReportUseCase {
             returnCorrectCount: reportActionList.returnCorrectCount,
             returnMarriage: reportActionList.returnMarriagePrice,
             returnMarriageCount: reportActionList.returnMarriageCount,
+            returnLostProduct: reportActionList.returnLostProductPrice,
+            returnLostProductCount: reportActionList.returnLostProductCount,
             reversal: reportActionList.reversalPrice,
             reversalCount: reportActionList.reversalCount,
             reversalReturn: reportActionList.reveralReturnPrice,

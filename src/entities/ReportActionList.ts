@@ -49,6 +49,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'lost-product');
     }
 
+    get returnLostProductList() {
+        return this.filter(item => item.type === 'lost-product-return');
+    }
+
     get reversalList() {
         return this.filter(item => item.type === 'reversal');
     }
@@ -99,6 +103,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get lostProductCount(): number {
         return this.lostProductList.length;
+    }
+
+    get returnLostProductCount(): number {
+        return this.returnLostProductList.length;
     }
 
     get saleCorrectCount(): number {
@@ -160,14 +168,15 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnMarriage = this.returnMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnLostProduct = this.returnLostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
-        return sale + saleCorrect + saleMarriage + saleLostProduct + reversalReturn - returnSale - reversalSale - returnCorrect - returnMarriage;
+        return sale + saleCorrect + saleMarriage + saleLostProduct + reversalReturn - returnSale - reversalSale - returnCorrect - returnMarriage - returnLostProduct;
     }
 
     /** Перечисления за товары */
     get transferredForProducts(): number {
-        return this.salePrice + this.saleCorrectPrice + this.marriagePrice + this.lostProductPrice + this.reveralReturnPrice - this.returnPrice - this.reversalPrice - this.returnCorrectPrice - this.returnMarriagePrice;
+        return this.salePrice + this.saleCorrectPrice + this.marriagePrice + this.lostProductPrice + this.reveralReturnPrice - this.returnPrice - this.reversalPrice - this.returnCorrectPrice - this.returnMarriagePrice - this.returnLostProductPrice;
     }
 
     get salePrice(): number {
@@ -219,6 +228,11 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Оплата за потерянный товар, Копейки */
     get lostProductPrice(): number {
         return this.lostProductList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Возврат потерянного товара, Копейки */
+    get returnLostProductPrice(): number {
+        return this.returnLostProductList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Сумма сторно продаж, Копейки */
@@ -276,7 +290,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.returnMarriagePrice - this.retentionPrice - this.storagePrice - this.underpaymentPrice - this.commonRetentionPrice - this.paidReceptionPrice;
+        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.returnMarriagePrice - this.returnLostProductPrice - this.retentionPrice - this.storagePrice - this.underpaymentPrice - this.commonRetentionPrice - this.paidReceptionPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */

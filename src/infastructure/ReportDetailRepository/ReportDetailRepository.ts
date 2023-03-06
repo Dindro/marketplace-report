@@ -102,9 +102,22 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                         case 'return':
                             type = 'marriage-return';
                             break;
+                        default:
+                            type = 'unkown';
+                            break;
                     }
-                } else if (type === 'lost-product' && typeDocument !== 'sale') {
-                    type = 'unkown';
+                } else if (type === 'lost-product') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'lost-product';
+                            break;
+                        case 'return':
+                            type = 'lost-product-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 }
                 
                 const reportAction = new ReportAction(
