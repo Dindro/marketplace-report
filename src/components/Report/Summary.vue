@@ -209,7 +209,7 @@
             <div class="summary__item summary-item">
                 <p class="summary-item__title">УСН</p>
                 <p class="summary-item__value">
-                    {{ (props.summary.tax / 100).toLocaleString() }} ₽
+                    <span class="copy" v-clipboard="convertPriceToCopy(props.summary.tax)">{{ (props.summary.tax / 100).toLocaleString() }} ₽</span>
                     <span
                         v-if="props.summary.tax"
                         class="snap snap--minor"
@@ -221,7 +221,11 @@
             </div>
             <div class="summary__item summary-item">
                 <p class="summary-item__title">К переводу без УСН</p>
-                <p class="summary-item__value">{{ (props.summary.revenueWithoutTax / 100).toLocaleString() }} ₽</p>
+                <p class="summary-item__value">
+                    <span class="copy" v-clipboard="convertPriceToCopy(props.summary.revenueWithoutTax)">
+                        {{ (props.summary.revenueWithoutTax / 100).toLocaleString() }} ₽
+                    </span>
+                </p>
             </div>
         </div>
     </div>
@@ -246,6 +250,10 @@
     const taxTitle = computed(() => {
         return `${(props.summary.taxSource / 100).toLocaleString()} ₽ = Реализовали товар`;
     });
+
+    function convertPriceToCopy(price: number): string {
+        return (price / 100).toLocaleString().replaceAll(' ', '');
+    }
 </script>
 
 <style lang="scss" scoped>

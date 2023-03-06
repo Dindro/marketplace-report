@@ -28,3 +28,13 @@ a {
   padding: 0 20px;
   margin: 0 auto;
 }
+
+.copy {
+  cursor: copy;
+  margin: 0 -2px;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+.copy:hover {
+  background-color: #D9D9D9;
+}
