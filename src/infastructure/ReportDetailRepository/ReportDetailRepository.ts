@@ -94,6 +94,17 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     type = 'unkown';
                 } else if (type === 'reversal-return' && typeDocument !== 'sale') {
                     type = 'unkown';
+                } else if (type === 'marriage') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'marriage';
+                            break;
+                        case 'return':
+                            type = 'marriage-return';
+                            break;
+                    }
+                } else if (type === 'lost-product' && typeDocument !== 'sale') {
+                    type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(

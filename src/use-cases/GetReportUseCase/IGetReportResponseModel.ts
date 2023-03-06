@@ -23,6 +23,8 @@ export interface ISummaryReport {
     returnCount: number;
     returnCorrect: number;
     returnCorrectCount: number;
+    returnMarriage: number;
+    returnMarriageCount: number;
     reversal: number;
     reversalCount: number;
     reversalReturn: number;
