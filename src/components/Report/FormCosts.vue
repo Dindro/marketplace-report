@@ -90,7 +90,7 @@
         if (cost) {
             if (!cost.code) cost.preview = '';
             else {
-                const picture = await getProductPicture.execute(cost.code);
+                const picture = await getProductPicture.execute(+cost.code);
                 cost.preview = picture.preview;
             }
         }
