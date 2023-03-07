@@ -13,12 +13,12 @@
                         :key="index"
                         class="cost-product__row"
                     >
-                        <img v-if="cost.preview" class="cost-product__image" :src="cost.preview">
+                        <img v-if="cost.preview" class="cost-product__image" :src="cost.preview" @error="onErrorPreview(index)">
                         <TextField
                             v-model="cost.code"
                             class="cost-product__code"
                             placeholder="Код товара"
-                            @input="onCodeChange(index)"
+                            @input="onChangeCode(index)"
                         />
                         <TextField v-model="cost.price" class="cost-product__price" number placeholder="Сумма ₽" />
                         <Button
@@ -85,7 +85,7 @@
         return costs.value.map(cost => +cost.price).reduce((sum, price) => sum + price, 0);
     });
 
-    async function onCodeChange(costIndex: number): Promise<void> {
+    async function onChangeCode(costIndex: number): Promise<void> {
         const cost = costs.value[costIndex];
         if (cost) {
             if (!cost.code) cost.preview = '';
@@ -93,6 +93,13 @@
                 const picture = await getProductPicture.execute(+cost.code);
                 cost.preview = picture.preview;
             }
+        }
+    }
+    
+    function onErrorPreview(costIndex: number): void {
+        const cost = costs.value[costIndex];
+        if (cost) {
+            cost.preview = '';
         }
     }
 
