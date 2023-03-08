@@ -5,13 +5,13 @@
 
         <div class="product-info__fast">
             <a href="https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/reports-weekly" target="_blank">
-                <Button>📈 Финансовые отчеты</Button>
+                <Button tag="span">📈 Финансовые отчеты</Button>
             </a>
             <a href="https://cmp.wildberries.ru/finance/upd" target="_blank">
-                <Button>💰 История затрат рекламы</Button>
+                <Button tag="span">💰 История затрат рекламы</Button>
             </a>
             <a href="https://seller.wildberries.ru/analytics/acceptance-report" target="_blank">
-                <Button>📦 Платная приемка</Button>
+                <Button tag="span">📦 Платная приемка</Button>
             </a>
         </div>
 

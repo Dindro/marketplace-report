@@ -1,7 +1,10 @@
 <template>
-    <button type="button" class="button" :class="classes" :disabled="disabled">
+    <button v-if="!props.tag || props.tag === 'button'" type="button" class="button" :class="classes" :disabled="disabled">
         <slot />
     </button>
+    <span v-else-if="props.tag === 'span'" class="button" :class="classes">
+        <slot />
+    </span>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +15,7 @@
         disabled?: boolean;
         color?: 'red';
         box?: boolean;
+        tag?: 'button' | 'span';
     }>();
 
     const classes = computed(() => {
@@ -21,6 +25,7 @@
         if (props.mini) classes.push(`${buttonClass}--mini`);
         if (props.color) classes.push(`${buttonClass}--${props.color}`);
         if (props.box) classes.push(`${buttonClass}--box`);
+        if (props.disabled) classes.push(`${buttonClass}--disabled`);
 
         return classes;
     });

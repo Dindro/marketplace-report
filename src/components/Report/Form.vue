@@ -3,7 +3,7 @@
         <div class="form__step">
             <div class="form__counter">1</div>
             <div class="form__controls">
-                <input type="file" accept=".xls,.xlsx" @change="onChangeFile" />
+                <FileField action="Выбрать отчет" accept=".xls,.xlsx" @change="file = $event" />
             </div>
         </div>
         <div class="form__step">
@@ -75,6 +75,7 @@
 
     import Button from '@/components/UI/Button.vue';
     import TextField from '@/components/UI/TextField.vue';
+    import FileField from '@/components/UI/FileField.vue';
     import FormCosts, { type ICostStructure } from '@/components/Report/FormCosts.vue';
 
     export interface IFormStructure {
