@@ -6,6 +6,7 @@ const map: { [key: string]: ReportActionType } = {
     'Сторно продаж': 'reversal',
     'Возврат': 'return',
     'Логистика': 'delivery',
+    'Логистика сторно': 'delivery-reversal',
     'Оплата брака': 'marriage',
     'Оплата потерянного товара': 'lost-product',
     'Штрафы': 'fines',

@@ -66,7 +66,7 @@
                 <p class="summary-item__title">Общая логистика</p>
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryCommon / 100).toLocaleString() }} ₽
-                    <span v-if="props.summary.deliveryCommonCount" class="snap" title="Логистика + Обратная логистика">{{ props.summary.deliveryCommonCount }}</span>
+                    <span v-if="props.summary.deliveryCommonCount" class="snap" :title="deliveryTitle">{{ props.summary.deliveryCommonCount }}</span>
                     <span v-if="visibleSales" class="info">В отчете «Стоимость логистики»</span>
                 </p>
             </div>
@@ -83,6 +83,13 @@
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryReturn / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.deliveryReturnCount" class="snap snap--minor">{{ props.summary.deliveryReturnCount }}</span>
+                </p>
+            </div>
+            <div class="summary__item summary-item summary-item--sub">
+                <p class="summary-item__title">Логистика сторно</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.deliveryReversal / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.deliveryReversalCount" class="snap snap--success">{{ props.summary.deliveryReversalCount }}</span>
                 </p>
             </div>
         </div>
@@ -245,6 +252,13 @@
         if (!props.summary.finesDescription.length) return '';
         else if (props.summary.finesDescription.length === 1) return props.summary.finesDescription.join();
         else return props.summary.finesDescription.map((description, index) => `${index + 1}. ${description}`).join('\n');
+    });
+
+    const deliveryTitle = computed(() => {
+        let title = 'Логистика + Обратная логистика';
+        if (props.summary.deliveryReversal) title += ' - Логистика сторно';
+
+        return title;
     });
 
     const taxTitle = computed(() => {

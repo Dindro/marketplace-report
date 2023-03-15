@@ -25,6 +25,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'delivery');
     }
 
+    get deliveryReversalList() {
+        return this.filter(item => item.type === 'delivery-reversal');
+    }
+
     get deliveryReturnList() {
         return this.filter(item => item.type === 'delivery-return');
     }
@@ -125,8 +129,12 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.deliveryReturnList.length;
     }
 
+    get deliveryReversalCount(): number {
+        return this.deliveryReversalList.length;
+    }
+
     get deliveryCommonCount(): number {
-        return this.deliveryCount + this.deliveryReturnCount;
+        return this.deliveryCount + this.deliveryReturnCount - this.deliveryReversalCount;
     }
 
     get returnCount(): number {
@@ -196,9 +204,13 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.deliveryReturnList.reduce((sum, item) => sum + item.deliveryPrice, 0);
     }
 
+    get deliveryReversalPrice(): number {
+        return this.deliveryReversalList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
     /** Общая сумма логистики, Копейки */
     get deliveryCommonPrice(): number {
-        return this.deliveryPrice + this.deliveryReturnPrice;
+        return this.deliveryPrice + this.deliveryReturnPrice - this.deliveryReversalPrice;
     }
 
     get returnPrice(): number {
@@ -290,7 +302,25 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice + this.marriagePrice + this.lostProductPrice + this.saleCorrectPrice + this.reveralReturnPrice - this.deliveryPrice - this.deliveryReturnPrice - this.returnPrice - this.finesPrice - this.reversalPrice - this.returnCorrectPrice - this.returnMarriagePrice - this.returnLostProductPrice - this.retentionPrice - this.storagePrice - this.underpaymentPrice - this.commonRetentionPrice - this.paidReceptionPrice;
+        return this.salePrice 
+            + this.marriagePrice
+            + this.lostProductPrice
+            + this.saleCorrectPrice
+            + this.reveralReturnPrice
+            + this.deliveryReversalPrice
+            - this.deliveryPrice
+            - this.deliveryReturnPrice
+            - this.returnPrice
+            - this.finesPrice
+            - this.reversalPrice
+            - this.returnCorrectPrice
+            - this.returnMarriagePrice
+            - this.returnLostProductPrice
+            - this.retentionPrice
+            - this.storagePrice
+            - this.underpaymentPrice
+            - this.commonRetentionPrice
+            - this.paidReceptionPrice;
     }
     
     /** Доход (Сумму которую перечислили) с вычетом налога */
