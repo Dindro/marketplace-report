@@ -85,7 +85,7 @@
                     <span v-if="props.summary.deliveryReturnCount" class="snap snap--minor">{{ props.summary.deliveryReturnCount }}</span>
                 </p>
             </div>
-            <div class="summary__item summary-item summary-item--sub">
+            <div v-if="props.summary.deliveryReversal" class="summary__item summary-item summary-item--sub">
                 <p class="summary-item__title">Логистика сторно</p>
                 <p class="summary-item__value">
                     {{ (props.summary.deliveryReversal / 100).toLocaleString() }} ₽
