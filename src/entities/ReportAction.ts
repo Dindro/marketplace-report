@@ -15,6 +15,7 @@ export type ReportActionType =
     'lost-product-return' |
     'reversal' |
     'reversal-return' |
+    'without-movement-return' |
     'fines' |
     'common-retention' |
     'retention' |

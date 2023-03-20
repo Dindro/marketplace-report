@@ -130,6 +130,14 @@
                     <span v-if="props.summary.reversalCount" class="snap">{{ props.summary.reversalCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.returnWithoutMovement" class="summary__item summary-item">
+                <p class="summary-item__title">Возврат без движения</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.returnWithoutMovement / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.returnWithoutMovementCount" class="snap">{{ props.summary.returnWithoutMovementCount }}</span>
+                    <span class="info">Авансовая оплата за товар без движения</span>
+                </p>
+            </div>
             <div v-if="props.summary.storage" class="summary__item summary-item">
                 <p class="summary-item__title">Хранение</p>
                 <p class="summary-item__value">

@@ -12,6 +12,7 @@ const map: { [key: string]: ReportActionType } = {
     'Штрафы': 'fines',
     'Корректный возврат': 'return-correct',
     'Сторно возвратов': 'reversal-return',
+    'Авансовая оплата за товар без движения': 'without-movement-return',
 };
 
 export default map;

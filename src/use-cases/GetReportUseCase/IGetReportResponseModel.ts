@@ -29,6 +29,8 @@ export interface ISummaryReport {
     returnMarriageCount: number;
     returnLostProduct: number;
     returnLostProductCount: number;
+    returnWithoutMovement: number;
+    returnWithoutMovementCount: number;
     reversal: number;
     reversalCount: number;
     reversalReturn: number;

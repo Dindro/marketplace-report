@@ -120,6 +120,8 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     }
                 } else if (type === 'delivery-reversal' && typeDocument !== 'sale') {
                     type = 'unkown';
+                } else if (type === 'without-movement-return' && typeDocument !== 'return') {
+                    type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(
