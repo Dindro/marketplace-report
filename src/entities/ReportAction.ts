@@ -6,6 +6,7 @@ export type ReportActionType =
     'delivery-reversal' |
     'sale' |
     'sale-correct' |
+    'without-movement' |
     'return-correct' |
     'delivery-return' |
     'return' |

@@ -21,6 +21,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'sale-correct');
     }
 
+    get withoutMovementList() {
+        return this.filter(item => item.type === 'without-movement');
+    }
+
     get deliveryList() {
         return this.filter(item => item.type === 'delivery');
     }
@@ -153,6 +157,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.reversalReturnList.length;
     }
 
+    get withoutMovementCount(): number {
+        return this.withoutMovementList.length;
+    }
+
     get returnWithoutMovementCount(): number {
         return this.returnWithoutMovementList.length;
     }
@@ -180,6 +188,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const saleMarriage = this.marriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const saleLostProduct = this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalReturn = this.reversalReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const withoutMovement = this.withoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -193,6 +202,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + saleMarriage
             + saleLostProduct
             + reversalReturn
+            + withoutMovement
             - returnSale
             - reversalSale
             - returnCorrect
@@ -208,6 +218,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.marriagePrice
             + this.lostProductPrice
             + this.reveralReturnPrice
+            + this.withoutMovementPrice
             - this.returnPrice
             - this.reversalPrice
             - this.returnCorrectPrice
@@ -276,6 +287,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.returnLostProductList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    /** Авансовая оплата за товар без движения */
+    get withoutMovementPrice(): number {
+        return this.withoutMovementList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
     /** Возврат авансовая оплата за товар без движения */
     get returnWithoutMovementPrice(): number {
         return this.returnWithoutMovementList.reduce((sum, item) => sum + item.transferredPrice, 0);
@@ -336,21 +352,11 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Доход (Сумму которую перечислили), Копейки */
     get revenuePrice(): number {
-        return this.salePrice 
-            + this.marriagePrice
-            + this.lostProductPrice
-            + this.saleCorrectPrice
-            + this.reveralReturnPrice
+        return this.transferredForProducts
             + this.deliveryReversalPrice
             - this.deliveryPrice
             - this.deliveryReturnPrice
-            - this.returnPrice
             - this.finesPrice
-            - this.reversalPrice
-            - this.returnCorrectPrice
-            - this.returnMarriagePrice
-            - this.returnLostProductPrice
-            - this.returnWithoutMovementPrice
             - this.retentionPrice
             - this.storagePrice
             - this.underpaymentPrice

@@ -7,6 +7,8 @@ export interface ISummaryReport {
     transferredForProducts: number;
     sale: number;
     saleCount: number;
+    withoutMovement: number;
+    withoutMovementCount: number;
     marriage: number;
     marriageCount: number;
     saleCorrect: number;

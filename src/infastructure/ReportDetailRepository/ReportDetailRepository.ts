@@ -87,7 +87,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     const returnCount: number = +row['Количество возврата'];
                     
                     if (deliveryCount > 0) type = 'delivery';
-                    else if (returnCount > 0) type ='delivery-return';
+                    else if (returnCount > 0) type = 'delivery-return';
                     else type = 'unkown';
 
                 } else if (type === 'reversal' && typeDocument !== 'return') {
@@ -120,8 +120,18 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     }
                 } else if (type === 'delivery-reversal' && typeDocument !== 'sale') {
                     type = 'unkown';
-                } else if (type === 'without-movement-return' && typeDocument !== 'return') {
-                    type = 'unkown';
+                } else if (type === 'without-movement') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'without-movement';
+                            break;
+                        case 'return':
+                            type = 'without-movement-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 }
                 
                 const reportAction = new ReportAction(

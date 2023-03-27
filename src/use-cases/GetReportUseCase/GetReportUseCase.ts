@@ -269,6 +269,8 @@ export default class UploadReportUseCase {
             transferredForProducts: reportActionList.transferredForProducts,
             saleCount: reportActionList.saleCount,
             sale: reportActionList.salePrice,
+            withoutMovement: reportActionList.withoutMovementPrice,
+            withoutMovementCount: reportActionList.withoutMovementCount,
             marriage: reportActionList.marriagePrice,
             marriageCount: reportActionList.marriageCount,
             saleCorrect: reportActionList.saleCorrectPrice,

@@ -59,6 +59,14 @@
                     <span class="snap">{{ props.summary.lostCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.withoutMovement" class="summary__item summary-item">
+                <p class="summary-item__title">Оплата без движения</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.withoutMovement / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.withoutMovementCount" class="snap">{{ props.summary.withoutMovementCount }}</span>
+                    <span class="info">Авансовая оплата за товар без движения</span>
+                </p>
+            </div>
         </div>
 
         <div class="summary__group">
