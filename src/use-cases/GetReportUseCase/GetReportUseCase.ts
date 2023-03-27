@@ -273,6 +273,8 @@ export default class UploadReportUseCase {
             withoutMovementCount: reportActionList.withoutMovementCount,
             marriage: reportActionList.marriagePrice,
             marriageCount: reportActionList.marriageCount,
+            partialMarriage: reportActionList.partialMarriagePrice,
+            partialMarriageCount: reportActionList.partialMarriageCount,
             saleCorrect: reportActionList.saleCorrectPrice,
             saleCorrectCount: reportActionList.saleCorrectCount,
             lost: reportActionList.lostProductPrice,

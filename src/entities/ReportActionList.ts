@@ -25,6 +25,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'without-movement');
     }
 
+    get partialMarriageList() {
+        return this.filter(item => item.type === 'partial-marriage');
+    }
+
     get deliveryList() {
         return this.filter(item => item.type === 'delivery');
     }
@@ -109,6 +113,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.marriageList.length;
     }
 
+    get partialMarriageCount(): number {
+        return this.partialMarriageList.length;
+    }
+
     get returnMarriageCount(): number {
         return this.returnMarriageList.length;
     }
@@ -189,6 +197,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const saleLostProduct = this.lostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalReturn = this.reversalReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const withoutMovement = this.withoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const partialMarriage = this.partialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -203,6 +212,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + saleLostProduct
             + reversalReturn
             + withoutMovement
+            + partialMarriage
             - returnSale
             - reversalSale
             - returnCorrect
@@ -219,6 +229,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.lostProductPrice
             + this.reveralReturnPrice
             + this.withoutMovementPrice
+            + this.partialMarriagePrice
             - this.returnPrice
             - this.reversalPrice
             - this.returnCorrectPrice
@@ -234,6 +245,11 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Корректная продажа */
     get saleCorrectPrice(): number {
         return this.saleCorrectList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Частичная компенсация брака */
+    get partialMarriagePrice(): number {
+        return this.partialMarriageList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     get deliveryPrice(): number {

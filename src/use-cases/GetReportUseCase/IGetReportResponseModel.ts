@@ -11,6 +11,8 @@ export interface ISummaryReport {
     withoutMovementCount: number;
     marriage: number;
     marriageCount: number;
+    partialMarriage: number;
+    partialMarriageCount: number;
     saleCorrect: number;
     saleCorrectCount: number;
     lost: number;

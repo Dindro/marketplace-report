@@ -132,6 +132,8 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
+                } else if (type === 'partial-marriage' && typeDocument !== 'sale') {
+                    type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(

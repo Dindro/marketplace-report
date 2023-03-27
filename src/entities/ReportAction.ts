@@ -7,6 +7,7 @@ export type ReportActionType =
     'sale' |
     'sale-correct' |
     'without-movement' |
+    'partial-marriage' |
     'return-correct' |
     'delivery-return' |
     'return' |
