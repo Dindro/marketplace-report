@@ -151,7 +151,7 @@
     }
 
     function getSiteByArticle(article: string): string {
-        return `https://seller.wildberries.ru/new-goods/new-product-card?vendorCode=${article}`;
+        return `https://seller.wildberries.ru/new-goods/goods/new-product-card?vendorCode=${article}`;
     }
 
     function copy(text: string) {
