@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="tariff__footer">
-                        <a href="#" class="btn" type="button">Купить</a>
+                        <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
                         <button class="btn" type="button" onclick="tinkoff.create(
                             {
                                 sum: 29900,
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                     <div class="tariff__footer">
-                        <a href="#" class="btn btn--red" type="button">Купить</a>
+                        <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
                                 sum: 39900,
@@ -284,7 +284,7 @@
                         </div>
                     </div>
                     <div class="tariff__footer">
-                        <a href="#" class="btn btn--yellow" type="button">Купить</a>
+                        <a href="https://wa.me/79966439800" class="btn btn--yellow" target="_blank">Купить</a>
                         <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
                             {
                                 sum: 45990,
