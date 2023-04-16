@@ -93,6 +93,7 @@
                                 items: [{ name: 'Курс по обучению Wildberries', price: 29900, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
@@ -192,6 +193,7 @@
                                 items: [{ name: 'Курс по обучению Wildberries и Китай', price: 39900, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
@@ -291,6 +293,7 @@
                                 items: [{ name: 'Курс по обучению Wildberries и Китай с наставником', price: 45990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
