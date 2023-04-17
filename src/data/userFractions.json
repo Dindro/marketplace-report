@@ -724,5 +724,16 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 66,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 156702398,
+            "article": "Pistoletmama",
+            "barcode": 2037716014814,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
