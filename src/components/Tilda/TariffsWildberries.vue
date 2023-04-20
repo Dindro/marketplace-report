@@ -4,18 +4,18 @@
             <div class="tariffs__item">
                 <div class="tariff">
                     <div class="tariff__header">
-                        <div class="tariff__title">Wildberries</div>
-                        <div class="tariff__price">29 990 ₽</div>
+                        <div class="tariff__title">Самостоятельный</div>
+                        <div class="tariff__price">37 990 ₽</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Предусмотрено - 1 сем. <span class="tariff__hidden">(5 семинаров)</span></div>
-                            <div class="tariff__point">25 лекций <span class="tariff__hidden">(31 лекция)</span></div>
-                            <div class="tariff__point">Имеется личное сопровождение после обучения - 3 месяца <span class="tariff__hidden">(6 месяцев)</span></div>
-                            <div class="tariff__point">Добавление в группу общения</div>
+                            <div class="tariff__point">31 лекция</div>
+                            <div class="tariff__point tariff__point--opacify">Предусмотрено - 5 семинаров</div>
+                            <div class="tariff__point tariff__point--opacify">Имеется личное сопровождение после обучения - 6 месяцев</div>
+                            <div class="tariff__point tariff__point--opacify">Добавление в группу общения</div>
                             <div class="tariff__point tariff__point--opacify">Помощь в регистрации сайта Таобао и 1688</div>
                             <div class="tariff__point tariff__point--opacify">Бонусный урок по подготовке инфографики в фотошоп</div>
                         </div>
@@ -34,11 +34,11 @@
                                 Модуль 2. Подбор ниши
                             </div>
                             <div class="tariff__point">2.1 Аналитические сервисы для подбора ниши</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
                             <div class="tariff__point">2.4 Юнит - экономика</div>
                         </div>
-                        <div class="tariff__block tariff__block--opacify">
+                        <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Модуль 3. Поставщики
                             </div>
@@ -89,10 +89,11 @@
                         <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
                         <button class="btn" type="button" onclick="tinkoff.create(
                             {
-                                sum: 29900,
-                                items: [{ name: 'Курс по обучению Wildberries', price: 29900, quantity: 1 }],
+                                sum: 37990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 37990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
@@ -103,19 +104,19 @@
             <div class="tariffs__item">
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
-                        <div class="tariff__title">Wildberries и Китай</div>
-                        <div class="tariff__price">39 990 ₽</div>
+                        <div class="tariff__title">С куратором</div>
+                        <div class="tariff__price">49 990 ₽</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Предусмотрено - 2 сем. <span class="tariff__hidden">(5 семинаров)</span></div>
                             <div class="tariff__point">31 лекция</div>
+                            <div class="tariff__point">Предусмотрено - 2 сем. <span class="tariff__hidden">(5 семинаров)</span></div>
                             <div class="tariff__point">Имеется личное сопровождение после обучения - 3 месяца <span class="tariff__hidden">(6 месяцев)</span></div>
                             <div class="tariff__point">Добавление в группу общения</div>
-                            <div class="tariff__point tariff__point--opacify">Помощь в регистрации сайта Таобао и 1688</div>
+                            <div class="tariff__point">Помощь в регистрации сайта Таобао и 1688</div>
                             <div class="tariff__point tariff__point--opacify">Бонусный урок по подготовке инфографики в фотошоп</div>
                         </div>
                         <div class="tariff__block">
@@ -133,8 +134,8 @@
                                 Модуль 2. Подбор ниши
                             </div>
                             <div class="tariff__point">2.1 Аналитические сервисы для подбора ниши</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
                             <div class="tariff__point">2.4 Юнит - экономика</div>
                         </div>
                         <div class="tariff__block">
@@ -188,10 +189,11 @@
                         <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 39900,
-                                items: [{ name: 'Курс по обучению Wildberries и Китай', price: 39900, quantity: 1 }],
+                                sum: 49990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 49990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
@@ -202,16 +204,16 @@
             <div class="tariffs__item">
                 <div class="tariff tariff--yellow">
                     <div class="tariff__header">
-                        <div class="tariff__title">Wildberries и Китай с натавником</div>
-                        <div class="tariff__price">45 990 ₽</div>
+                        <div class="tariff__title">С наставником</div>
+                        <div class="tariff__price">59 990 ₽</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Предусмотрено - 5 семинаров</div>
                             <div class="tariff__point">31 лекция</div>
+                            <div class="tariff__point">Предусмотрено - 5 семинаров</div>
                             <div class="tariff__point">Имеется личное сопровождение после обучения - 6 месяцев</div>
                             <div class="tariff__point">Добавление в группу общения</div>
                             <div class="tariff__point">Помощь в регистрации сайта Таобао и 1688</div>
@@ -232,8 +234,8 @@
                                 Модуль 2. Подбор ниши
                             </div>
                             <div class="tariff__point">2.1 Аналитические сервисы для подбора ниши</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
-                            <div class="tariff__point">2.2 Подбор прибыльной ниш</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
+                            <div class="tariff__point">2.2 Подбор прибыльной ниши</div>
                             <div class="tariff__point">2.4 Юнит - экономика</div>
                         </div>
                         <div class="tariff__block">
@@ -287,10 +289,11 @@
                         <a href="https://wa.me/79966439800" class="btn btn--yellow" target="_blank">Купить</a>
                         <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
                             {
-                                sum: 45990,
-                                items: [{ name: 'Курс по обучению Wildberries и Китай с наставником', price: 45990, quantity: 1 }],
+                                sum: 59990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с наставником', price: 59990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Купить в расрочку</button>
