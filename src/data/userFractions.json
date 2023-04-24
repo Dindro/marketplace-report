@@ -735,5 +735,27 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 67,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 155603790,
+            "article": "Whitehalat",
+            "barcode": 2037689742394,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 68,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 156950355,
+            "article": "podushkagary",
+            "barcode": 2037717737804,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
