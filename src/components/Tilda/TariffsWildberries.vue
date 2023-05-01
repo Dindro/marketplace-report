@@ -5,15 +5,15 @@
                 <div class="tariff">
                     <div class="tariff__header">
                         <div class="tariff__title">Самостоятельный</div>
-                        <div class="tariff__price">37 990 ₽</div>
+                        <div class="tariff__price" data-current="39 990">29 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">31 лекция</div>
-                            <div class="tariff__point tariff__point--opacify">Предусмотрено - 5 семинаров</div>
+                            <div class="tariff__point">Более 30 лекций</div>
+                            <div class="tariff__point tariff__point--opacify">Предусмотрено - 2 семинара с куратором</div>
                             <div class="tariff__point tariff__point--opacify">Имеется личное сопровождение после обучения - 6 месяцев</div>
                             <div class="tariff__point tariff__point--opacify">Добавление в группу общения</div>
                             <div class="tariff__point tariff__point--opacify">Помощь в регистрации сайта Таобао и 1688</div>
@@ -89,14 +89,24 @@
                         <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
                         <button class="btn" type="button" onclick="tinkoff.create(
                             {
-                                sum: 37990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 37990, quantity: 1 }],
+                                sum: 29990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 29990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
-                        )">Купить в расрочку</button>
+                        )">Рассрочка на 6 месяцев</button>
+                        <button class="btn" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 29990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 29990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_12_11,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 12 месяцев</button>
                     </div>
                 </div>
             </div>
@@ -105,15 +115,15 @@
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
                         <div class="tariff__title">С куратором</div>
-                        <div class="tariff__price">49 990 ₽</div>
+                        <div class="tariff__price" data-current="39 990">49 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">31 лекция</div>
-                            <div class="tariff__point">Предусмотрено - 2 сем. <span class="tariff__hidden">(5 семинаров)</span></div>
+                            <div class="tariff__point">Более 30 лекций</div>
+                            <div class="tariff__point">Предусмотрено - 2 семинара с куратором</div>
                             <div class="tariff__point">Имеется личное сопровождение после обучения - 3 месяца <span class="tariff__hidden">(6 месяцев)</span></div>
                             <div class="tariff__point">Добавление в группу общения</div>
                             <div class="tariff__point">Помощь в регистрации сайта Таобао и 1688</div>
@@ -196,7 +206,17 @@
                                 promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
-                        )">Купить в расрочку</button>
+                        )">Рассрочка на 6 месяцев</button>
+                        <button class="btn btn--red" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 49990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 49990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_12_11,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 12 месяцев</button>
                     </div>
                 </div>
             </div>
@@ -205,15 +225,15 @@
                 <div class="tariff tariff--yellow">
                     <div class="tariff__header">
                         <div class="tariff__title">С наставником</div>
-                        <div class="tariff__price">59 990 ₽</div>
+                        <div class="tariff__price">59 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">31 лекция</div>
-                            <div class="tariff__point">Предусмотрено - 5 семинаров</div>
+                            <div class="tariff__point">Более 30 лекций</div>
+                            <div class="tariff__point">Предусмотрено - 3 семинаров с наставником</div>
                             <div class="tariff__point">Имеется личное сопровождение после обучения - 6 месяцев</div>
                             <div class="tariff__point">Добавление в группу общения</div>
                             <div class="tariff__point">Помощь в регистрации сайта Таобао и 1688</div>
@@ -296,7 +316,17 @@
                                 promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
-                        )">Купить в расрочку</button>
+                        )">Рассрочка на 6 месяцев</button>
+                        <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 59990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с наставником', price: 59990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_12_11,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 12 месяцев</button>
                     </div>
                 </div>
             </div>
@@ -355,8 +385,18 @@
     .tariff__price {
         text-align: center;
         font-weight: bold;
-        font-size: 36px;
+        font-size: 40px;
         margin-top: 16px;
+    }
+    .tariff__price::after {
+        content: attr(data-current);
+        position: absolute;
+        font-size: 18px;
+        font-weight: 400;
+        text-decoration: line-through;
+        opacity: 0.6;
+        top: 0;
+        transform: translate(4px, -4px);
     }
     .tariff__body {
         margin-top: 24px;
@@ -421,6 +461,6 @@
     }
 
     .btn + .btn {
-        margin-top: 16px;
+        margin-top: 12px;
     }
 </style>
