@@ -757,5 +757,170 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 69,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158999296,
+            "article": "RectangleTiger5",
+            "barcode": 2037758430153,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 70,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998206,
+            "article": "RectangleOrange4",
+            "barcode": 2037758378721,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 71,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998205,
+            "article": "RectangleGreen4",
+            "barcode": 2037758378165,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 72,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998204,
+            "article": "RectangleBlack4",
+            "barcode": 2037758377434,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 73,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998201,
+            "article": "SquareBlack2",
+            "barcode": 2037758375676,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 74,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998200,
+            "article": "SquareWhite2",
+            "barcode": 2037758375157,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 75,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997682,
+            "article": "OvalTiger1",
+            "barcode": 2037758368166,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 76,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997681,
+            "article": "OvalBlue1",
+            "barcode": 2037758344498,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 77,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997680,
+            "article": "OvalPink1",
+            "barcode": 2037758337964,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 78,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997679,
+            "article": "OvalOrange1",
+            "barcode": 2037758337476,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 79,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997678,
+            "article": "OvalWhite1",
+            "barcode": 2037758336257,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 80,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158997677,
+            "article": "OvalBlack1",
+            "barcode": 2037758333522,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 81,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158999402,
+            "article": "ColorOrange6",
+            "barcode": 2037758447960,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 82,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158999295,
+            "article": "RectangleBlack5",
+            "barcode": 2037758427986,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 83,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 158998203,
+            "article": "SquareBlack3",
+            "barcode": 2037758376109,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
