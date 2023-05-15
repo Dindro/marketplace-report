@@ -124,6 +124,13 @@
                     <span v-if="props.summary.returnMarriageCount" class="snap">{{ props.summary.returnMarriageCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.returnPartialMarriage" class="summary__item summary-item">
+                <p class="summary-item__title">Частичный возв. брака</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.returnPartialMarriage / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.returnPartialMarriageCount }}</span>
+                </p>
+            </div>
             <div v-if="props.summary.returnLostProduct" class="summary__item summary-item">
                 <p class="summary-item__title">Возврат потерянного</p>
                 <p class="summary-item__value">

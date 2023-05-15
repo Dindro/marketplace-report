@@ -29,6 +29,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'partial-marriage');
     }
 
+    get returnPartialMarriageList() {
+        return this.filter(item => item.type === 'partial-marriage-return');
+    }
+
     get deliveryList() {
         return this.filter(item => item.type === 'delivery');
     }
@@ -115,6 +119,10 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get partialMarriageCount(): number {
         return this.partialMarriageList.length;
+    }
+
+    get returnPartialMarriageCount(): number {
+        return this.returnPartialMarriageList.length;
     }
 
     get returnMarriageCount(): number {
@@ -205,6 +213,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnLostProduct = this.returnLostProductList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnWithoutMovement = this.returnWithoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnPartialMarriage = this.returnPartialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
             + saleCorrect
@@ -218,7 +227,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - returnCorrect
             - returnMarriage
             - returnLostProduct
-            - returnWithoutMovement;
+            - returnWithoutMovement
+            - returnPartialMarriage;
     }
 
     /** Перечисления за товары */
@@ -235,7 +245,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - this.returnCorrectPrice
             - this.returnMarriagePrice
             - this.returnLostProductPrice
-            - this.returnWithoutMovementPrice;
+            - this.returnWithoutMovementPrice
+            - this.returnPartialMarriagePrice;
     }
 
     get salePrice(): number {
@@ -250,6 +261,11 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Частичная компенсация брака */
     get partialMarriagePrice(): number {
         return this.partialMarriageList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Возврат частичная компенсация брака */
+    get returnPartialMarriagePrice(): number {
+        return this.returnPartialMarriageList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     get deliveryPrice(): number {
