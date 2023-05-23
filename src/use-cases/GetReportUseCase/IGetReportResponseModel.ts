@@ -13,6 +13,8 @@ export interface ISummaryReport {
     marriageCount: number;
     partialMarriage: number;
     partialMarriageCount: number;
+    paymentShippingCost: number;
+    paymentShippingCostCount: number;
     returnPartialMarriage: number;
     returnPartialMarriageCount: number;
     saleCorrect: number;

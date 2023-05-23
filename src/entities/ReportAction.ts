@@ -25,6 +25,7 @@ export type ReportActionType =
     'storage' |
     'underpayment' |
     'paid-reception' |
+    'payment-shipping-cost' |
     'unkown';
 
 export default class ReportAction {

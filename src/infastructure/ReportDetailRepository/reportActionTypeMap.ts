@@ -14,6 +14,7 @@ const map: { [key: string]: ReportActionType } = {
     'Сторно возвратов': 'reversal-return',
     'Авансовая оплата за товар без движения': 'without-movement',
     'Частичная компенсация брака': 'partial-marriage',
+    'Возмещение издержек по перевозке': 'payment-shipping-cost',
 };
 
 export default map;

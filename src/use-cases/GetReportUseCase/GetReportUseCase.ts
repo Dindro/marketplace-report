@@ -275,6 +275,8 @@ export default class UploadReportUseCase {
             marriageCount: reportActionList.marriageCount,
             partialMarriage: reportActionList.partialMarriagePrice,
             partialMarriageCount: reportActionList.partialMarriageCount,
+            paymentShippingCost: reportActionList.paymentShippingCostPrice,
+            paymentShippingCostCount: reportActionList.paymentShippingCostCount,
             returnPartialMarriage: reportActionList.returnPartialMarriagePrice,
             returnPartialMarriageCount: reportActionList.returnPartialMarriageCount,
             saleCorrect: reportActionList.saleCorrectPrice,

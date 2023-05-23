@@ -74,6 +74,13 @@
                     <span class="info">Авансовая оплата за товар без движения</span>
                 </p>
             </div>
+            <div v-if="props.summary.paymentShippingCost" class="summary__item summary-item">
+                <p class="summary-item__title">Издержки перевозки</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.paymentShippingCost / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.paymentShippingCostCount }}</span>
+                </p>
+            </div>
         </div>
 
         <div class="summary__group">

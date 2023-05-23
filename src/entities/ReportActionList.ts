@@ -105,6 +105,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'paid-reception');
     }
 
+    get paymentShippingCostList() {
+        return this.filter(item => item.type === 'payment-shipping-cost');
+    }
+
     get unkownList() {
         return this.filter(item => item.type === 'unkown');
     }
@@ -193,6 +197,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.retentionList.length;
     }
 
+    get paymentShippingCostCount(): number {
+        return this.paymentShippingCostList.length;
+    }
+
     get unkownCount(): number {
         return this.unkownList.length;
     }
@@ -240,6 +248,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.reveralReturnPrice
             + this.withoutMovementPrice
             + this.partialMarriagePrice
+            + this.paymentShippingCostPrice
             - this.returnPrice
             - this.reversalPrice
             - this.returnCorrectPrice
@@ -266,6 +275,11 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Возврат частичная компенсация брака */
     get returnPartialMarriagePrice(): number {
         return this.returnPartialMarriageList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Возмещение издержек по перевозке */
+    get paymentShippingCostPrice(): number {
+        return this.paymentShippingCostList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     get deliveryPrice(): number {
