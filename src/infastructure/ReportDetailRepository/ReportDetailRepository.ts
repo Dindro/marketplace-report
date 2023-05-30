@@ -144,7 +144,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
-                } else if (type === 'payment-shipping-cost' && typeDocument !== 'unkown') {
+                } else if (type === 'payment-shipping-cost' && typeDocument !== 'sale') {
                     type = 'unkown';
                 }
                 
