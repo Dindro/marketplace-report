@@ -922,5 +922,203 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 84,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160756740,
+            "article": "2 separate zebra",
+            "barcode": 2037824828334,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 85,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160756740,
+            "article": "2 separate zebra",
+            "barcode": 2037824828334,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 86,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160756741,
+            "article": "2 separate tiger",
+            "barcode": 2037824829690,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 87,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160756741,
+            "article": "2 separate tiger",
+            "barcode": 2037824829690,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 88,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 160758822,
+            "article": "3 separate black",
+            "barcode": 2037824847908,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 89,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160755885,
+            "article": "1 separate orange",
+            "barcode": 2037824809920,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 90,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160755885,
+            "article": "1 separate orange",
+            "barcode": 2037824809920,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 91,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 160758824,
+            "article": "5 separate black",
+            "barcode": 2037907493503,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 92,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 160758824,
+            "article": "5 separate black",
+            "barcode": 2037907493503,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 93,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160755887,
+            "article": "1 separate blue",
+            "barcode": 2037824818120,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 94,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160755887,
+            "article": "1 separate blue",
+            "barcode": 2037824818120,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 95,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160755886,
+            "article": "1 separate black",
+            "barcode": 2037824812159,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 96,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160755886,
+            "article": "1 separate black",
+            "barcode": 2037824812159,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 97,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 160758823,
+            "article": "4 separate black",
+            "barcode": 2037824862062,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 98,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 160758823,
+            "article": "4 separate black",
+            "barcode": 2037824862062,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 99,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 160760118,
+            "article": "1 merged black",
+            "barcode": 2037824888345,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 100,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 160760119,
+            "article": "2 merged black",
+            "barcode": 2037824892793,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 101,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 160760119,
+            "article": "2 merged black",
+            "barcode": 2037824892793,
+            "hatch": 0
+        },
+        "value": 50
     }
 ]
