@@ -24,6 +24,13 @@
 
     const data: IVersion[] = [
         {
+            date: '04.07.2023',
+            time: '15:30',
+            points: [
+                'Добавил доли',
+            ],
+        },  
+        {
             date: '23.05.2023',
             time: '13:00',
             points: [
