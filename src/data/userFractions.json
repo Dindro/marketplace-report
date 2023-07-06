@@ -1131,5 +1131,16 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 103,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 161297774,
+            "article": "Kovboy",
+            "barcode": 2037848701187,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
