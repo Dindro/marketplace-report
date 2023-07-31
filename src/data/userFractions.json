@@ -1142,5 +1142,27 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 104,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 166006234,
+            "article": "Пакет40шт",
+            "barcode": 2038062046443,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 105,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 170495495,
+            "article": "Юбкишорты",
+            "barcode": 2038207182203,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
