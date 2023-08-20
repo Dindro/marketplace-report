@@ -1164,5 +1164,71 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 106,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 173206714,
+            "article": "1 separate white",
+            "barcode": 2038371321668,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 107,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 172227646,
+            "article": "LongslivWhite",
+            "barcode": 2038303831159,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 108,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 172227646,
+            "article": "LongslivWhite",
+            "barcode": 2038303831159,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 109,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 172226816,
+            "article": "LongslivBlack",
+            "barcode": 2038303754854,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 110,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 172226816,
+            "article": "LongslivBlack",
+            "barcode": 2038303754854,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 111,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 173227362,
+            "article": "Trysi",
+            "barcode": 2038375164049,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
