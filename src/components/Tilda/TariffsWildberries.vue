@@ -5,7 +5,7 @@
                 <div class="tariff">
                     <div class="tariff__header">
                         <div class="tariff__title">Самостоятельный</div>
-                        <div class="tariff__price" data-current="25 000">23 500</div>
+                        <div class="tariff__price" data-current="23 990">19 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -37,12 +37,9 @@
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
                             <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                            <div class="tariff__point">3.2 Способ поиска ниши, основанный на использовании аналитического сервиса</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 4. Поставщики</div>
                             <div class="tariff__point">4.1 Виды поставщиков и особенности работы</div>
                             <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
@@ -58,7 +55,7 @@
                             <div class="tariff__point">5.3 Оформление фото карточки</div>
                             <div class="tariff__point">5.4 Создание этикетки к товару</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 6. SEO оптимизация карточки</div>
                             <div class="tariff__point">6.1 Понятие и смысл работы с SEO</div>
                             <div class="tariff__point">6.2 Работа с семантическим ядром</div>
@@ -74,7 +71,7 @@
                             <div class="tariff__point">7.5 Упаковка и маркировка товара</div>
                             <div class="tariff__point">7.6 Фулфилмент – особенности работы</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 8. Особенности продаж</div>
                             <div class="tariff__point">8.1 Основы стабильных продаж и роста</div>
                             <div class="tariff__point">8.2 Стратегии продвижения</div>
@@ -87,7 +84,7 @@
                             <div class="tariff__point">9.2 Аналитика Wildberries</div>
                             <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 10. Товарный знак</div>
                             <div class="tariff__point">10.1 Что такое товарный знак</div>
                             <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
@@ -102,24 +99,14 @@
                         <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
                         <button class="btn" type="button" onclick="tinkoff.create(
                             {
-                                sum: 23500,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 23500, quantity: 1 }],
+                                sum: 19990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 19990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
                             },
                             { view: 'modal' }
                         )">Рассрочка на 6 месяцев</button>
-                        <button class="btn" type="button" disabled onclick="tinkoff.create(
-                            {
-                                sum: 23500,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 23500, quantity: 1 }],
-                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
-                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
-                                promoCode: 'installment_0_0_12_11,5',
-                            },
-                            { view: 'modal' }
-                        )">Рассрочка на 12 месяцев</button>
                     </div>
                 </div>
             </div>
@@ -128,7 +115,7 @@
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
                         <div class="tariff__title">С куратором</div>
-                        <div class="tariff__price" data-current="69 900">65 000</div>
+                        <div class="tariff__price" data-current="49 990">45 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -160,12 +147,9 @@
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
                             <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                            <div class="tariff__point">3.2 Способ поиска ниши, основанный на использовании аналитического сервиса</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 4. Поставщики</div>
                             <div class="tariff__point">4.1 Виды поставщиков и особенности работы </div>
                             <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
@@ -210,7 +194,7 @@
                             <div class="tariff__point">9.2 Аналитика Wildberries </div>
                             <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
                         </div>
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--opacify">
                             <div class="tariff__block-title">Модуль 10. Товарный знак</div>
                             <div class="tariff__point">10.1 Что такое товарный знак</div>
                             <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
@@ -225,8 +209,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 65000,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 65000, quantity: 1 }],
+                                sum: 45990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 45990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -235,8 +219,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 65000,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 65000, quantity: 1 }],
+                                sum: 45990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором', price: 45990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
