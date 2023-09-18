@@ -12,7 +12,7 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Более 40 лекций</div>
+                            <div class="tariff__point">24 лекций</div>
                             <div class="tariff__point tariff__point--opacify">Предусмотрено - 2 семинара с куратором</div>
                             <div class="tariff__point tariff__point--opacify">Имеется личное сопровождение после обучения - 3 месяца</div>
                             <div class="tariff__point tariff__point--opacify">Добавление в группу общения</div>
@@ -122,11 +122,11 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Более 40 лекций</div>
+                            <div class="tariff__point">32 лекций</div>
                             <div class="tariff__point">Предусмотрено - 2 семинара с куратором</div>
                             <div class="tariff__point">Имеется личное сопровождение с куратором после обучения - 3 месяца</div>
                             <div class="tariff__point">Добавление в группу общения</div>
-                            <div class="tariff__point">Помощь в регистрации сайта Таобао и 1688</div>
+                            <div class="tariff__point tariff__point--opacify">Помощь в регистрации сайта Таобао и 1688</div>
                             <div class="tariff__point">Обновление лекций в течении года</div>
                         </div>
                         <div class="tariff__block">
@@ -242,7 +242,7 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Более 40 лекций</div>
+                            <div class="tariff__point">50 лекций</div>
                             <div class="tariff__point">Предусмотрено - 3 семинаров с наставником</div>
                             <div class="tariff__point">Имеется личное сопровождение после обучения - 3 месяца</div>
                             <div class="tariff__point">Добавление в группу общения</div>
@@ -365,7 +365,7 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Более 40 лекций</div>
+                            <div class="tariff__point">50 лекций</div>
                             <div class="tariff__point">Семинары – неограничены</div>
                             <div class="tariff__point">Личное сопровождение до стабильных продаж</div>
                             <div class="tariff__point">Добавление в группу общения</div>
