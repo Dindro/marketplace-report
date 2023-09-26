@@ -1230,5 +1230,27 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 112,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 176902116,
+            "article": "warm",
+            "barcode": 2038612156233,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 112,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 177613856,
+            "article": "Scarf1",
+            "barcode": 2038638200811,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]
