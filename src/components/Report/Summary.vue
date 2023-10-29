@@ -81,6 +81,13 @@
                     <span class="snap">{{ props.summary.paymentShippingCostCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.compensationReplacement" class="summary__item summary-item">
+                <p class="summary-item__title">Оплата за подмен</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.compensationReplacement / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.compensationReplacementCount }}</span>
+                </p>
+            </div>
         </div>
 
         <div class="summary__group">
@@ -165,6 +172,13 @@
                     {{ (props.summary.returnWithoutMovement / 100).toLocaleString() }} ₽
                     <span v-if="props.summary.returnWithoutMovementCount" class="snap">{{ props.summary.returnWithoutMovementCount }}</span>
                     <span class="info">Авансовая оплата за товар без движения</span>
+                </p>
+            </div>
+            <div v-if="props.summary.returnCompensationReplacement" class="summary__item summary-item">
+                <p class="summary-item__title">Возврат за подмен</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.returnCompensationReplacement / 100).toLocaleString() }} ₽
+                    <span class="snap">{{ props.summary.returnCompensationReplacementCount }}</span>
                 </p>
             </div>
             <div v-if="props.summary.storage" class="summary__item summary-item">

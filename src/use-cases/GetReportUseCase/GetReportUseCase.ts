@@ -320,6 +320,10 @@ export default class UploadReportUseCase {
             taxSource: reportActionList.taxSource,
             revenue: reportActionList.revenuePrice,
             revenueWithoutTax: reportActionList.revenuePriceWithoutTax,
+            compensationReplacement: reportActionList.compensationReplacementPrice,
+            compensationReplacementCount: reportActionList.compensationReplacementCount,
+            returnCompensationReplacement: reportActionList.returnCompensationReplacementPrice,
+            returnCompensationReplacementCount: reportActionList.returnCompensationReplacementCount,
         };
     }
 }

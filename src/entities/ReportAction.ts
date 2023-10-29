@@ -26,6 +26,8 @@ export type ReportActionType =
     'underpayment' |
     'paid-reception' |
     'payment-shipping-cost' |
+    'compensation-replacement' |
+    'compensation-replacement-return' |
     'unkown';
 
 export default class ReportAction {

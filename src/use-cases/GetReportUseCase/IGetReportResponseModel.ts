@@ -58,6 +58,10 @@ export interface ISummaryReport {
     taxSource: number;
     revenue: number;
     revenueWithoutTax: number;
+    compensationReplacement: number;
+    compensationReplacementCount: number;
+    returnCompensationReplacement: number;
+    returnCompensationReplacementCount: number;
 }
 
 export interface IProductSummaryReport {

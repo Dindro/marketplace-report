@@ -109,6 +109,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'payment-shipping-cost');
     }
 
+    get compensationReplacementList() {
+        return this.filter(item => item.type === 'compensation-replacement');
+    }
+
+    get returnCompensationReplacementList() {
+        return this.filter(item => item.type === 'compensation-replacement-return');
+    }
+
     get unkownList() {
         return this.filter(item => item.type === 'unkown');
     }
@@ -201,6 +209,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.paymentShippingCostList.length;
     }
 
+    get compensationReplacementCount(): number {
+        return this.compensationReplacementList.length;
+    }
+
+    get returnCompensationReplacementCount(): number {
+        return this.returnCompensationReplacementList.length;
+    }
+
     get unkownCount(): number {
         return this.unkownList.length;
     }
@@ -214,6 +230,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const reversalReturn = this.reversalReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const withoutMovement = this.withoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const partialMarriage = this.partialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const compensationReplacement = this.compensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -222,6 +239,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnWithoutMovement = this.returnWithoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnPartialMarriage = this.returnPartialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnCompensationReplacement = this.returnCompensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
             + saleCorrect
@@ -230,13 +248,15 @@ export default class ReportActionList extends Array<ReportAction> {
             + reversalReturn
             + withoutMovement
             + partialMarriage
+            + compensationReplacement
             - returnSale
             - reversalSale
             - returnCorrect
             - returnMarriage
             - returnLostProduct
             - returnWithoutMovement
-            - returnPartialMarriage;
+            - returnPartialMarriage
+            - returnCompensationReplacement;
     }
 
     /** Перечисления за товары */
@@ -249,13 +269,15 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.withoutMovementPrice
             + this.partialMarriagePrice
             + this.paymentShippingCostPrice
+            + this.compensationReplacementPrice
             - this.returnPrice
             - this.reversalPrice
             - this.returnCorrectPrice
             - this.returnMarriagePrice
             - this.returnLostProductPrice
             - this.returnWithoutMovementPrice
-            - this.returnPartialMarriagePrice;
+            - this.returnPartialMarriagePrice
+            - this.returnCompensationReplacementPrice;
     }
 
     get salePrice(): number {
@@ -365,6 +387,16 @@ export default class ReportActionList extends Array<ReportAction> {
 
     get paidReceptionPrice(): number {
         return this.paidReceptionList.reduce((sum, item) => sum + item.buyerPaid, 0);
+    }
+
+    /** Сумма компенсация подменного товара */
+    get compensationReplacementPrice(): number {
+        return this.compensationReplacementList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма возврата компенсация подменного товара */
+    get returnCompensationReplacementPrice(): number {
+        return this.returnCompensationReplacementList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Штрафы, Копейки */ 

@@ -146,6 +146,18 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     }
                 } else if (type === 'payment-shipping-cost' && typeDocument !== 'unkown') {
                     type = 'unkown';
+                } else if (type === 'compensation-replacement') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'compensation-replacement';
+                            break;
+                        case 'return':
+                            type = 'compensation-replacement-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 }
                 
                 const reportAction = new ReportAction(
