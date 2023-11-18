@@ -74,18 +74,7 @@
             "barcode": 2036873187218,
             "hatch": 0
         },
-        "value": 33.3333
-    },
-    {
-        "id": 7,
-        "userIds": [1, 2],
-        "productId": {
-            "code": 104684101,
-            "article": "Girlanda30m",
-            "barcode": 2036873187218,
-            "hatch": 0
-        },
-        "value": 33.3334
+        "value": 50
     },
     {
         "id": 8,
@@ -96,7 +85,7 @@
             "barcode": 2036873187218,
             "hatch": 0
         },
-        "value": 33.3333
+        "value": 50
     },
     {
         "id": 9,
@@ -182,17 +171,6 @@
             "code": 51932435,
             "article": "Toper777white777",
             "barcode": 2015594282006,
-            "hatch": 0
-        },
-        "value": 100
-    },
-    {
-        "id": 17,
-        "userIds": [2, 3],
-        "productId": {
-            "code": 109773756,
-            "article": "Snezh26psc",
-            "barcode": 2036944703248,
             "hatch": 0
         },
         "value": 100
@@ -1243,7 +1221,7 @@
         "value": 100
     },
     {
-        "id": 112,
+        "id": 113,
         "userIds": [1, 2],
         "productId": {
             "code": 177613856,
@@ -1252,5 +1230,62 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 114,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 187854880,
+            "article": "Гирлянды30мпульт",
+            "barcode": 2038922785918,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 115,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 187854880,
+            "article": "Гирлянды30мпульт",
+            "barcode": 2038922785918,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 116,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 187822067,
+            "article": "Пеньюар черный",
+            "barcode": 2038922006495,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 117,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 109773756,
+            "article": "Snezh26psc",
+            "barcode": 2036944703248,
+            "hatch": 0
+        },
+        "value": 50,
+        "startDate": "01.09.2023"
+    },
+    {
+        "id": 118,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 109773756,
+            "article": "Snezh26psc",
+            "barcode": 2036944703248,
+            "hatch": 0
+        },
+        "value": 50,
+        "startDate": "01.09.2023"
     }
 ]
