@@ -1273,8 +1273,7 @@
             "barcode": 2036944703248,
             "hatch": 0
         },
-        "value": 50,
-        "startDate": "01.09.2023"
+        "value": 50
     },
     {
         "id": 118,
@@ -1285,7 +1284,50 @@
             "barcode": 2036944703248,
             "hatch": 0
         },
-        "value": 50,
-        "startDate": "01.09.2023"
+        "value": 50
+    },
+    {
+        "id": 119,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 193025386,
+            "article": "Украшения 25",
+            "barcode": 2039091604086,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 120,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 193025386,
+            "article": "Украшения 25",
+            "barcode": 2039091604086,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 121,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 192150449,
+            "article": "Pult1",
+            "barcode": 2039063991244,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 122,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 197418866,
+            "article": "wb4w9v5a4n",
+            "barcode": 2039212941502,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]

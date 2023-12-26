@@ -78,11 +78,13 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                 const buyerPaid: number = +row['Вайлдберриз реализовал Товар (Пр)'];
                 const transferredPrice: number = +row['К перечислению Продавцу за реализованный Товар'];
                 const comment: string = row['Виды логистики, штрафов и доплат'];
-                const paymentReason: string = row['Обоснование для оплаты'];
+                const paymentReason: string = row['Обоснование для оплаты'].toLowerCase();
                 const typeDocument: TypeDocument = typeDocumentMap[row['Тип документа']] || 'unkown';
                 let type: ReportActionType = reportActionTypeMap[paymentReason] || 'unkown';
-                
-                if (type === 'delivery') {
+
+                if (type === 'storage' || type === 'retention') {
+                    continue;
+                } else if (type === 'delivery') {
                     const deliveryCount: number = +row['Количество доставок'];
                     const returnCount: number = +row['Количество возврата'];
                     
