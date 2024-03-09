@@ -10,8 +10,8 @@ import type { ReportActionId } from '@/entities/ReportAction';
 
 type TypeDocument = 'return' | 'sale' | 'unkown';
 const typeDocumentMap: { [key: string]: TypeDocument } = {
-    'Продажа': 'sale',
-    'Возврат': 'return',
+    'продажа': 'sale',
+    'возврат': 'return',
 };
 
 export default class ReportDetailRepository implements IReportDetailRepository {
@@ -79,10 +79,12 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                 const transferredPrice: number = +row['К перечислению Продавцу за реализованный Товар'];
                 const comment: string = row['Виды логистики, штрафов и доплат'];
                 const paymentReason: string = row['Обоснование для оплаты'].toLowerCase();
-                const typeDocument: TypeDocument = typeDocumentMap[row['Тип документа']] || 'unkown';
+
+                const typeDocumentConverted = typeof row['Тип документа'] === 'string' ? row['Тип документа'].toLowerCase() : ''
+                const typeDocument: TypeDocument = typeDocumentMap[typeDocumentConverted] || 'unkown';
                 let type: ReportActionType = reportActionTypeMap[paymentReason] || 'unkown';
 
-                if (type === 'storage' || type === 'retention') {
+                if (type === 'storage' || type === 'retention' || type === 'organization-fines') {
                     continue;
                 } else if (type === 'delivery') {
                     const deliveryCount: number = +row['Количество доставок'];

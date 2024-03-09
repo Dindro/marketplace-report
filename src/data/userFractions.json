@@ -1329,5 +1329,181 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 123,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 207222025,
+            "article": "Vanna1",
+            "barcode": 2039452065952,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 124,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 207222969,
+            "article": "Glina1",
+            "barcode": 2039452080177,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 125,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215127827,
+            "article": "Панамачехолчерная",
+            "barcode": 2039613167556,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 126,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215127996,
+            "article": "Панамачехолбежевый",
+            "barcode": 2039613173878,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 127,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215128216,
+            "article": "Панамачехолзеленая",
+            "barcode": 2039613178286,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 128,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215128620,
+            "article": "Панамабахромабелая",
+            "barcode": 2039613184447,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 129,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215128971,
+            "article": "Панамабахромапесчанный",
+            "barcode": 2039613190691,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 130,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215129246,
+            "article": "Панаманадписибелый",
+            "barcode": 2039613193975,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 131,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215129417,
+            "article": "Панаманадписичерный",
+            "barcode": 2039613196488,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 132,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215129625,
+            "article": "Панаманадписьчерная",
+            "barcode": 2039613199847,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 133,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215129778,
+            "article": "Панамазавязкибежевые",
+            "barcode": 2039613201809,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 134,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215130423,
+            "article": "Пареопляжнаябелая",
+            "barcode": 2039613209386,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 135,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215130760,
+            "article": "Пареопляжнаячерная",
+            "barcode": 2039613213826,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 136,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 215157516,
+            "article": "Пеньюар белый",
+            "barcode": 2039613621928,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 137,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 215158546,
+            "article": "Халат черный",
+            "barcode": 2039613641018,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 138,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 215158851,
+            "article": "Халат белый",
+            "barcode": 2039613644453,
+            "hatch": 0
+        },
+        "value": 100
     }
 ]

@@ -20,6 +20,7 @@ export type ReportActionType =
     'reversal-return' |
     'without-movement-return' |
     'fines' |
+    'organization-fines' |
     'common-retention' |
     'retention' |
     'storage' |

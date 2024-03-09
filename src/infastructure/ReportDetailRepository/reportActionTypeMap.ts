@@ -10,6 +10,7 @@ const map: { [key: string]: ReportActionType } = {
     'оплата брака': 'marriage',
     'оплата потерянного товара': 'lost-product',
     'штрафы': 'fines',
+    'штраф': 'organization-fines',
     'корректный возврат': 'return-correct',
     'сторно возвратов': 'reversal-return',
     'авансовая оплата за товар без движения': 'without-movement',
