@@ -19,6 +19,7 @@ const map: { [key: string]: ReportActionType } = {
     'компенсация подмененного товара': 'compensation-replacement',
     'хранение': 'storage',
     'удержание': 'retention',
+    'пересчет платной приемки': 'recalculation-paid-acceptance',
 };
 
 export default map;

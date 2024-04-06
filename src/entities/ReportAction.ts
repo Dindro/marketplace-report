@@ -29,6 +29,7 @@ export type ReportActionType =
     'payment-shipping-cost' |
     'compensation-replacement' |
     'compensation-replacement-return' |
+    'recalculation-paid-acceptance' |
     'unkown';
 
 export default class ReportAction {
