@@ -45,6 +45,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'delivery-return');
     }
 
+    get deliveryCorrectList() {
+        return this.filter(item => item.type === 'delivery-correct');
+    }
+
     get returnCorrectList() {
         return this.filter(item => item.type === 'return-correct');
     }
@@ -169,8 +173,12 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.deliveryReversalList.length;
     }
 
+    get deliveryCorrectCount(): number {
+        return this.deliveryCorrectList.length;
+    }
+
     get deliveryCommonCount(): number {
-        return this.deliveryCount + this.deliveryReturnCount - this.deliveryReversalCount;
+        return this.deliveryCount + this.deliveryReturnCount - this.deliveryReversalCount + this.deliveryCorrectCount;
     }
 
     get returnCount(): number {
@@ -316,9 +324,13 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.deliveryReversalList.reduce((sum, item) => sum + item.deliveryPrice, 0);
     }
 
+    get deliveryCorrectPrice(): number {
+        return this.deliveryCorrectList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
     /** Общая сумма логистики, Копейки */
     get deliveryCommonPrice(): number {
-        return this.deliveryPrice + this.deliveryReturnPrice - this.deliveryReversalPrice;
+        return this.deliveryPrice + this.deliveryReturnPrice - this.deliveryReversalPrice + this.deliveryCorrectPrice;
     }
 
     get returnPrice(): number {
@@ -433,6 +445,7 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.transferredForProducts
             + this.deliveryReversalPrice
             - this.deliveryPrice
+            - this.deliveryCorrectPrice
             - this.deliveryReturnPrice
             - this.finesPrice
             - this.retentionPrice

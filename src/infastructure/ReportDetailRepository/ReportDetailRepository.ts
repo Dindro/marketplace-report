@@ -94,6 +94,8 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     else if (returnCount > 0) type = 'delivery-return';
                     else type = 'unkown';
 
+                } else if (type === 'delivery-correct' && typeDocument !== 'unkown') {
+                    type = 'unkown';
                 } else if (type === 'reversal' && typeDocument !== 'return') {
                     type = 'unkown';
                 } else if (type === 'reversal-return' && typeDocument !== 'sale') {
@@ -150,6 +152,12 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     }
                 } else if (type === 'payment-shipping-cost' && typeDocument !== 'unkown') {
                     type = 'unkown';
+                } else if (type === 'payment-shipping-cost/storage-operation') {
+                    if (typeDocument !== 'unkown') {
+                        type = 'unkown';
+                    } else {
+                        type = 'payment-shipping-cost';
+                    }
                 } else if (type === 'compensation-replacement') {
                     switch (typeDocument) {
                         case 'sale':
@@ -162,6 +170,10 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
+                }
+
+                if (type === 'payment-shipping-cost' && productCode === 0 && productCategory === '' && productArticle === '' && productBrand === '' && productName === '' && productBarcode === 0) {
+                    continue;
                 }
                 
                 const reportAction = new ReportAction(

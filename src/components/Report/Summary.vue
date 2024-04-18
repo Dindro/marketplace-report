@@ -114,6 +114,13 @@
                     <span v-if="props.summary.deliveryReturnCount" class="snap snap--minor">{{ props.summary.deliveryReturnCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.deliveryCorrect" class="summary__item summary-item summary-item--sub">
+                <p class="summary-item__title">Коррект. логистика</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.deliveryCorrect / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.deliveryCorrectCount" class="snap snap--minor">{{ props.summary.deliveryCorrectCount }}</span>
+                </p>
+            </div>
             <div v-if="props.summary.deliveryReversal" class="summary__item summary-item summary-item--sub">
                 <p class="summary-item__title">Логистика сторно</p>
                 <p class="summary-item__value">

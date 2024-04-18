@@ -3,6 +3,7 @@ import type Product from '@/entities/Product';
 export type ReportActionId = number;
 export type ReportActionType = 
     'delivery' |
+    'delivery-correct' |
     'delivery-reversal' |
     'sale' |
     'sale-correct' |
@@ -27,6 +28,7 @@ export type ReportActionType =
     'underpayment' |
     'paid-reception' |
     'payment-shipping-cost' |
+    'payment-shipping-cost/storage-operation' |
     'compensation-replacement' |
     'compensation-replacement-return' |
     'recalculation-paid-acceptance' |
