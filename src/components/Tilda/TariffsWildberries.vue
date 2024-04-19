@@ -139,7 +139,7 @@
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
                         <div class="tariff__title">С куратором - наставником</div>
-                        <div class="tariff__price" data-current="">54 990</div>
+                        <div class="tariff__price" data-current="">47 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -235,8 +235,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 54990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 54990, quantity: 1 }],
+                                sum: 47990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 47990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -245,8 +245,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 54990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 54990, quantity: 1 }],
+                                sum: 47990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 47990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
