@@ -407,14 +407,14 @@
                             <div class="tariff__point">Доступ к лекциям 3 месяца</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">1. Работа с категориями и seo</div>
+                            <div class="tariff__block-title">1. Работа с категориями и SEO</div>
                             <div class="tariff__block-title">2. Путь клиента на Wb</div>
                             <div class="tariff__block-title">3. Возврат клиента</div>
                             <div class="tariff__block-title">4. Воронка продаж на Wb</div>
                             <div class="tariff__block-title">5. Воронка продаж через контент</div>
                             <div class="tariff__block-title">6. Вывод товара в топ </div>
                             <div class="tariff__block-title">7. Юнит экономика</div>
-                            <div class="tariff__block-title">8. анализ отчетности на Wb</div>
+                            <div class="tariff__block-title">8. Анализ отчетности на Wb</div>
                             <div class="tariff__block-title">9. АВС анализ</div>
                             <div class="tariff__block-title">10. Аудит Бренда</div>
                             <div class="tariff__block-title">11. Внутренняя реклама на Wb</div>
