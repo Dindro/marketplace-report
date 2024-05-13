@@ -389,6 +389,52 @@
                     </div>
                 </div>
             </div>
+
+            <div class="tariffs__item">
+                <div class="tariff tariff--pink">
+                    <div class="tariff__header">
+                        <div class="tariff__title">Успешный селлер</div>
+                        <div class="tariff__price" data-current="45 990">39 000</div>
+                    </div>
+                    <div class="tariff__body">
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">
+                                Описание
+                            </div>
+                            <div class="tariff__point">11 лекций</div>
+                            <div class="tariff__point">Добавление в группу общения выпускников GOTOWB</div>
+                            <div class="tariff__point">Предусмотрено - 2 семинара с Еленой и Марией в формате разборов</div>
+                            <div class="tariff__point">Доступ к лекциям 3 месяца</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">1. Работа с категориями и seo</div>
+                            <div class="tariff__block-title">2. Путь клиента на Wb</div>
+                            <div class="tariff__block-title">3. Возврат клиента</div>
+                            <div class="tariff__block-title">4. Воронка продаж на Wb</div>
+                            <div class="tariff__block-title">5. Воронка продаж через контент</div>
+                            <div class="tariff__block-title">6. Вывод товара в топ </div>
+                            <div class="tariff__block-title">7. Юнит экономика</div>
+                            <div class="tariff__block-title">8. анализ отчетности на Wb</div>
+                            <div class="tariff__block-title">9. АВС анализ</div>
+                            <div class="tariff__block-title">10. Аудит Бренда</div>
+                            <div class="tariff__block-title">11. Внутренняя реклама на Wb</div>
+                        </div>
+                    </div>
+                    <div class="tariff__footer">
+                        <a href="https://wa.me/79966439800" class="btn btn--pink" target="_blank">Купить</a>
+                        <button class="btn btn--pink" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 39000,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф успешный селлер', price: 39000, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 6 месяцев</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -443,6 +489,11 @@
     .tariff--black {
         background: #000000;
     }
+
+    .tariff--pink {
+        background: #a73afd;
+    }
+
     .tariff__title {
         text-align: center;
         font-size: 18px;
@@ -521,6 +572,10 @@
     }
     .btn--black {
         color: #000000 !important;
+    }
+
+    .btn--pink {
+        color: #a73afd !important;
     }
     
     .btn:hover {
