@@ -1522,8 +1522,74 @@
         "userIds": [0, 1],
         "productId": {
             "code": 217609343,
-            "article": "Халат длинный белый",
-            "barcode": 2039666241234,
+            "article": "Халат длинный черный",
+            "barcode": 2039666241241,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 141,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 215128847,
+            "article": "Панамабахромабежевый",
+            "barcode": 2039613188582,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 142,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 218146361,
+            "article": "Топбелыйплечо",
+            "barcode": 2039678174902,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 143,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 218146361,
+            "article": "Топбелыйплечо",
+            "barcode": 2039678174902,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 144,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 218146228,
+            "article": "Топчерныйплечо",
+            "barcode": 2039678161445,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 145,
+        "userIds": [2, 3],
+        "productId": {
+            "code": 218146228,
+            "article": "Топчерныйплечо",
+            "barcode": 2039678161445,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 146,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 222253003,
+            "article": "Fonar1",
+            "barcode": 2039787745284,
             "hatch": 0
         },
         "value": 100
