@@ -27,7 +27,7 @@
                 <div class="tariff">
                     <div class="tariff__header">
                         <div class="tariff__title">Самостоятельный</div>
-                        <div class="tariff__price" data-current="">32 990</div>
+                        <div class="tariff__price" data-current="">29 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -123,8 +123,8 @@
                         <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
                         <button class="btn" type="button" onclick="tinkoff.create(
                             {
-                                sum: 32990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 32990, quantity: 1 }],
+                                sum: 29990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф самостоятельный', price: 29990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -139,7 +139,7 @@
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
                         <div class="tariff__title">С куратором - наставником</div>
-                        <div class="tariff__price" data-current="">47 990</div>
+                        <div class="tariff__price" data-current="">46 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -235,8 +235,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 47990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 47990, quantity: 1 }],
+                                sum: 46990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 46990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -245,8 +245,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 47990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 47990, quantity: 1 }],
+                                sum: 46990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф с куратором - наставником', price: 46990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -261,7 +261,7 @@
                 <div class="tariff tariff--black">
                     <div class="tariff__header">
                         <div class="tariff__title">Индивидуальное</div>
-                        <div class="tariff__price" data-current="290 990">286 990</div>
+                        <div class="tariff__price" data-current="">283 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -358,8 +358,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--black" target="_blank">Купить</a>
                         <button class="btn btn--black" type="button" onclick="tinkoff.create(
                             {
-                                sum: 286990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 286990, quantity: 1 }],
+                                sum: 283990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 283990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -368,8 +368,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--black" type="button" onclick="tinkoff.create(
                             {
-                                sum: 286990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 286990, quantity: 1 }],
+                                sum: 283990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 283990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -378,8 +378,8 @@
                         )">Рассрочка на 12 месяцев</button>
                         <button class="btn btn--black" type="button" onclick="tinkoff.create(
                             {
-                                sum: 286990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 286990, quantity: 1 }],
+                                sum: 283990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальное наставничество', price: 283990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_24_20,5',
@@ -394,7 +394,7 @@
                 <div class="tariff tariff--pink">
                     <div class="tariff__header">
                         <div class="tariff__title">Успешный селлер</div>
-                        <div class="tariff__price" data-current="45 990">39 000</div>
+                        <div class="tariff__price" data-current="">39 990</div>
                     </div>
                     <div class="tariff__body">
                         <div class="tariff__block">
@@ -418,14 +418,15 @@
                             <div class="tariff__block-title">9. АВС анализ</div>
                             <div class="tariff__block-title">10. Аудит Бренда</div>
                             <div class="tariff__block-title">11. Внутренняя реклама на Wb</div>
+                            <div class="tariff__block-title">12. Внешняя реклама</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
                         <a href="https://wa.me/79966439800" class="btn btn--pink" target="_blank">Купить</a>
                         <button class="btn btn--pink" type="button" onclick="tinkoff.create(
                             {
-                                sum: 39000,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф успешный селлер', price: 39000, quantity: 1 }],
+                                sum: 39990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф успешный селлер', price: 39990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',

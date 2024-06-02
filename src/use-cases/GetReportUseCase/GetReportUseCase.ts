@@ -86,7 +86,7 @@ export default class UploadReportUseCase {
                 if (!productReports.saleCommonCount) continue;
                 productStorage = storage / saleCount * productReports.saleCommonCount;
             } else {
-                productStorage = storage / reportActionList.uniqueProductIdList.length;;
+                productStorage = storage / reportActionList.uniqueProductIdList.length;
             }
             
             const reportId = reportActionList.lastId + 1;

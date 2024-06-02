@@ -25,6 +25,7 @@ export type ReportActionType =
     'common-retention' |
     'retention' |
     'storage' |
+    'storage-recalculate' |
     'underpayment' |
     'paid-reception' |
     'payment-shipping-cost' |

@@ -9,7 +9,9 @@ const map: { [key: string]: ReportActionType } = {
     'коррекция логистики': 'delivery-correct',
     'логистика сторно': 'delivery-reversal',
     'оплата брака': 'marriage',
+    'компенсация брака': 'marriage',
     'оплата потерянного товара': 'lost-product',
+    'компенсация потерянного товара': 'lost-product',
     'штрафы': 'fines',
     'штраф': 'organization-fines',
     'корректный возврат': 'return-correct',
@@ -20,6 +22,7 @@ const map: { [key: string]: ReportActionType } = {
     'возмещение издержек по перевозке/по складским операциям с товаром': 'payment-shipping-cost/storage-operation',
     'компенсация подмененного товара': 'compensation-replacement',
     'хранение': 'storage',
+    'пересчет хранения': 'storage-recalculate',
     'удержание': 'retention',
     'пересчет платной приемки': 'recalculation-paid-acceptance',
 };
