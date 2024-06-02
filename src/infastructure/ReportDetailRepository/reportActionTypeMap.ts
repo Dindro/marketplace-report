@@ -25,6 +25,7 @@ const map: { [key: string]: ReportActionType } = {
     'пересчет хранения': 'storage-recalculate',
     'удержание': 'retention',
     'пересчет платной приемки': 'recalculation-paid-acceptance',
+    'корректировка эквайринга': 'acquiring-adjustment',
 };
 
 export default map;

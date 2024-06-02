@@ -84,7 +84,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                 const typeDocument: TypeDocument = typeDocumentMap[typeDocumentConverted] || 'unkown';
                 let type: ReportActionType = reportActionTypeMap[paymentReason] || 'unkown';
 
-                if (type === 'storage' || type === 'storage-recalculate' || type === 'retention' || type === 'organization-fines' || type === 'recalculation-paid-acceptance') {
+                if (type === 'storage' || type === 'storage-recalculate' || type === 'acquiring-adjustment' || type === 'retention' || type === 'organization-fines' || type === 'recalculation-paid-acceptance') {
                     continue;
                 } else if (type === 'delivery') {
                     const deliveryCount: number = +row['Количество доставок'];

@@ -33,6 +33,7 @@ export type ReportActionType =
     'compensation-replacement' |
     'compensation-replacement-return' |
     'recalculation-paid-acceptance' |
+    'acquiring-adjustment' |
     'unkown';
 
 export default class ReportAction {
