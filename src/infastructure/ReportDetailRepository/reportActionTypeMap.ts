@@ -26,6 +26,9 @@ const map: { [key: string]: ReportActionType } = {
     'удержание': 'retention',
     'пересчет платной приемки': 'recalculation-paid-acceptance',
     'корректировка эквайринга': 'acquiring-adjustment',
+    'добровольная компенсация при возврате': 'voluntary-compensation-return',
+    'компенсация ущерба': 'compensation-damage',
+    'коррекция продаж': 'sale-correctly',
 };
 
 export default map;
