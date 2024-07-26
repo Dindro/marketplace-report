@@ -34,89 +34,78 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">35 лекций</div>
                             <div class="tariff__point">Доступ к лекциям 6 месяцев</div>
                             <div class="tariff__point">Обратная связь 1 месяц в общем чате</div>
                             <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
                             <div class="tariff__point">Таблицы расчетов, контакты для работы с Wildberries</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 1. Юридические и экономические аспекты</div>
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
                             <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
                             <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
                             <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
                             <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
                             <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 2. Расчеты на старте и в работе с WB</div>
-                            <div class="tariff__point">2.1 Понятие расчетов и их место в работе с  WB. Поймешь для чего нужно уметь считать и как считать по табличке расчетов</div>
-                            <div class="tariff__point">2.2 Таблица калькулятор расчетов при работе с WB. На примерах разберешь как считать прибыль, расходы</div>
-                            <div class="tariff__point">2.3 Юнит - экономика. Поймешь когда твой бизнес работает рентабельно</div>
-                            <div class="tariff__point">2.4 Основные понятия юнит экономики. Ознакомишься с экономическими понятиями оценки эффективности бизнеса</div>
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
-                            <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
-                        </div>
-                        <div class="tariff__block tariff__block--opacify">
-                            <div class="tariff__block-title">Модуль 4. Поставщики</div>
-                            <div class="tariff__point">4.1 Виды поставщиков и особенности работы</div>
-                            <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
-                            <div class="tariff__point">4.3 Поиск товара в Китае: основные способы</div>
-                            <div class="tariff__point">4.4 Особенности и способы общения  с Китайцами</div>
-                            <div class="tariff__point">4.5 Правила расчета стоимость доставки  </div>
-                            <div class="tariff__point">4.6 Способы ввоза товара: контакты</div>
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 5. Карточка товара</div>
-                            <div class="tariff__point">5.1 Карточка товара артикул и штрих-код</div>
-                            <div class="tariff__point">5.2 Карточка особенности и правила заполнения</div>
-                            <div class="tariff__point">5.3 Оформление фото карточки</div>
-                            <div class="tariff__point">5.4 Создание этикетки к товару</div>
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 6. SEO оптимизация карточки</div>
-                            <div class="tariff__point">6.1 Понятие и смысл работы с SEO</div>
-                            <div class="tariff__point">6.2 Работа с семантическим ядром</div>
-                            <div class="tariff__point">6.3 Работа с категориями</div>
-                            <div class="tariff__point">6.4 Отслеживание работы SEO</div>
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 7. Поставки</div>
-                            <div class="tariff__point">7.1 Виды поставок на вб, какую выбрать</div>
-                            <div class="tariff__point">7.2 Особенности работы со склада Wildberries</div>
-                            <div class="tariff__point">7.3 Особенности работы со своего склада</div>
-                            <div class="tariff__point">7.4 Региональные склады и выбор склада </div>
-                            <div class="tariff__point">7.5 Упаковка и маркировка товара</div>
-                            <div class="tariff__point">7.6 Фулфилмент – особенности работы</div>
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 8. Особенности продаж</div>
-                            <div class="tariff__point">8.1 Основы стабильных продаж и роста</div>
-                            <div class="tariff__point">8.2 Стратегии продвижения</div>
-                            <div class="tariff__point">8.3 Внутренняя реклама на Wildberries</div>
-                            <div class="tariff__point">8.4 Внешняя реклама на товар</div>
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 9. Финансы и цены</div>
-                            <div class="tariff__point">9.1 Цены и участие в акциях</div>
-                            <div class="tariff__point">9.2 Аналитика Wildberries</div>
-                            <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
-                        </div>
-                        <div class="tariff__block tariff__block--opacify">
-                            <div class="tariff__block-title">Модуль 10. Товарный знак</div>
-                            <div class="tariff__point">10.1 Что такое товарный знак</div>
-                            <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
-                            <div class="tariff__point">10.3 Нужен ли товарный знак на маркетплейсах</div>
-                            <div class="tariff__point">10.4 С чего начинаем регистрацию товарного знака</div>
-                            <div class="tariff__point">10.5 Регистрация товарного знака</div>
-                            <div class="tariff__point">10.6 Кому доверить регистрацию</div>
-                            <div class="tariff__point">10.7 Примеры недобросовестных подрядчиков</div>
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
@@ -149,7 +138,6 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">35 лекций</div>
                             <div class="tariff__point">Доступ к лекциям 9 месяцев</div>
                             <div class="tariff__point">Обратная связь 4 месяца (групповая)</div>
                             <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
@@ -158,82 +146,72 @@
                             <div class="tariff__point">Список сезонных товаров с хорошей прибылью</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 1. Юридические и экономические аспекты</div>
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
                             <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
                             <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
                             <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
                             <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
                             <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 2. Расчеты на старте и в работе с WB</div>
-                            <div class="tariff__point">2.1 Понятие расчетов и их место в работе с  WB. Поймешь для чего нужно уметь считать и как считать по табличке расчетов</div>
-                            <div class="tariff__point">2.2 Таблица калькулятор расчетов при работе с WB. На примерах разберешь как считать прибыль, расходы</div>
-                            <div class="tariff__point">2.3 Юнит - экономика. Поймешь когда твой бизнес работает рентабельно</div>
-                            <div class="tariff__point">2.4 Основные понятия юнит экономики. Ознакомишься с экономическими понятиями оценки эффективности бизнеса</div>
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
-                            <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
-                        </div>
-                        <div class="tariff__block tariff__block--opacify">
-                            <div class="tariff__block-title">Модуль 4. Поставщики</div>
-                            <div class="tariff__point">4.1 Виды поставщиков и особенности работы </div>
-                            <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
-                            <div class="tariff__point">4.3 Поиск товара в Китае: основные способы</div>
-                            <div class="tariff__point">4.4 Особенности и способы общения  с Китайцами</div>
-                            <div class="tariff__point">4.5 Правила расчета стоимость доставки  </div>
-                            <div class="tariff__point">4.6 Способы ввоза товара: контакты</div>
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 5. Карточка товара</div>
-                            <div class="tariff__point">5.1 Карточка товара артикул и штрих-код</div>
-                            <div class="tariff__point">5.2 Карточка особенности и правила заполнения</div>
-                            <div class="tariff__point">5.3 Оформление фото карточки </div>
-                            <div class="tariff__point">5.4 Создание этикетки к товару</div>
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 6. SEO оптимизация карточки </div>
-                            <div class="tariff__point">6.1 Понятие и смысл работы с SEO</div>
-                            <div class="tariff__point">6.2 Работа с семантическим ядром</div>
-                            <div class="tariff__point">6.3 Работа с категориями</div>
-                            <div class="tariff__point">6.4 Отслеживание работы SEO</div>
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 7. Поставки </div>
-                            <div class="tariff__point">7.1 Виды поставок на вб, какую выбрать</div>
-                            <div class="tariff__point">7.2 Особенности работы со склада Wildberries</div>
-                            <div class="tariff__point">7.3 Особенности работы со своего склада</div>
-                            <div class="tariff__point">7.4 Региональные склады и выбор склада </div>
-                            <div class="tariff__point">7.5 Упаковка и маркировка товара</div>
-                            <div class="tariff__point">7.6 Фулфилмент – особенности работы</div>
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 8. Особенности продаж</div>
-                            <div class="tariff__point">8.1 Основы стабильных продаж и роста</div>
-                            <div class="tariff__point">8.2 Стратегии продвижения </div>
-                            <div class="tariff__point">8.3 Внутренняя реклама на Wildberries</div>
-                            <div class="tariff__point">8.4 Внешняя реклама на товар</div>
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 9. Финансы и цены</div>
-                            <div class="tariff__point">9.1 Цены и участие в акциях </div>
-                            <div class="tariff__point">9.2 Аналитика Wildberries </div>
-                            <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
-                        </div>
-                        <div class="tariff__block tariff__block--opacify">
-                            <div class="tariff__block-title">Модуль 10. Товарный знак</div>
-                            <div class="tariff__point">10.1 Что такое товарный знак</div>
-                            <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
-                            <div class="tariff__point">10.3 Нужен ли товарный знак на маркетплейсах</div>
-                            <div class="tariff__point">10.4 С чего начинаем регистрацию товарного знака</div>
-                            <div class="tariff__point">10.5 Регистрация товарного знака</div>
-                            <div class="tariff__point">10.6 Кому доверить регистрацию</div>
-                            <div class="tariff__point">10.7 Примеры недобросовестных подрядчиков</div>
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
@@ -276,7 +254,6 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">50 лекций</div>
                             <div class="tariff__point">Доступ к лекциям 12 месяцев</div>
                             <div class="tariff__point">Обратная связь 4 месяца (групповая)</div>
                             <div class="tariff__point">Обратная связь 3 месяца (индивидуальная)</div>
@@ -286,82 +263,72 @@
                             <div class="tariff__point">Список сезонных товаров с хорошей прибылью</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 1. Юридические и экономические аспекты</div>
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
                             <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
                             <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
                             <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
                             <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
                             <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 2. Расчеты на старте и в работе с WB</div>
-                            <div class="tariff__point">2.1 Понятие расчетов и их место в работе с  WB. Поймешь для чего нужно уметь считать и как считать по табличке расчетов</div>
-                            <div class="tariff__point">2.2 Таблица калькулятор расчетов при работе с WB. На примерах разберешь как считать прибыль, расходы</div>
-                            <div class="tariff__point">2.3 Юнит - экономика. Поймешь когда твой бизнес работает рентабельно</div>
-                            <div class="tariff__point">2.4 Основные понятия юнит экономики. Ознакомишься с экономическими понятиями оценки эффективности бизнеса</div>
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
-                            <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 4. Поставщики</div>
-                            <div class="tariff__point">4.1 Виды поставщиков и особенности работы </div>
-                            <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
-                            <div class="tariff__point">4.3 Поиск товара в Китае: основные способы</div>
-                            <div class="tariff__point">4.4 Особенности и способы общения  с Китайцами</div>
-                            <div class="tariff__point">4.5 Правила расчета стоимость доставки  </div>
-                            <div class="tariff__point">4.6 Способы ввоза товара: контакты</div>
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 5. Карточка товара</div>
-                            <div class="tariff__point">5.1 Карточка товара артикул и штрих-код</div>
-                            <div class="tariff__point">5.2 Карточка особенности и правила заполнения</div>
-                            <div class="tariff__point">5.3 Оформление фото карточки </div>
-                            <div class="tariff__point">5.4 Создание этикетки к товару</div>
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 6. SEO оптимизация карточки </div>
-                            <div class="tariff__point">6.1 Понятие и смысл работы с SEO</div>
-                            <div class="tariff__point">6.2 Работа с семантическим ядром</div>
-                            <div class="tariff__point">6.3 Работа с категориями</div>
-                            <div class="tariff__point">6.4 Отслеживание работы SEO</div>
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 7. Поставки </div>
-                            <div class="tariff__point">7.1 Виды поставок на вб, какую выбрать</div>
-                            <div class="tariff__point">7.2 Особенности работы со склада Wildberries</div>
-                            <div class="tariff__point">7.3 Особенности работы со своего склада</div>
-                            <div class="tariff__point">7.4 Региональные склады и выбор склада </div>
-                            <div class="tariff__point">7.5 Упаковка и маркировка товара</div>
-                            <div class="tariff__point">7.6 Фулфилмент – особенности работы</div>
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 8. Особенности продаж</div>
-                            <div class="tariff__point">8.1 Основы стабильных продаж и роста</div>
-                            <div class="tariff__point">8.2 Стратегии продвижения </div>
-                            <div class="tariff__point">8.3 Внутренняя реклама на Wildberries</div>
-                            <div class="tariff__point">8.4 Внешняя реклама на товар</div>
-                        </div>
-                        <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 9. Финансы и цены</div>
-                            <div class="tariff__point">9.1 Цены и участие в акциях </div>
-                            <div class="tariff__point">9.2 Аналитика Wildberries </div>
-                            <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
-                        </div>
-                        <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 10. Товарный знак</div>
-                            <div class="tariff__point">10.1 Что такое товарный знак</div>
-                            <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
-                            <div class="tariff__point">10.3 Нужен ли товарный знак на маркетплейсах</div>
-                            <div class="tariff__point">10.4 С чего начинаем регистрацию товарного знака</div>
-                            <div class="tariff__point">10.5 Регистрация товарного знака</div>
-                            <div class="tariff__point">10.6 Кому доверить регистрацию</div>
-                            <div class="tariff__point">10.7 Примеры недобросовестных подрядчиков</div>
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
@@ -404,7 +371,6 @@
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">50 лекций</div>
                             <div class="tariff__point">Доступ бесрочный</div>
                             <div class="tariff__point">Обратная связь с Марией и Еленой 6 месяцев</div>
                             <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
@@ -414,82 +380,72 @@
                             <div class="tariff__point">Работа на вывод на стабильные продажи в течение 6 месяцев</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 1. Юридические и экономические аспекты</div>
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
                             <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
                             <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
                             <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
                             <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
                             <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 2. Расчеты на старте и в работе с WB</div>
-                            <div class="tariff__point">2.1 Понятие расчетов и их место в работе с  WB. Поймешь для чего нужно уметь считать и как считать по табличке расчетов</div>
-                            <div class="tariff__point">2.2 Таблица калькулятор расчетов при работе с WB. На примерах разберешь как считать прибыль, расходы</div>
-                            <div class="tariff__point">2.3 Юнит - экономика. Поймешь когда твой бизнес работает рентабельно</div>
-                            <div class="tariff__point">2.4 Основные понятия юнит экономики. Ознакомишься с экономическими понятиями оценки эффективности бизнеса</div>
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 3. Подбор выгодной ниши. Научишься подбирать ниши под свой бюджет</div>
-                            <div class="tariff__point">3.1 Аналитические сервисы для подбора ниши. Узнаешь какие сервисы существуют платные и бесплатные для анализа новых ниш</div>
-                            <div class="tariff__point">3.2 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
-                            <div class="tariff__point">3.3 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
-                            <div class="tariff__point">3.4 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
-                            <div class="tariff__point">3.5 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 4. Поставщики</div>
-                            <div class="tariff__point">4.1 Виды поставщиков и особенности работы </div>
-                            <div class="tariff__point">4.2 Китайские площадки и схемы работы</div>
-                            <div class="tariff__point">4.3 Поиск товара в Китае: основные способы</div>
-                            <div class="tariff__point">4.4 Особенности и способы общения  с Китайцами</div>
-                            <div class="tariff__point">4.5 Правила расчета стоимость доставки  </div>
-                            <div class="tariff__point">4.6 Способы ввоза товара: контакты</div>
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 5. Карточка товара</div>
-                            <div class="tariff__point">5.1 Карточка товара артикул и штрих-код</div>
-                            <div class="tariff__point">5.2 Карточка особенности и правила заполнения</div>
-                            <div class="tariff__point">5.3 Оформление фото карточки </div>
-                            <div class="tariff__point">5.4 Создание этикетки к товару</div>
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 6. SEO оптимизация карточки </div>
-                            <div class="tariff__point">6.1 Понятие и смысл работы с SEO</div>
-                            <div class="tariff__point">6.2 Работа с семантическим ядром</div>
-                            <div class="tariff__point">6.3 Работа с категориями</div>
-                            <div class="tariff__point">6.4 Отслеживание работы SEO</div>
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 7. Поставки </div>
-                            <div class="tariff__point">7.1 Виды поставок на вб, какую выбрать</div>
-                            <div class="tariff__point">7.2 Особенности работы со склада Wildberries</div>
-                            <div class="tariff__point">7.3 Особенности работы со своего склада</div>
-                            <div class="tariff__point">7.4 Региональные склады и выбор склада </div>
-                            <div class="tariff__point">7.5 Упаковка и маркировка товара</div>
-                            <div class="tariff__point">7.6 Фулфилмент – особенности работы</div>
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
                         </div>
                         <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 8. Особенности продаж</div>
-                            <div class="tariff__point">8.1 Основы стабильных продаж и роста</div>
-                            <div class="tariff__point">8.2 Стратегии продвижения </div>
-                            <div class="tariff__point">8.3 Внутренняя реклама на Wildberries</div>
-                            <div class="tariff__point">8.4 Внешняя реклама на товар</div>
-                        </div>
-                        <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 9. Финансы и цены</div>
-                            <div class="tariff__point">9.1 Цены и участие в акциях </div>
-                            <div class="tariff__point">9.2 Аналитика Wildberries </div>
-                            <div class="tariff__point">9.3 Финансы – финансовые отчеты Wildberries</div>
-                        </div>
-                        <div class="tariff__block">
-                            <div class="tariff__block-title">Модуль 10. Товарный знак</div>
-                            <div class="tariff__point">10.1 Что такое товарный знак</div>
-                            <div class="tariff__point">10.2 Плюсы регистрации товарного знака</div>
-                            <div class="tariff__point">10.3 Нужен ли товарный знак на маркетплейсах</div>
-                            <div class="tariff__point">10.4 С чего начинаем регистрацию товарного знака</div>
-                            <div class="tariff__point">10.5 Регистрация товарного знака</div>
-                            <div class="tariff__point">10.6 Кому доверить регистрацию</div>
-                            <div class="tariff__point">10.7 Примеры недобросовестных подрядчиков</div>
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
