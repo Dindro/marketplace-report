@@ -26,18 +26,19 @@
             <div class="tariffs__item">
                 <div class="tariff">
                     <div class="tariff__header">
-                        <div class="tariff__title">Самостоятельный</div>
+                        <div class="tariff__title">Базовый</div>
                         <div class="tariff__price" data-old="31 000">29 990</div>
                     </div>
                     <div class="tariff__body">
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--accent">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Доступ к лекциям 6 месяцев</div>
-                            <div class="tariff__point">Обратная связь 1 месяц в общем чате</div>
-                            <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
-                            <div class="tariff__point">Таблицы расчетов, контакты для работы с Wildberries</div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 6 месяцев</div>
+                            <div class="tariff__point">Обратная групповая связь - 1 месяц</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point">Контакты для удобной работы с Wildberries</div>
                         </div>
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
@@ -128,22 +129,23 @@
                 <div class="tariff tariff--red">
                     <div class="tariff__header">
                         <div class="tariff__title">Оптимальный</div>
-                        <div class="tariff__price-title">Наличный расчет до 31.07</div>
-                        <div class="tariff__price" data-old="54 990">45 990</div>
-                        <div class="tariff__price-title">Рассрочка до 31.07</div>
-                        <div class="tariff__price" data-old="54 990">49 990</div>
+                        <div class="tariff__price-title">Наличный расчет</div>
+                        <div class="tariff__price" data-old="">49 990</div>
+                        <div class="tariff__price-title">Рассрочка</div>
+                        <div class="tariff__price" data-old="">54 990</div>
                     </div>
                     <div class="tariff__body">
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--accent">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Доступ к лекциям 9 месяцев</div>
-                            <div class="tariff__point">Обратная связь 4 месяца (групповая)</div>
-                            <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
-                            <div class="tariff__point">Таблицы расчетов</div>
-                            <div class="tariff__point">Полезные контакты для работы с Wildberries</div>
-                            <div class="tariff__point">Список сезонных товаров с хорошей прибылью</div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 9 месяцев</div>
+                            <div class="tariff__point">Обратная групповая связь - 4 месяца</div>
+                            <div class="tariff__point">Групповые - 2 семинара</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point">Контакты для удобной работы с Wildberries</div>
+                            <div class="tariff__point"><b>БОНУС</b> - Список сезонных товаров с хорошей прибылью</div>
                         </div>
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
@@ -218,8 +220,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 49990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф оптимальный', price: 49990, quantity: 1 }],
+                                sum: 54990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф оптимальный', price: 54990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -228,8 +230,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--red" type="button" onclick="tinkoff.create(
                             {
-                                sum: 49990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф оптимальный', price: 49990, quantity: 1 }],
+                                sum: 54990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф оптимальный', price: 54990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -244,23 +246,24 @@
                 <div class="tariff tariff--black">
                     <div class="tariff__header">
                         <div class="tariff__title">Индивидуальный с куратором</div>
-                        <div class="tariff__price-title">Наличный расчет до 31.07</div>
-                        <div class="tariff__price" data-old="89 990">75 990</div>
-                        <div class="tariff__price-title">Рассрочка до 31.07</div>
-                        <div class="tariff__price" data-old="89 990">79 990</div>
+                        <div class="tariff__price-title">Наличный расчет</div>
+                        <div class="tariff__price" data-old="">79 990</div>
+                        <div class="tariff__price-title">Рассрочка</div>
+                        <div class="tariff__price" data-old="">89 990</div>
                     </div>
                     <div class="tariff__body">
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--accent">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Доступ к лекциям 12 месяцев</div>
-                            <div class="tariff__point">Обратная связь 4 месяца (групповая)</div>
-                            <div class="tariff__point">Обратная связь 3 месяца (индивидуальная)</div>
-                            <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
-                            <div class="tariff__point">Таблицы расчетов</div>
-                            <div class="tariff__point">Полезные контакты для работы с Wildberries</div>
-                            <div class="tariff__point">Список сезонных товаров с хорошей прибылью</div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 1 год</div>
+                            <div class="tariff__point">Обратная групповая связь - 4 месяца</div>
+                            <div class="tariff__point">Групповые - 2 семинара</div>
+                            <div class="tariff__point">Индивидуальная обратная связь - 3 месяца</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point">Контакты для удобной работы с Wildberries</div>
+                            <div class="tariff__point"><b>БОНУС</b> - Список сезонных товаров с хорошей прибылью</div>
                         </div>
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
@@ -335,8 +338,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--black" target="_blank">Купить</a>
                         <button class="btn btn--black" type="button" onclick="tinkoff.create(
                             {
-                                sum: 79990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальный с куратором', price: 79990, quantity: 1 }],
+                                sum: 89990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальный с куратором', price: 89990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -345,8 +348,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--black" type="button" onclick="tinkoff.create(
                             {
-                                sum: 79990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальный с куратором', price: 79990, quantity: 1 }],
+                                sum: 89990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальный с куратором', price: 89990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -361,23 +364,24 @@
                 <div class="tariff tariff--yellow">
                     <div class="tariff__header">
                         <div class="tariff__title">Индивидуальный с Марией и Еленой</div>
-                        <div class="tariff__price-title">Наличный расчет до 31.07</div>
-                        <div class="tariff__price" data-old="349 990">299 990</div>
-                        <div class="tariff__price-title">Рассрочка до 31.07</div>
-                        <div class="tariff__price" data-old="349 990">319 990</div>
+                        <div class="tariff__price-title">Наличный расчет</div>
+                        <div class="tariff__price" data-old="">319 990</div>
+                        <div class="tariff__price-title">Рассрочка</div>
+                        <div class="tariff__price" data-old="">349 990</div>
                     </div>
                     <div class="tariff__body">
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--accent">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
-                            <div class="tariff__point">Доступ бесрочный</div>
-                            <div class="tariff__point">Обратная связь с Марией и Еленой 6 месяцев</div>
-                            <div class="tariff__point">Доступ к чату выпускников GOTOWB - бессрочно</div>
-                            <div class="tariff__point">Таблицы расчетов</div>
-                            <div class="tariff__point">Полезные контакты для работы с Wildberries</div>
-                            <div class="tariff__point">Список сезонных товаров с хорошей прибылью</div>
-                            <div class="tariff__point">Работа на вывод на стабильные продажи в течение 6 месяцев</div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 1 год</div>
+                            <div class="tariff__point">Обратная групповая связь - 4 месяца</div>
+                            <div class="tariff__point">Групповые - 2 семинара</div>
+                            <div class="tariff__point">Индивидуальная обратная связь - 6 месяцев со встречами и созвонами.</div>
+                            <div class="tariff__point">Тесная работа Марии и Елены. Вывод на стабильные продажи</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point"><b>БОНУС</b> - Список сезонных товаров с хорошей прибылью</div>
                         </div>
                         <div class="tariff__block">
                             <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
@@ -452,8 +456,8 @@
                         <a href="https://wa.me/79966439800" class="btn btn--yellow" target="_blank">Купить</a>
                         <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
                             {
-                                sum: 319990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 319990, quantity: 1 }],
+                                sum: 349990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 349990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_6_6,5',
@@ -462,8 +466,8 @@
                         )">Рассрочка на 6 месяцев</button>
                         <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
                             {
-                                sum: 319990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 319990, quantity: 1 }],
+                                sum: 349990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 349990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -472,8 +476,8 @@
                         )">Рассрочка на 12 месяцев</button>
                         <button class="btn btn--yellow" type="button" onclick="tinkoff.create(
                             {
-                                sum: 319990,
-                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 319990, quantity: 1 }],
+                                sum: 349990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф Индивидуальный с Марией и Еленой', price: 349990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_24_20,5',
@@ -491,7 +495,7 @@
                         <div class="tariff__price" data-old="">39 990</div>
                     </div>
                     <div class="tariff__body">
-                        <div class="tariff__block">
+                        <div class="tariff__block tariff__block--accent">
                             <div class="tariff__block-title">
                                 Описание
                             </div>
@@ -640,6 +644,29 @@
     .tariff__block + .tariff__block {
         margin-top: 16px;
     }
+    .tariff__block--accent {
+        background-color: rgba(255, 255, 255, 0.97);
+        border-radius: 10px;
+        padding: 12px 10px;
+        margin: 0 -10px;
+        color: #215DF6;
+    }
+
+    .tariff--red .tariff__block--accent {
+        color: #AB1F39;
+    }
+
+    .tariff--yellow .tariff__block--accent {
+        color: #94642C;
+    }
+    .tariff--black .tariff__block--accent {
+        color: #000000;
+    }
+
+    .tariff--pink .tariff__block--accent {
+        color: #a73afd;
+    }
+
     .tariff__footer {
         margin-top: 40px;
     }
