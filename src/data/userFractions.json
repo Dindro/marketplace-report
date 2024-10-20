@@ -176,17 +176,6 @@
         "value": 100
     },
     {
-        "id": 18,
-        "userIds": [1, 2],
-        "productId": {
-            "code": 109773842,
-            "article": "Snezh40",
-            "barcode": 2036944708892,
-            "hatch": 0
-        },
-        "value": 100
-    },
-    {
         "id": 19,
         "userIds": [0, 1],
         "productId": {
@@ -1489,7 +1478,7 @@
         "userIds": [0, 1],
         "productId": {
             "code": 215158546,
-            "article": "Халат черный",
+            "article": "Халатчерный",
             "barcode": 2039613641018,
             "hatch": 0
         },
@@ -1500,7 +1489,7 @@
         "userIds": [0, 1],
         "productId": {
             "code": 215158851,
-            "article": "Халат белый",
+            "article": "Халатбелый",
             "barcode": 2039613644453,
             "hatch": 0
         },
@@ -1511,7 +1500,7 @@
         "userIds": [0, 1],
         "productId": {
             "code": 217609342,
-            "article": "Халат длинный белый",
+            "article": "Халатдлинныйбелый",
             "barcode": 2039666241234,
             "hatch": 0
         },
@@ -1522,7 +1511,7 @@
         "userIds": [0, 1],
         "productId": {
             "code": 217609343,
-            "article": "Халат длинный черный",
+            "article": "Халатдлинныйчерный",
             "barcode": 2039666241241,
             "hatch": 0
         },
@@ -1593,5 +1582,82 @@
             "hatch": 0
         },
         "value": 100
+    },
+    {
+        "id": 147,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 109773842,
+            "article": "Snezh40",
+            "barcode": 2036944708892,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 148,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 109773842,
+            "article": "Snezh40",
+            "barcode": 2036944708892,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 149,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 109773756,
+            "article": "Sosylki12psc",
+            "barcode": 2036944703248,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 150,
+        "userIds": [0, 1],
+        "productId": {
+            "code": 109773756,
+            "article": "Sosylki12psc",
+            "barcode": 2036944703248,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 151,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 265686332,
+            "article": "подарочнаякоробка",
+            "barcode": 2041336575952,
+            "hatch": 0
+        },
+        "value": 100
+    },
+    {
+        "id": 152,
+        "userIds": [1, 2],
+        "productId": {
+            "code": 259079855,
+            "article": "Лонгбеж",
+            "barcode": 2041149691399,
+            "hatch": 0
+        },
+        "value": 50
+    },
+    {
+        "id": 153,
+        "userIds": [4, 5],
+        "productId": {
+            "code": 259079855,
+            "article": "Лонгбеж",
+            "barcode": 2041149691399,
+            "hatch": 0
+        },
+        "value": 50
     }
 ]
