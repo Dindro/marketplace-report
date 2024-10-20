@@ -108,6 +108,10 @@
                             <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
                             <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
+                        </div>
                     </div>
                     <div class="tariff__footer">
                         <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
@@ -214,6 +218,10 @@
                             <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
                             <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
                             <div class="tariff__point">8.4 Участие в акциях</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
                         </div>
                     </div>
                     <div class="tariff__footer">
@@ -333,6 +341,17 @@
                             <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
                             <div class="tariff__point">8.4 Участие в акциях</div>
                         </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
+                            <div class="tariff__point">9.2 Установка КриптоПРО. Регистрация в ЧЗ</div>
+                            <div class="tariff__point">9.3 Регистрация в ГС1Рус</div>
+                            <div class="tariff__point">9.4 Создание карточки товара</div>
+                            <div class="tariff__point">9.5 Импорт шаблона этикетки</div>
+                            <div class="tariff__point">9.6 Генерация этикетки ЧЗ (DataMatrix)</div>
+                            <div class="tariff__point">9.7 Ввод в оборот</div>
+                            <div class="tariff__point">9.8 Отправка УПД</div>
+                        </div>
                     </div>
                     <div class="tariff__footer">
                         <a href="https://wa.me/79966439800" class="btn btn--black" target="_blank">Купить</a>
@@ -350,6 +369,284 @@
                             {
                                 sum: 89990,
                                 items: [{ name: 'Курс по обучению Wildberries – Тариф индивидуальный с куратором', price: 89990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_12_11,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 12 месяцев</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tariffs__item">
+                <div class="tariff">
+                    <div class="tariff__header">
+                        <div class="tariff__title">Мененджер WB. Базовый</div>
+                        <div class="tariff__price" data-old="">34 990</div>
+                    </div>
+                    <div class="tariff__body">
+                        <div class="tariff__block tariff__block--accent">
+                            <div class="tariff__block-title">
+                                Описание
+                            </div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 6 месяцев</div>
+                            <div class="tariff__point">Обратная групповая связь - 1 месяц</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point">Контакты для удобной работы с Wildberries</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 0. Введение в специальность менеджера маркетплейсов</div>
+                            <div class="tariff__point">0.1 Кто такой менеджер по работе с кабинетом wildberries</div>
+                            <div class="tariff__point">0.2 Обязанности менеджера</div>
+                            <div class="tariff__point">0.3 Как искать клиентов и работодателей</div>
+                            <div class="tariff__point">0.4 Как составить объявление на поиск клиента</div>
+                            <div class="tariff__point">0.5 Как грамотно составить резюме на поиск работы</div>
+                            <div class="tariff__point">0.6 Таблицы ведения отчетности работы менеджера</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
+                            <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
+                            <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
+                            <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
+                            <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
+                            <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
+                            <div class="tariff__point">9.2 Установка КриптоПРО. Регистрация в ЧЗ</div>
+                            <div class="tariff__point">9.3 Регистрация в ГС1Рус</div>
+                            <div class="tariff__point">9.4 Создание карточки товара</div>
+                            <div class="tariff__point">9.5 Импорт шаблона этикетки</div>
+                            <div class="tariff__point">9.6 Генерация этикетки ЧЗ (DataMatrix)</div>
+                            <div class="tariff__point">9.7 Ввод в оборот</div>
+                            <div class="tariff__point">9.8 Отправка УПД</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 10. Эффективное управление и отчетность для менеджеров Wildberries</div>
+                            <div class="tariff__point">10.1 Работа менеджера</div>
+                            <div class="tariff__point">10.2 Бриф клиента</div>
+                            <div class="tariff__point">10.3 Таблица задач рабочего дня</div>
+                            <div class="tariff__point">10.4 Конкретные задачи в каждой обязанности</div>
+                            <div class="tariff__point">10.5 Отчет ежедневных заказов и выкупов</div>
+                            <div class="tariff__point">10.6 Еженедельный отчет</div>
+                            <div class="tariff__point">10.7 Аудит Бренда как отдельная услуга</div>
+                        </div>
+                    </div>
+                    <div class="tariff__footer">
+                        <a href="https://wa.me/79966439800" class="btn" target="_blank">Купить</a>
+                        <button class="btn" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 34990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф мененджер WB. Базовый', price: 34990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 6 месяцев</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tariffs__item">
+                <div class="tariff tariff--red">
+                    <div class="tariff__header">
+                        <div class="tariff__title">Мененджер WB. Оптимальный</div>
+                        <div class="tariff__price-title">Наличный расчет</div>
+                        <div class="tariff__price" data-old="">54 990</div>
+                        <div class="tariff__price-title">Рассрочка</div>
+                        <div class="tariff__price" data-old="">59 990</div>
+                    </div>
+                    <div class="tariff__body">
+                        <div class="tariff__block tariff__block--accent">
+                            <div class="tariff__block-title">
+                                Описание
+                            </div>
+                            <div class="tariff__point">Доступ к обновленным лекциям - 9 месяцев</div>
+                            <div class="tariff__point">Обратная групповая связь - 4 месяца</div>
+                            <div class="tariff__point">Чат выпускников GOTOWB - бессрочно</div>
+                            <div class="tariff__point">Таблицы расчетов прибыли</div>
+                            <div class="tariff__point">Контакты для удобной работы с Wildberries</div>
+                            <div class="tariff__point"><b>БОНУС</b> - Список сезонных товаров с хорошей прибылью</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 0. Введение в специальность менеджера маркетплейсов</div>
+                            <div class="tariff__point">0.1 Кто такой менеджер по работе с кабинетом wildberries</div>
+                            <div class="tariff__point">0.2 Обязанности менеджера</div>
+                            <div class="tariff__point">0.3 Как искать клиентов и работодателей</div>
+                            <div class="tariff__point">0.4 Как составить объявление на поиск клиента</div>
+                            <div class="tariff__point">0.5 Как грамотно составить резюме на поиск работы</div>
+                            <div class="tariff__point">0.6 Таблицы ведения отчетности работы менеджера</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 1. База знаний работы с Wildberries</div>
+                            <div class="tariff__point">1.1 Введение в WB - схема работы. Ты узнаешь на чем строится работа с WB, получишь схему что за чем следует</div>
+                            <div class="tariff__point">1.2 Формы работы с WB. Ты узнаешь как юридически верно начать бизнес отношения с WB</div>
+                            <div class="tariff__point">1.3 Особенности налогообложения. Освоишь базовые знания необходимые предпринимателю для оплаты налогов</div>
+                            <div class="tariff__point">1.4 Оферта вб - важные особенности. Ознакомишься с главным договором между тобой и WB</div>
+                            <div class="tariff__point">1.5 Документация на товар, подтверждающая качество. Поймешь, какие документы нужны на товары, продающиеся в РФ.</div>
+                            <div class="tariff__point">1.6 Товарный знак и бренд.</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 2. Подбор товара для продажи</div>
+                            <div class="tariff__point">2.1 Основы выбора правильной ниши</div>
+                            <div class="tariff__point">2.2 Инструменты для подбора ниши</div>
+                            <div class="tariff__point">2.3 Выбор ниши с небольшим бюджетом,  на что обратить внимание</div>
+                            <div class="tariff__point">2.4 Поиск ниши способ №1. Авторский способ поиска ниши, основанный на авторской методике подбора ниши без использования платных аналитических сервисов</div>
+                            <div class="tariff__point">2.5 Поиск ниши способ №2. Способ поиска ниши, основанный на использовании аналитического сервиса </div>
+                            <div class="tariff__point">2.6 Поиск ниши способ №3. Способ поиска ниши, основанный на использовании аналитического сервиса</div>
+                            <div class="tariff__point">2.7 Поиск ниши способ №4. Способ поиска ниши к сезону</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 3. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.1 Расчет себестоимости товара</div>
+                            <div class="tariff__point">3.2 Юнит - экономика. Расчет прибыльности ниши</div>
+                            <div class="tariff__point">3.3 Оновные понятия юнит экономики</div>
+                            <div class="tariff__point">3.4 Ценообразование: какую розничную цену выставить, как и когда применять скидки</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 4. Начало продаж на Wildberries</div>
+                            <div class="tariff__point">4.1 Знакомство с кабинетом</div>
+                            <div class="tariff__point">4.2 Создание карточки товара</div>
+                            <div class="tariff__point">4.3 Что должна содержать карточка товара для успешных продаж</div>
+                            <div class="tariff__point">4.4 Создание этикетки к товару</div>
+                            <div class="tariff__point">4.5 Основы оформления фотоконтента к карточке товара</div>
+                            <div class="tariff__point">4.6 Воронка продаж на Wildberries</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 5. Поставки на Wildberries</div>
+                            <div class="tariff__point">5.1 Способы поставок на Wildberries</div>
+                            <div class="tariff__point">5.2 Как минимизировать риск потери товара на складе WB и что делать если приняли не верно</div>
+                            <div class="tariff__point">5.3 Формирование поставки и отслеживание ее приемки</div>
+                            <div class="tariff__point">5.4 Как понять на какой склад отгрузить товар</div>
+                            <div class="tariff__point">5.5 Фулфилмент – особенности работы</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 6. Вывод товаров в топ</div>
+                            <div class="tariff__point">6.1 Что именно влияет на продажи товаров </div>
+                            <div class="tariff__point">6.2 Как выйти в топ на Wildberries </div>
+                            <div class="tariff__point">6.3 Понятие и смысл работы с SEO</div>
+                            <div class="tariff__point">6.4 Работа с поисковыми запросами</div>
+                            <div class="tariff__point">6.5 Работа с категориями</div>
+                            <div class="tariff__point">6.6 Отслеживание работы SEO</div>
+                            <div class="tariff__point">6.7 Работа с отзывами и вопросами покупателей</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 7. Реклама</div>
+                            <div class="tariff__point">7.1 Виды рекламы на Wildberries</div>
+                            <div class="tariff__point">7.2 Настройка рекламы</div>
+                            <div class="tariff__point">7.3 Отслеживание эффективности настройки рекламы</div>
+                            <div class="tariff__point">7.4 Что такое ДРР и как им управлять</div>
+                            <div class="tariff__point">7.5 Внешняя реклама у блогеров</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 8. Аналитика и Масштаб</div>
+                            <div class="tariff__point">8.1 Работа с отчетами WB</div>
+                            <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
+                            <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
+                            <div class="tariff__point">8.4 Участие в акциях</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
+                            <div class="tariff__point">9.2 Установка КриптоПРО. Регистрация в ЧЗ</div>
+                            <div class="tariff__point">9.3 Регистрация в ГС1Рус</div>
+                            <div class="tariff__point">9.4 Создание карточки товара</div>
+                            <div class="tariff__point">9.5 Импорт шаблона этикетки</div>
+                            <div class="tariff__point">9.6 Генерация этикетки ЧЗ (DataMatrix)</div>
+                            <div class="tariff__point">9.7 Ввод в оборот</div>
+                            <div class="tariff__point">9.8 Отправка УПД</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 10. Эффективное управление и отчетность для менеджеров Wildberries</div>
+                            <div class="tariff__point">10.1 Работа менеджера</div>
+                            <div class="tariff__point">10.2 Бриф клиента</div>
+                            <div class="tariff__point">10.3 Таблица задач рабочего дня</div>
+                            <div class="tariff__point">10.4 Конкретные задачи в каждой обязанности</div>
+                            <div class="tariff__point">10.5 Отчет ежедневных заказов и выкупов</div>
+                            <div class="tariff__point">10.6 Еженедельный отчет</div>
+                            <div class="tariff__point">10.7 Аудит Бренда как отдельная услуга</div>
+                        </div>
+                    </div>
+                    <div class="tariff__footer">
+                        <a href="https://wa.me/79966439800" class="btn btn--red" target="_blank">Купить</a>
+                        <button class="btn btn--red" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 59990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф мененджер WB. Оптимальный', price: 59990, quantity: 1 }],
+                                shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
+                                showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
+                                promoCode: 'installment_0_0_6_6,5',
+                            },
+                            { view: 'modal' }
+                        )">Рассрочка на 6 месяцев</button>
+                        <button class="btn btn--red" type="button" onclick="tinkoff.create(
+                            {
+                                sum: 59990,
+                                items: [{ name: 'Курс по обучению Wildberries – Тариф мененджер WB. Оптимальный', price: 59990, quantity: 1 }],
                                 shopId: '21d0b656-bd25-4da2-a3f8-91394606cce0',
                                 showcaseId: '4498fdf2-f3f7-4a5e-91af-0ca6116a267a',
                                 promoCode: 'installment_0_0_12_11,5',
@@ -450,6 +747,17 @@
                             <div class="tariff__point">8.2 Разбор еженедельного финансового отчета</div>
                             <div class="tariff__point">8.3 Как вырасти в продажах на Wildberries</div>
                             <div class="tariff__point">8.4 Участие в акциях</div>
+                        </div>
+                        <div class="tariff__block">
+                            <div class="tariff__block-title">Модуль 9. Честный знак</div>
+                            <div class="tariff__point">9.1 Что такое ЧЗ и как его не боятся</div>
+                            <div class="tariff__point">9.2 Установка КриптоПРО. Регистрация в ЧЗ</div>
+                            <div class="tariff__point">9.3 Регистрация в ГС1Рус</div>
+                            <div class="tariff__point">9.4 Создание карточки товара</div>
+                            <div class="tariff__point">9.5 Импорт шаблона этикетки</div>
+                            <div class="tariff__point">9.6 Генерация этикетки ЧЗ (DataMatrix)</div>
+                            <div class="tariff__point">9.7 Ввод в оборот</div>
+                            <div class="tariff__point">9.8 Отправка УПД</div>
                         </div>
                     </div>
                     <div class="tariff__footer">

@@ -64,6 +64,10 @@ export interface ISummaryReport {
     compensationReplacementCount: number;
     returnCompensationReplacement: number;
     returnCompensationReplacementCount: number;
+    voluntaryCompensation: number;
+    voluntaryCompensationCount: number;
+    returnVoluntaryCompensation: number;
+    returnVoluntaryCompensationCount: number;
 }
 
 export interface IProductSummaryReport {

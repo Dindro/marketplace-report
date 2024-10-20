@@ -326,6 +326,10 @@ export default class UploadReportUseCase {
             compensationReplacementCount: reportActionList.compensationReplacementCount,
             returnCompensationReplacement: reportActionList.returnCompensationReplacementPrice,
             returnCompensationReplacementCount: reportActionList.returnCompensationReplacementCount,
+            voluntaryCompensation: reportActionList.voluntaryCompensationPrice,
+            voluntaryCompensationCount: reportActionList.voluntaryCompensationCount,
+            returnVoluntaryCompensation: reportActionList.returnVoluntaryCompensationPrice,
+            returnVoluntaryCompensationCount: reportActionList.returnVoluntaryCompensationCount,
         };
     }
 }

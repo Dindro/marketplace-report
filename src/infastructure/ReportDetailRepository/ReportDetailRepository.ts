@@ -170,8 +170,18 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
-                } else if (type === 'voluntary-compensation-return' && typeDocument !== 'sale') {
-                    type = 'unkown';
+                } else if (type === 'voluntary-compensation-return') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'voluntary-compensation';
+                            break;
+                        case 'return':
+                            type = 'voluntary-compensation-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 } else if (type === 'compensation-damage' && typeDocument !== 'sale') {
                     type = 'unkown';
                 } else if (type === 'sale-correctly') {

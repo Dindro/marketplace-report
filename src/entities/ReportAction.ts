@@ -34,6 +34,7 @@ export type ReportActionType =
     'compensation-replacement-return' |
     'recalculation-paid-acceptance' |
     'acquiring-adjustment' |
+    'voluntary-compensation' |
     'voluntary-compensation-return' |
     'compensation-damage' |
     'sale-correctly' |

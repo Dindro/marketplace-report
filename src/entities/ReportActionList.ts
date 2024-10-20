@@ -125,6 +125,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'sale-correctly-return');
     }
 
+    get voluntaryCompensationList() {
+        return this.filter(item => item.type === 'voluntary-compensation');
+    }
+
     get voluntaryCompensationReturnList() {
         return this.filter(item => item.type === 'voluntary-compensation-return');
     }
@@ -241,7 +245,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.returnCorrectlySaleList.length;
     }
 
-    get voluntaryCompensationReturnCount(): number {
+    get voluntaryCompensationCount(): number {
+        return this.voluntaryCompensationList.length;
+    }
+
+    get returnVoluntaryCompensationCount(): number {
         return this.voluntaryCompensationReturnList.length;
     }
 
@@ -263,9 +271,9 @@ export default class ReportActionList extends Array<ReportAction> {
         const withoutMovement = this.withoutMovementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const partialMarriage = this.partialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const compensationReplacement = this.compensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
-        const voluntaryCompensationReturn = this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const voluntaryCompensation = this.voluntaryCompensationList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const compensationDamage = this.compenstationDamageList.reduce((sum, item) => sum + item.buyerPaid, 0);
-
+        
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnMarriage = this.returnMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -275,6 +283,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnPartialMarriage = this.returnPartialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCompensationReplacement = this.returnCompensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrectlySale = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnVoluntaryCompensation = this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
             + saleCorrect
@@ -284,8 +293,9 @@ export default class ReportActionList extends Array<ReportAction> {
             + withoutMovement
             + partialMarriage
             + compensationReplacement
-            + voluntaryCompensationReturn
             + compensationDamage
+            + voluntaryCompensation
+            - returnVoluntaryCompensation
             - returnSale
             - reversalSale
             - returnCorrect
@@ -308,8 +318,9 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.partialMarriagePrice
             + this.paymentShippingCostPrice
             + this.compensationReplacementPrice
-            + this.voluntaryCompensationReturnPrice
             + this.compensationDamagePrice
+            + this.voluntaryCompensationPrice
+            - this.returnVoluntaryCompensationPrice
             - this.returnPrice
             - this.reversalPrice
             - this.returnCorrectPrice
@@ -450,7 +461,12 @@ export default class ReportActionList extends Array<ReportAction> {
     }
 
     /** Сумма добровольной компенсации при возврате */
-    get voluntaryCompensationReturnPrice(): number {
+    get voluntaryCompensationPrice(): number {
+        return this.voluntaryCompensationList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма возврата добровольной компенсации при возврате */
+    get returnVoluntaryCompensationPrice(): number {
         return this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 

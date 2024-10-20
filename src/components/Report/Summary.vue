@@ -88,6 +88,13 @@
                     <span class="snap">{{ props.summary.compensationReplacementCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.voluntaryCompensation" class="summary__item summary-item">
+                <p class="summary-item__title">Добро-ая компенсация</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.voluntaryCompensation / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.voluntaryCompensationCount" class="snap">{{ props.summary.voluntaryCompensationCount }}</span>
+                </p>
+            </div>
         </div>
 
         <div class="summary__group">
@@ -186,6 +193,13 @@
                 <p class="summary-item__value">
                     {{ (props.summary.returnCompensationReplacement / 100).toLocaleString() }} ₽
                     <span class="snap">{{ props.summary.returnCompensationReplacementCount }}</span>
+                </p>
+            </div>
+            <div v-if="props.summary.returnVoluntaryCompensation" class="summary__item summary-item">
+                <p class="summary-item__title">Добро-ая компенсация</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.returnVoluntaryCompensation / 100).toLocaleString() }} ₽
+                    <span v-if="props.summary.returnVoluntaryCompensationCount" class="snap">{{ props.summary.returnVoluntaryCompensationCount }}</span>
                 </p>
             </div>
             <div v-if="props.summary.storage" class="summary__item summary-item">
