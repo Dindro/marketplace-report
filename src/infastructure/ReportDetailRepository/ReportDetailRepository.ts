@@ -84,7 +84,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                 const typeDocument: TypeDocument = typeDocumentMap[typeDocumentConverted] || 'unkown';
                 let type: ReportActionType = reportActionTypeMap[paymentReason] || 'unkown';
 
-                if (type === 'storage' || type === 'storage-recalculate' || type === 'acquiring-adjustment' || type === 'retention' || type === 'organization-fines' || type === 'recalculation-paid-acceptance') {
+                if (type === 'storage' || type === 'storage-recalculate' || type === 'retention' || type === 'organization-fines' || type === 'recalculation-paid-acceptance') {
                     continue;
                 } else if (type === 'delivery') {
                     const deliveryCount: number = +row['Количество доставок'];
@@ -186,6 +186,9 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     type = 'unkown';
                 } else if (type === 'sale-correctly') {
                     switch (typeDocument) {
+                        case 'sale':
+                            type = 'sale-correctly';
+                            break;
                         case 'return':
                             type = 'sale-correctly-return';
                             break;
@@ -193,6 +196,8 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
+                } else if (type === 'acquiring-adjustment' && typeDocument !== 'sale') {
+                    type = 'unkown';
                 }
 
                 if (type === 'payment-shipping-cost' && productCode === 0 && productCategory === '' && productArticle === '' && productBrand === '' && productName === '' && productBarcode === 0) {

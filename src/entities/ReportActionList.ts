@@ -125,6 +125,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'sale-correctly-return');
     }
 
+    get correctlySaleList() {
+        return this.filter(item => item.type === 'sale-correctly');
+    }
+
+    get acquiringAdjustmentList() {
+        return this.filter(item => item.type === 'acquiring-adjustment');
+    }
+
     get voluntaryCompensationList() {
         return this.filter(item => item.type === 'voluntary-compensation');
     }
@@ -245,6 +253,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.returnCorrectlySaleList.length;
     }
 
+    get correctlySaleCount(): number {
+        return this.correctlySaleList.length;
+    }
+
+    get acquiringAdjustmentCount(): number {
+        return this.acquiringAdjustmentList.length;
+    }
+
     get voluntaryCompensationCount(): number {
         return this.voluntaryCompensationList.length;
     }
@@ -273,6 +289,8 @@ export default class ReportActionList extends Array<ReportAction> {
         const compensationReplacement = this.compensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const voluntaryCompensation = this.voluntaryCompensationList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const compensationDamage = this.compenstationDamageList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const saleCorrectly = this.correctlySaleList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const acquiringAdjustment = this.acquiringAdjustmentList.reduce((sum, item) => sum + item.buyerPaid, 0);
         
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -282,7 +300,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const reversalSale = this.reversalList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnPartialMarriage = this.returnPartialMarriageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCompensationReplacement = this.returnCompensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
-        const returnCorrectlySale = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnCorrectlySale = this.returnCorrectlySaleList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnVoluntaryCompensation = this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
@@ -295,6 +313,8 @@ export default class ReportActionList extends Array<ReportAction> {
             + compensationReplacement
             + compensationDamage
             + voluntaryCompensation
+            + saleCorrectly
+            + acquiringAdjustment
             - returnVoluntaryCompensation
             - returnSale
             - reversalSale
@@ -320,6 +340,8 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.compensationReplacementPrice
             + this.compensationDamagePrice
             + this.voluntaryCompensationPrice
+            + this.correctlySalePrice
+            + this.acquiringAdjustmentPrice
             - this.returnVoluntaryCompensationPrice
             - this.returnPrice
             - this.reversalPrice
@@ -458,6 +480,16 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Сумма возврата коррекционной продажи */
     get returnCorrectlySalePrice(): number {
         return this.returnCorrectlySaleList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма коррекционной продажи */
+    get correctlySalePrice(): number {
+        return this.correctlySaleList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма корректировка эквайринга */
+    get acquiringAdjustmentPrice(): number {
+        return this.acquiringAdjustmentList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Сумма добровольной компенсации при возврате */

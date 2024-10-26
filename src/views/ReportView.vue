@@ -4,13 +4,13 @@
         <Form @calculate="onCalculate" />
 
         <div class="product-info__fast">
-            <a href="https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/reports-weekly" target="_blank">
+            <a href="https://seller.wildberries.ru/suppliers-mutual-settlements/reports-implementations/reports-weekly-new" target="_blank">
                 <Button tag="span">📈 Финансовые отчеты</Button>
             </a>
-            <a href="https://cmp.wildberries.ru/finance/upd" target="_blank">
+            <a href="https://cmp.wildberries.ru/campaigns/finances" target="_blank">
                 <Button tag="span">💰 История затрат рекламы</Button>
             </a>
-            <a href="https://seller.wildberries.ru/analytics/acceptance-report" target="_blank">
+            <a href="https://seller.wildberries.ru/analytics-reports/acceptance-report" target="_blank">
                 <Button tag="span">📦 Платная приемка</Button>
             </a>
         </div>
