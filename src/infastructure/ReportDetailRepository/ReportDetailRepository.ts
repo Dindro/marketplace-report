@@ -182,8 +182,18 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
-                } else if (type === 'compensation-damage' && typeDocument !== 'sale') {
-                    type = 'unkown';
+                } else if (type === 'compensation-damage') {
+                    switch(typeDocument) {
+                        case 'sale':
+                            type = 'compensation-damage';
+                            break;
+                        case 'return':
+                            type = 'compensation-damage-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 } else if (type === 'sale-correctly') {
                     switch (typeDocument) {
                         case 'sale':
@@ -200,8 +210,12 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     type = 'unkown';
                 }
 
-                if (type === 'payment-shipping-cost' && productCode === 0 && productCategory === '' && productArticle === '' && productBrand === '' && productName === '' && productBarcode === 0) {
+                if (type === 'payment-shipping-cost' && product.id.isUnkown) {
                     continue;
+                }
+
+                if (type === 'delivery-reversal-unkown' && !product.id.isUnkown) {
+                    type = 'unkown';
                 }
                 
                 const reportAction = new ReportAction(

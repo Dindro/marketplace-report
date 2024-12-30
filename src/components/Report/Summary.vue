@@ -135,6 +135,13 @@
                     <span v-if="props.summary.deliveryReversalCount" class="snap snap--success">{{ props.summary.deliveryReversalCount }}</span>
                 </p>
             </div>
+            <div v-if="props.summary.deliveryFraction" class="summary__item summary-item summary-item--sub">
+                <p class="summary-item__title">Распределенная</p>
+                <p class="summary-item__value">
+                    {{ (props.summary.deliveryFraction / 100).toLocaleString() }} ₽
+                    <span class="snap snap--warning" title="Неизвестная логистика распределяется на каждый товар">?</span>
+                </p>
+            </div>
         </div>
 
         <div class="summary__group">

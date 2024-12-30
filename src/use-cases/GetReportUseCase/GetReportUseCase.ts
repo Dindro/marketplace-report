@@ -56,7 +56,31 @@ export default class UploadReportUseCase {
 
     async execute(): Promise<IGetReportReponseModel> {
         const reportActions = await this.reportRepository.getList();
-        const reportActionList = new ReportActionList(this.tax, ...reportActions);
+        let reportActionList = new ReportActionList(this.tax, ...reportActions);
+
+        // Группируем Id продукта - Список репортов
+        let productIdActionListMap: Map<ProductId, ReportActionList>
+            = this.toGroupProductIdReportActionList(reportActionList);
+    
+        // При наличии неизвестных расходов на доставку, данный расход распределяем под долям
+        if (reportActionList.deliveryUnkownList.length && reportActionList.deliveryUnkownPrice !== 0) {
+            const deliveryFractionList = [];
+            
+            for (const [productId, productReports] of productIdActionListMap) {
+                const productDeliveryFraction = productReports.deliveryCommonPrice * 100 / reportActionList.deliveryCommonPrice;
+                const deliveryFractionPrice = productDeliveryFraction * reportActionList.deliveryUnkownPrice / 100;
+                
+                const reportId = reportActionList.lastId + 1;
+                const product = reportActionList.getProductByProductId(productId) as Product;
+                const report = new ReportAction(reportId, 'delivery-fraction', 0, 0, deliveryFractionPrice, 0, '', product);
+                deliveryFractionList.push(report);
+            }
+
+            // Удаляем неизвестные доставки
+            const reportActionListWihoutDeliveryUnkown = reportActionList.filter(report => !reportActionList.deliveryUnkownList.includes(report));
+            reportActionList = new ReportActionList(this.tax, ...reportActionListWihoutDeliveryUnkown);
+            reportActionList.push(...deliveryFractionList);
+        }
 
         const retentions: IRetentionData[] = await this.retentionRepository.getList();
         for (const retention of retentions) {
@@ -73,10 +97,8 @@ export default class UploadReportUseCase {
             const report = new ReportAction(reportId, 'paid-reception', reception.price, 0, 0, 0, '', product);
             reportActionList.push(report);
         }
-
-        // Группируем Id продукта - Список репортов
-        let productIdActionListMap: Map<ProductId, ReportActionList>
-            = this.toGroupProductIdReportActionList(reportActionList);
+        
+        productIdActionListMap = this.toGroupProductIdReportActionList(reportActionList);
 
         const storage = await this.storageProductRepository.get();
         const saleCount = reportActionList.saleCommonCount;
@@ -189,6 +211,8 @@ export default class UploadReportUseCase {
         const map = new Map<ProductId, ReportActionList>();
 
         for (const reportAction of reportActionList) {
+            if (reportAction.product.id.isUnkown) continue;
+
             let foundReportActionList = map.get(reportAction.product.id);
             if (!foundReportActionList) {
                 foundReportActionList = new ReportActionList(reportActionList.taxPercent);
@@ -293,6 +317,7 @@ export default class UploadReportUseCase {
             deliveryReversalCount: reportActionList.deliveryReversalCount,
             deliveryCommon: reportActionList.deliveryCommonPrice,
             deliveryCommonCount: reportActionList.deliveryCommonCount,
+            deliveryFraction: reportActionList.deliveryFractionPrice,
             return: reportActionList.returnPrice,
             returnCount: reportActionList.returnCount,
             returnCorrect: reportActionList.returnCorrectPrice,

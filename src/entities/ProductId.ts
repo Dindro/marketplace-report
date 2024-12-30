@@ -14,6 +14,10 @@ export default class ProductId {
         this.hatch = hatch;
     }
 
+    get isUnkown(): boolean {
+        return this.code === 0 && this.article === '' && this.barcode === 0 && this.hatch === 0;
+    }
+
     compare(productId: ProductId): boolean {
         return !!(
             (this.code && this.code === productId.code) ||

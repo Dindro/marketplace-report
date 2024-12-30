@@ -24,6 +24,7 @@ const map: { [key: string]: ReportActionType } = {
     'хранение': 'storage',
     'пересчет хранения': 'storage-recalculate',
     'удержание': 'retention',
+    'сторно логистики': 'delivery-reversal-unkown',
     'пересчет платной приемки': 'recalculation-paid-acceptance',
     'корректировка эквайринга': 'acquiring-adjustment',
     'добровольная компенсация при возврате': 'voluntary-compensation-return',

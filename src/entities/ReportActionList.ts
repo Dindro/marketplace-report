@@ -145,6 +145,18 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'compensation-damage');
     }
 
+    get compenstationDamageReturnList() {
+        return this.filter(item => item.type === 'compensation-damage-return');
+    }
+
+    get deliveryUnkownList() {
+        return this.filter(item => item.type === 'delivery-reversal-unkown');
+    }
+
+    get deliveryFractionList() {
+        return this.filter(item => item.type === 'delivery-fraction');
+    }
+
     get unkownList() {
         return this.filter(item => item.type === 'unkown');
     }
@@ -273,6 +285,10 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.compenstationDamageList.length;
     }
 
+    get returnCompensationDamageCount(): number {
+        return this.compenstationDamageReturnList.length;
+    }
+
     get unkownCount(): number {
         return this.unkownList.length;
     }
@@ -302,6 +318,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnCompensationReplacement = this.returnCompensationReplacementList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrectlySale = this.returnCorrectlySaleList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnVoluntaryCompensation = this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnCompensationDamage = this.compenstationDamageReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
             + saleCorrect
@@ -324,7 +341,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - returnWithoutMovement
             - returnPartialMarriage
             - returnCompensationReplacement
-            - returnCorrectlySale;
+            - returnCorrectlySale
+            - returnCompensationDamage;
     }
 
     /** Перечисления за товары */
@@ -351,7 +369,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - this.returnWithoutMovementPrice
             - this.returnPartialMarriagePrice
             - this.returnCompensationReplacementPrice
-            - this.returnCorrectlySalePrice;
+            - this.returnCorrectlySalePrice
+            - this.returnCompensationDamagePrice;
     }
 
     get salePrice(): number {
@@ -378,6 +397,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.paymentShippingCostList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    get deliveryUnkownPrice(): number {
+        return this.deliveryUnkownList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
+    get deliveryFractionPrice(): number {
+        return this.deliveryFractionList.reduce((sum, item) => sum + item.deliveryPrice, 0);
+    }
+
     get deliveryPrice(): number {
         return this.deliveryList.reduce((sum, item) => sum + item.deliveryPrice, 0);
     }
@@ -396,7 +423,7 @@ export default class ReportActionList extends Array<ReportAction> {
 
     /** Общая сумма логистики, Копейки */
     get deliveryCommonPrice(): number {
-        return this.deliveryPrice + this.deliveryReturnPrice - this.deliveryReversalPrice + this.deliveryCorrectPrice;
+        return this.deliveryPrice + this.deliveryReturnPrice - this.deliveryReversalPrice + this.deliveryCorrectPrice + this.deliveryFractionPrice;
     }
 
     get returnPrice(): number {
@@ -507,6 +534,11 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.compenstationDamageList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
+    /** Сумма компенсации ущерба при возврате */
+    get returnCompensationDamagePrice(): number {
+        return this.compenstationDamageReturnList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
     /** Штрафы, Копейки */ 
     get finesPrice(): number {
         return this.finesList.reduce((sum, item) => sum + item.fines, 0);
@@ -543,6 +575,7 @@ export default class ReportActionList extends Array<ReportAction> {
             - this.deliveryPrice
             - this.deliveryCorrectPrice
             - this.deliveryReturnPrice
+            - this.deliveryFractionPrice
             - this.finesPrice
             - this.retentionPrice
             - this.storagePrice

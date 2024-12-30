@@ -31,6 +31,7 @@ export interface ISummaryReport {
     deliveryReversalCount: number;
     deliveryCommon: number;
     deliveryCommonCount: number;
+    deliveryFraction: number;
     return: number;
     returnCount: number;
     returnCorrect: number;

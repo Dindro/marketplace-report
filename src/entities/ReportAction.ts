@@ -12,6 +12,8 @@ export type ReportActionType =
     'partial-marriage-return' |
     'return-correct' |
     'delivery-return' |
+    'delivery-reversal-unkown' |
+    'delivery-fraction' |
     'return' |
     'marriage' |
     'marriage-return' |
@@ -37,6 +39,7 @@ export type ReportActionType =
     'voluntary-compensation' |
     'voluntary-compensation-return' |
     'compensation-damage' |
+    'compensation-damage-return' |
     'sale-correctly' |
     'sale-correctly-return' |
     'unkown';

@@ -1254,28 +1254,6 @@
         "value": 100
     },
     {
-        "id": 117,
-        "userIds": [0, 1],
-        "productId": {
-            "code": 109773756,
-            "article": "Snezh26psc",
-            "barcode": 2036944703248,
-            "hatch": 0
-        },
-        "value": 50
-    },
-    {
-        "id": 118,
-        "userIds": [2, 3],
-        "productId": {
-            "code": 109773756,
-            "article": "Snezh26psc",
-            "barcode": 2036944703248,
-            "hatch": 0
-        },
-        "value": 50
-    },
-    {
         "id": 119,
         "userIds": [0, 1],
         "productId": {
