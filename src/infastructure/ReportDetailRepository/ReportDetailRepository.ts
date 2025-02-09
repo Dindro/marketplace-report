@@ -37,6 +37,7 @@ export default class ReportDetailRepository implements IReportDetailRepository {
         let result: ReportAction[] = [];
 
         if (Array.isArray(data)) {
+            let foundUnkownReportAction = false;
             let uniqueProductList: Product[] = [];
 
             for (const row of data) {
@@ -206,11 +207,23 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                             type = 'unkown';
                             break;
                     }
+                } else if (type === 'return-correctly') {
+                    switch (typeDocument) {
+                        case 'sale':
+                            type = 'return-correctly';
+                            break;
+                        case 'return':
+                            type = 'return-correctly-return';
+                            break;
+                        default:
+                            type = 'unkown';
+                            break;
+                    }
                 } else if (type === 'acquiring-adjustment' && typeDocument !== 'sale') {
                     type = 'unkown';
                 }
 
-                if (type === 'payment-shipping-cost' && product.id.isUnkown) {
+                if (type === 'payment-shipping-cost' && productCode === 0 && productCategory === '' && productArticle === '' && productBrand === '' && productName === '' && productBarcode === 0) {
                     continue;
                 }
 
@@ -228,6 +241,15 @@ export default class ReportDetailRepository implements IReportDetailRepository {
                     comment,
                     product,
                 );
+
+                if (type === 'unkown') {
+                    if (!foundUnkownReportAction) {
+                        foundUnkownReportAction = true;
+                        console.log("%cНеизвестные виды оплаты:","color: red; font-size: 20px");
+                    }
+
+                    console.log(reportAction);
+                }
                 
                 result.push(reportAction);
             }

@@ -129,6 +129,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.filter(item => item.type === 'sale-correctly');
     }
 
+    get returnCorrectlyReturnList() {
+        return this.filter(item => item.type === 'return-correctly-return');
+    }
+
+    get correctlyReturnList() {
+        return this.filter(item => item.type === 'return-correctly');
+    }
+
     get acquiringAdjustmentList() {
         return this.filter(item => item.type === 'acquiring-adjustment');
     }
@@ -269,6 +277,14 @@ export default class ReportActionList extends Array<ReportAction> {
         return this.correctlySaleList.length;
     }
 
+    get returnCorrectlyReturnCount(): number {
+        return this.returnCorrectlyReturnList.length;
+    }
+
+    get correctlyReturnCount(): number {
+        return this.correctlyReturnList.length;
+    }
+
     get acquiringAdjustmentCount(): number {
         return this.acquiringAdjustmentList.length;
     }
@@ -307,6 +323,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const compensationDamage = this.compenstationDamageList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const saleCorrectly = this.correctlySaleList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const acquiringAdjustment = this.acquiringAdjustmentList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const correctlyReturn = this.correctlyReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         
         const returnSale = this.returnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCorrect = this.returnCorrectList.reduce((sum, item) => sum + item.buyerPaid, 0);
@@ -319,6 +336,7 @@ export default class ReportActionList extends Array<ReportAction> {
         const returnCorrectlySale = this.returnCorrectlySaleList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnVoluntaryCompensation = this.voluntaryCompensationReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
         const returnCompensationDamage = this.compenstationDamageReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
+        const returnCorrectlyReturn = this.returnCorrectlyReturnList.reduce((sum, item) => sum + item.buyerPaid, 0);
 
         return sale
             + saleCorrect
@@ -332,6 +350,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + voluntaryCompensation
             + saleCorrectly
             + acquiringAdjustment
+            + correctlyReturn
             - returnVoluntaryCompensation
             - returnSale
             - reversalSale
@@ -342,7 +361,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - returnPartialMarriage
             - returnCompensationReplacement
             - returnCorrectlySale
-            - returnCompensationDamage;
+            - returnCompensationDamage
+            - returnCorrectlyReturn;
     }
 
     /** Перечисления за товары */
@@ -360,6 +380,7 @@ export default class ReportActionList extends Array<ReportAction> {
             + this.voluntaryCompensationPrice
             + this.correctlySalePrice
             + this.acquiringAdjustmentPrice
+            + this.correctlyReturnPrice
             - this.returnVoluntaryCompensationPrice
             - this.returnPrice
             - this.reversalPrice
@@ -370,7 +391,8 @@ export default class ReportActionList extends Array<ReportAction> {
             - this.returnPartialMarriagePrice
             - this.returnCompensationReplacementPrice
             - this.returnCorrectlySalePrice
-            - this.returnCompensationDamagePrice;
+            - this.returnCompensationDamagePrice
+            - this.returnCorrectlyReturnPrice;
     }
 
     get salePrice(): number {
@@ -512,6 +534,16 @@ export default class ReportActionList extends Array<ReportAction> {
     /** Сумма коррекционной продажи */
     get correctlySalePrice(): number {
         return this.correctlySaleList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма продаж коррекционных возвратов */
+    get correctlyReturnPrice(): number {
+        return this.correctlyReturnList.reduce((sum, item) => sum + item.transferredPrice, 0);
+    }
+
+    /** Сумма коррекционных возвратов */
+    get returnCorrectlyReturnPrice(): number {
+        return this.returnCorrectlyReturnList.reduce((sum, item) => sum + item.transferredPrice, 0);
     }
 
     /** Сумма корректировка эквайринга */

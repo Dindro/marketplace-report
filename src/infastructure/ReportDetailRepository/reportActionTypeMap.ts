@@ -30,6 +30,7 @@ const map: { [key: string]: ReportActionType } = {
     'добровольная компенсация при возврате': 'voluntary-compensation-return',
     'компенсация ущерба': 'compensation-damage',
     'коррекция продаж': 'sale-correctly',
+    'коррекция возвратов': 'return-correctly',
 };
 
 export default map;

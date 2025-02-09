@@ -42,6 +42,8 @@ export type ReportActionType =
     'compensation-damage-return' |
     'sale-correctly' |
     'sale-correctly-return' |
+    'return-correctly' |
+    'return-correctly-return' |
     'unkown';
 
 export default class ReportAction {
